@@ -1,0 +1,12 @@
+.fade-in {
+    flex-grow: 1;
+    background-color: rgb(0, 0, 0);
+    transition-property: background-color;
+    transition-duration: 0.5s;
+}
+
+.fade-out {
+    background-color: rgba(0, 0, 0, 0);
+    transition-duration: 0.5s;
+    transition-property: background-color;
+}

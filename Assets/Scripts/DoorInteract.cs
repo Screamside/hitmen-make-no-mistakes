@@ -1,20 +1,32 @@
 using System;
+using PrimeTween;
 using UnityEngine;
 
-public class DoorInteract : MonoBehaviour
+public class DoorInteract : MonoBehaviour, IInteractable
 {
+
+    public Transform destination;
+
+    public PlayerController player;
+    
     private void OnTriggerEnter2D(Collider2D other)
     {
         if(other.CompareTag("Player"))
         {
-            Debug.Log("Entered door collider");
+            player = other.GetComponent<PlayerController>();
         }
     }
-    private void OnTriggerExit2D(Collider2D other)
+
+    public void Interact()
     {
-        if(other.CompareTag("Player"))
+        GameEvents.OnChangeRoom.Invoke();
+        player.PausePhysics();
+
+        Tween.Delay(duration: 0.5f, onComplete: () =>
         {
-            Debug.Log("Exited door collider");
-        }
+            player.transform.position = destination.position;
+            player.ResumePhysics();
+        });
+
     }
 }
