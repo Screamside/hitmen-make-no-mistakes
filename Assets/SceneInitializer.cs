@@ -14,6 +14,7 @@ public class SceneInitializer : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             cinemachineCamera.gameObject.SetActive(true);
+            MistakeManager.Instance.currentCamera = cinemachineCamera;
             GameEvents.OnEnteredScene.Invoke(SceneName);
         }
         

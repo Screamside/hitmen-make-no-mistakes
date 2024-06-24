@@ -113,4 +113,5 @@ public class PlayerController : MonoBehaviour
     {
         _rigidBody2d.simulated = true;
     }
+    
 }

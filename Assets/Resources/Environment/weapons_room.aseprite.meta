@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: fcffeb024b6fc4341887ac11347617ba
+guid: 95363f37f1d696f4d82489c3d434b18b
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -35,7 +35,7 @@ ScriptedImporter:
     spriteMeshType: 1
     alignment: 0
     spritePivot: {x: 0.5, y: 0.5}
-    spritePixelsToUnits: 3.5
+    spritePixelsToUnits: 100
     spriteBorder: {x: 0, y: 0, z: 0, w: 0}
     spriteGenerateFallbackPhysicsShape: 0
     generateCubemap: 6
@@ -97,7 +97,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638548319462463101
+  platformSettingsDirtyTick: 0
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -122,9 +122,9 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: BossAlly
+  - name: weapons_room
     originalName: 
-    pivot: {x: 0.6, y: 0}
+    pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -132,9 +132,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 5
-      height: 8
-    spriteID: ae1275067f0e02243b64bf7820d339d5
+      width: 128
+      height: 32
+    spriteID: f85600559e9301c4ab17e42c3079fc4b
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -143,82 +143,28 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
-  - name: BossAlly_Frame_1
-    originalName: 
-    pivot: {x: 0.6, y: 0}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 20
-      width: 5
-      height: 7
-    spriteID: a67214cf33aa69c4887ae8ca19d73cbd
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 20}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: -442373871
-    name: BossAlly
+    guid: 873640301
+    name: weapons_room
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: BossAlly_Frame_0
+    - name: weapons_room
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 1
+        x: 0
         y: 0
-        width: 5
-        height: 8
-      spriteId: ae1275067f0e02243b64bf7820d339d5
-    - name: BossAlly_Frame_1
-      frameIndex: 1
-      additiveSortOrder: 0
-      cellRect:
-        x: 1
-        y: 0
-        width: 5
-        height: 7
-      spriteId: a67214cf33aa69c4887ae8ca19d73cbd
+        width: 128
+        height: 32
+      spriteId: f85600559e9301c4ab17e42c3079fc4b
     linkedCells: []
     parentIndex: -1
-  platformSettings:
-  - name: DefaultTexturePlatform
-    overridden: 0
-    ignorePlatformSupport: 0
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    androidETC2FallbackOverride: 0
-  - name: Standalone
-    overridden: 0
-    ignorePlatformSupport: 0
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    androidETC2FallbackOverride: 0
+  platformSettings: []
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 8, y: 8}
+  canvasSize: {x: 128, y: 32}
