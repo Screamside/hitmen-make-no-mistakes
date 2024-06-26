@@ -143,6 +143,111 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
+  - name: Batman1_Frame_1
+    originalName: 
+    pivot: {x: 0.6, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 52
+      width: 5
+      height: 7
+    spriteID: e5103b5ccc40f6b4fbc2b54c19a4ccd8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 52}
+  - name: Batman1_Frame_2
+    originalName: 
+    pivot: {x: 0.6, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 20
+      width: 5
+      height: 8
+    spriteID: 2f71b9370424d6847893fa66d267c902
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 20}
+  - name: Batman1_Frame_3
+    originalName: 
+    pivot: {x: 0.6, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 17
+      y: 4
+      width: 5
+      height: 7
+    spriteID: 267ab6f9e08fc964fac6cfdcd3d81639
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 17, y: 4}
+  - name: Batman1_Frame_4
+    originalName: 
+    pivot: {x: 0.6, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 36
+      width: 5
+      height: 8
+    spriteID: 567a9867e1b62c84ea5511635635e2cb
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 36}
+  - name: Batman1_Frame_5
+    originalName: 
+    pivot: {x: 0.6, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 17
+      y: 19
+      width: 5
+      height: 7
+    spriteID: fab47e7d5cf8130499a69aa9f9981621
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 17, y: 19}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
@@ -152,7 +257,7 @@ ScriptedImporter:
     layerType: 0
     blendMode: 0
     cells:
-    - name: Batman1
+    - name: Batman1_Frame_0
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
@@ -161,6 +266,51 @@ ScriptedImporter:
         width: 5
         height: 8
       spriteId: 12e6cdd64f834ab489ddd938fbb23adc
+    - name: Batman1_Frame_1
+      frameIndex: 1
+      additiveSortOrder: 0
+      cellRect:
+        x: 1
+        y: 0
+        width: 5
+        height: 7
+      spriteId: e5103b5ccc40f6b4fbc2b54c19a4ccd8
+    - name: Batman1_Frame_2
+      frameIndex: 2
+      additiveSortOrder: 0
+      cellRect:
+        x: 1
+        y: 0
+        width: 5
+        height: 8
+      spriteId: 2f71b9370424d6847893fa66d267c902
+    - name: Batman1_Frame_3
+      frameIndex: 3
+      additiveSortOrder: 0
+      cellRect:
+        x: 1
+        y: 0
+        width: 5
+        height: 7
+      spriteId: 267ab6f9e08fc964fac6cfdcd3d81639
+    - name: Batman1_Frame_4
+      frameIndex: 4
+      additiveSortOrder: 0
+      cellRect:
+        x: 1
+        y: 0
+        width: 5
+        height: 8
+      spriteId: 567a9867e1b62c84ea5511635635e2cb
+    - name: Batman1_Frame_5
+      frameIndex: 5
+      additiveSortOrder: 0
+      cellRect:
+        x: 1
+        y: 0
+        width: 5
+        height: 7
+      spriteId: fab47e7d5cf8130499a69aa9f9981621
     linkedCells: []
     parentIndex: -1
   platformSettings: []

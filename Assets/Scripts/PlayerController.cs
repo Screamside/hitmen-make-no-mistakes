@@ -1,4 +1,5 @@
 using System;
+using MelenitasDev.SoundsGood;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -17,6 +18,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float jumpForce = 10f;
     [SerializeField] private GameObject interactPrompt;
 
+    private Sound jumpSound;
+
     private void Awake()
     {
         _rigidBody2d = GetComponent<Rigidbody2D>();
@@ -27,9 +30,16 @@ public class PlayerController : MonoBehaviour
         InputSystem.actions.FindAction("Move").performed += context => _horizontalVelocity = context.ReadValue<float>();
         InputSystem.actions.FindAction("Move").canceled += context => _horizontalVelocity = 0f;
         
-        InputSystem.actions.FindAction("Jump").started += context => _rigidBody2d.AddForceY(jumpForce);
+        InputSystem.actions.FindAction("Jump").started += context =>
+        {
+            jumpSound.Play();
+            _rigidBody2d.AddForceY(jumpForce);
+        };
         
         InputSystem.actions.FindAction("Interact").started += Interact;
+        
+        jumpSound = new Sound(SFX.PlayerJump).SetSpatialSound(false);
+        
     }
 
     private void OnTriggerEnter2D(Collider2D other)

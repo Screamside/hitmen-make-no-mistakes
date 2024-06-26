@@ -143,6 +143,111 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
+  - name: Gunman2_Frame_1
+    originalName: 
+    pivot: {x: 0.6, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 52
+      width: 5
+      height: 7
+    spriteID: 7b2bc1a2bd7070443aaaaf326d767905
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 52}
+  - name: Gunman2_Frame_2
+    originalName: 
+    pivot: {x: 0.6, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 20
+      width: 5
+      height: 8
+    spriteID: 1c943df1d09c6864cba21f87f1177320
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 20}
+  - name: Gunman2_Frame_3
+    originalName: 
+    pivot: {x: 0.6, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 17
+      y: 4
+      width: 5
+      height: 7
+    spriteID: 3cdee462813bb3348b3ac20acef47ec0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 17, y: 4}
+  - name: Gunman2_Frame_4
+    originalName: 
+    pivot: {x: 0.6, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 36
+      width: 5
+      height: 8
+    spriteID: b41d2627f2517a5468ae14929783a342
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 36}
+  - name: Gunman2_Frame_5
+    originalName: 
+    pivot: {x: 0.6, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 17
+      y: 19
+      width: 5
+      height: 7
+    spriteID: caf7ce081b3f57844a3a6083e6175d42
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 17, y: 19}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
@@ -152,7 +257,7 @@ ScriptedImporter:
     layerType: 0
     blendMode: 0
     cells:
-    - name: Gunman2
+    - name: Gunman2_Frame_0
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
@@ -161,6 +266,51 @@ ScriptedImporter:
         width: 5
         height: 8
       spriteId: f3bfb9a934836ea4ca522c74b1000ae2
+    - name: Gunman2_Frame_1
+      frameIndex: 1
+      additiveSortOrder: 0
+      cellRect:
+        x: 1
+        y: 0
+        width: 5
+        height: 7
+      spriteId: 7b2bc1a2bd7070443aaaaf326d767905
+    - name: Gunman2_Frame_2
+      frameIndex: 2
+      additiveSortOrder: 0
+      cellRect:
+        x: 1
+        y: 0
+        width: 5
+        height: 8
+      spriteId: 1c943df1d09c6864cba21f87f1177320
+    - name: Gunman2_Frame_3
+      frameIndex: 3
+      additiveSortOrder: 0
+      cellRect:
+        x: 1
+        y: 0
+        width: 5
+        height: 7
+      spriteId: 3cdee462813bb3348b3ac20acef47ec0
+    - name: Gunman2_Frame_4
+      frameIndex: 4
+      additiveSortOrder: 0
+      cellRect:
+        x: 1
+        y: 0
+        width: 5
+        height: 8
+      spriteId: b41d2627f2517a5468ae14929783a342
+    - name: Gunman2_Frame_5
+      frameIndex: 5
+      additiveSortOrder: 0
+      cellRect:
+        x: 1
+        y: 0
+        width: 5
+        height: 7
+      spriteId: caf7ce081b3f57844a3a6083e6175d42
     linkedCells: []
     parentIndex: -1
   platformSettings: []
