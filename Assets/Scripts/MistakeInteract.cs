@@ -7,6 +7,6 @@ public class MistakeInteract : MonoBehaviour, IInteractable
     
     public void Interact()
     {
-        GameEvents.OnPlayerMakesMistake.Invoke(mistakeId);
+        CutsceneManager.PlayMistake(0);
     }
 }

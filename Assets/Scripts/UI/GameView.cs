@@ -121,7 +121,7 @@ public class GameView : View
 
     public void ShowChoices(string right, string left)
     {
-       HideDialogueBox(); 
+        HideDialogueBox(); 
         ui.rootVisualElement.Q<VisualElement>("Choice").style.display = DisplayStyle.Flex;
         
         _rightChoice.text = right;
