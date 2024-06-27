@@ -1,73 +1,123 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using PrimeTween;
 using Unity.Cinemachine;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 [Serializable]
 public class Cutscene
 {
-    public List<Cut> cuts = new();
-
+    public List<Cut> cuts;
+    
     private bool playerFinishedTask = true;
+    private string choosenPath;
+    private List<List<Cut>> organizedCuts;
+
+    private bool isOrganized;
+
+    private int groupCutsRunning = 0;
 
     public IEnumerator PlayCutscene()
     {
-        foreach (var cut in cuts)
-        {
-            Cut currentCut = cut;
 
-            if (currentCut.type.Equals(CutType.Movement))
+        if (!isOrganized)
+        {
+            organizedCuts = cuts.GroupBy(cut => cut.order).OrderBy(group => group.Key).Select(group => group.ToList()).ToList();
+        }
+        
+        foreach (var group in organizedCuts)
+        {
+
+            foreach (var cut in group)
             {
-                foreach (var cinemachineCamera in GameObject.FindObjectsByType<CinemachineCamera>(
-                             FindObjectsSortMode.None))
+                
+                if (cut.type.Equals(CutType.Movement))
                 {
-                    cinemachineCamera.gameObject.SetActive(false);
+
+                    if (cut.movement.isItCamera)
+                    {
+                        foreach (var cinemachineCamera in GameObject.FindObjectsByType<CinemachineCamera>(
+                                     FindObjectsSortMode.None))
+                        {
+                            cinemachineCamera.gameObject.SetActive(false);
+                        }
+                    }
+                    
+                    cut.movement.gameObject.SetActive(true);
+
+                    groupCutsRunning++;
+                    
+                    Tween.Position(cut.movement.gameObject.transform, cut.movement.movementSettings)
+                        .OnComplete(() => groupCutsRunning--);
                 }
 
-                currentCut.cinemachineCamera.gameObject.SetActive(true);
-
-                if (currentCut.waitForCameraAnimation)
+                if (cut.type.Equals(CutType.Dialogue))
                 {
-                    yield return Tween.Position(currentCut.cinemachineCamera.transform,
-                        currentCut.movementSettings).ToYieldInstruction();
+                    groupCutsRunning++;
+                    
+                    yield return new WaitForSeconds(cut.dialogue.delay);
+                    
+                    UIController.ShowDialogue(cut.dialogue.dialogue);
+                    playerFinishedTask = false;
+                    GameEvents.OnPlayerKeyPressAfterDialogue.AddListener(SetDialogueFinished);
+                    
+                    yield return new WaitUntil(() => playerFinishedTask);
+                    GameEvents.OnPlayerKeyPressAfterDialogue.RemoveListener(SetDialogueFinished);
+
+                    groupCutsRunning--;
+                }
+
+                if (cut.type.Equals(CutType.Question))
+                {
+                    groupCutsRunning++;
+                    UIController.ShowChoices(cut.choice.choiceRight, cut.choice.choiceLeft);
+                    playerFinishedTask = false;
+                    GameEvents.OnPlayerChooses.AddListener(ChoseOption);
+                    yield return new WaitUntil(() => playerFinishedTask);
+                    
+                    UIController.HideChoices();
+                    
+                    if (choosenPath == "left")
+                    {
+                        if (cut.choice.cutsceneLeft != null)
+                        {
+                            cut.choice.cutsceneLeft.ContinueCutscene();
+                            groupCutsRunning--;
+                            yield break;
+                        }
+                    }
+                    else
+                    {
+                        if (cut.choice.cutsceneRight != null)
+                        {
+                            cut.choice.cutsceneRight.ContinueCutscene();
+                            groupCutsRunning--;
+                            yield break;
+                        }
+                    }
                     
                 }
-                else
-                {
-                    Tween.Position(currentCut.cinemachineCamera.transform,
-                        currentCut.movementSettings).ToYieldInstruction();
-                }
-                
-                Debug.Log("?");
             }
 
-            if (currentCut.type.Equals(CutType.Dialogue))
-            {
-
-                yield return new WaitForSeconds(currentCut.dialogueDelay);
-                
-                UIController.ShowDialogue(currentCut.dialogue);
-                playerFinishedTask = false;
-                GameEvents.OnPlayerKeyPressAfterDialogue.AddListener(SetDialogueFinished);
-                yield return new WaitUntil(() => playerFinishedTask);
-                GameEvents.OnPlayerKeyPressAfterDialogue.RemoveListener(SetDialogueFinished);
-                
-                Debug.Log("??");
-            }
-
-            if (currentCut.type.Equals(CutType.Question))
-            {
-                UIController.ShowChoices(currentCut.choiceRight, currentCut.choiceLeft);
-                playerFinishedTask = false;
-            }
+            yield return new WaitUntil(() => groupCutsRunning == 0);
         }
+        
+        GameEvents.OnCutsceneFinished.Invoke();
+
+        groupCutsRunning = 0;
+
     }
 
     private void SetDialogueFinished()
     {
         playerFinishedTask = true;
+    }
+    
+    private void ChoseOption(string option)
+    {
+        playerFinishedTask = true;
+        choosenPath = option;
     }
 }

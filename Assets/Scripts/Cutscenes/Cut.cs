@@ -1,33 +1,19 @@
 ﻿using System;
-using NaughtyAttributes;
+using EditorAttributes;
 using PrimeTween;
 using Unity.Cinemachine;
 using UnityEngine;
+using Void = EditorAttributes.Void;
 
 [Serializable]
 public class Cut
 {
-    [OnValueChanged("UpdateEditor")]
     public CutType type;
-
-    [BoxGroup("Movement")]
-    public CinemachineCamera cinemachineCamera;
-    public TweenSettings<Vector3> movementSettings;
-    public bool waitForCameraAnimation;
-
-    [BoxGroup("Dialogue")] 
-    public float dialogueDelay;
-    [BoxGroup("Dialogue")]
-    [TextArea] public string dialogue;
+    public int order;
     
-    [BoxGroup("Question")]
-    public string choiceLeft;
-    //public Cutscene cutsceneLeft;
-    
-    [BoxGroup("Question")]
-    public string choiceRight;
-    //public Cutscene cutsceneRight;
-    
+    [EnableField(nameof(type), CutType.Movement)] public MovementCut movement;
+    [EnableField(nameof(type), CutType.Dialogue)] public DialogueCut dialogue;
+    [EnableField(nameof(type), CutType.Question)] public ChoiceCut choice;
 }
 
 public enum CutType
@@ -36,3 +22,28 @@ public enum CutType
     Dialogue,
     Question
 }
+
+[Serializable]
+public struct MovementCut
+{
+    public GameObject gameObject;
+    public TweenSettings<Vector3> movementSettings;
+    public bool isItCamera;
+}
+
+[Serializable]
+public struct DialogueCut
+{
+    public float delay;
+    [TextArea] public string dialogue;
+}
+
+[Serializable]
+public struct ChoiceCut
+{
+    public string choiceLeft;
+    public CutscenePath cutsceneLeft;
+    public string choiceRight;
+    public CutscenePath cutsceneRight;
+}
+

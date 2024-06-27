@@ -134,7 +134,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &862373
 Transform:
   m_ObjectHideFlags: 0
@@ -144,7 +144,7 @@ Transform:
   m_GameObject: {fileID: 862372}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.500004, y: 2, z: 0.22552681}
+  m_LocalPosition: {x: 2.9999962, y: 2, z: 0.22552681}
   m_LocalScale: {x: 0.26666668, y: 0.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1423,7 +1423,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 4
+  orthographic size: 5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1448,7 +1448,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -14.749991, y: -0.033260107, z: -10}
+  m_LocalPosition: {x: 3.5, y: 20.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2004,6 +2004,7 @@ GameObject:
   m_Component:
   - component: {fileID: 678555933}
   - component: {fileID: 678555934}
+  - component: {fileID: 678555935}
   m_Layer: 0
   m_Name: BossCutscene
   m_TagString: Untagged
@@ -2047,161 +2048,275 @@ MonoBehaviour:
   cutscene:
     cuts:
     - type: 0
-      cinemachineCamera: {fileID: 862374}
-      movementSettings:
-        startFromCurrent: 0
-        startValue: {x: 70.75, y: 12.5, z: -10}
-        endValue: {x: 79, y: 12.5, z: -10}
-        settings:
-          duration: 2
-          ease: 0
-          customEase:
-            serializedVersion: 2
-            m_Curve: []
-            m_PreInfinity: 2
-            m_PostInfinity: 2
-            m_RotationOrder: 4
-          cycles: 1
-          cycleMode: 0
-          startDelay: 0
-          endDelay: 0
-          useUnscaledTime: 0
-          useFixedUpdate: 0
-      waitForCameraAnimation: 0
-      dialogueDelay: 0
-      dialogue: 
-      choiceLeft: LMOA stfu
-      choiceRight: Yes sir
+      order: 0
+      movement:
+        gameObject: {fileID: 862372}
+        movementSettings:
+          startFromCurrent: 0
+          startValue: {x: 72.75, y: 12.5, z: -10}
+          endValue: {x: 79.25, y: 12.5, z: -10}
+          settings:
+            duration: 3
+            ease: 0
+            customEase:
+              serializedVersion: 2
+              m_Curve: []
+              m_PreInfinity: 2
+              m_PostInfinity: 2
+              m_RotationOrder: 4
+            cycles: 1
+            cycleMode: 0
+            startDelay: 0
+            endDelay: 0
+            useUnscaledTime: 0
+            useFixedUpdate: 0
+        isItCamera: 1
+      dialogue:
+        delay: 0
+        dialogue: 
+      choice:
+        choiceLeft: 
+        cutsceneLeft: {fileID: 0}
+        choiceRight: 
+        cutsceneRight: {fileID: 0}
     - type: 1
-      cinemachineCamera: {fileID: 0}
-      movementSettings:
-        startFromCurrent: 0
-        startValue: {x: 0, y: 0, z: 0}
-        endValue: {x: 0, y: 0, z: 0}
-        settings:
-          duration: 1
-          ease: 0
-          customEase:
-            serializedVersion: 2
-            m_Curve: []
-            m_PreInfinity: 2
-            m_PostInfinity: 2
-            m_RotationOrder: 4
-          cycles: 1
-          cycleMode: 0
-          startDelay: 0
-          endDelay: 0
-          useUnscaledTime: 0
-          useFixedUpdate: 0
-      waitForCameraAnimation: 0
-      dialogueDelay: 1
-      dialogue: I have a mission for you
-      choiceLeft: 
-      choiceRight: 
+      order: 0
+      movement:
+        gameObject: {fileID: 862372}
+        movementSettings:
+          startFromCurrent: 0
+          startValue: {x: 72.75, y: 12.5, z: -10}
+          endValue: {x: 79.25, y: 12.5, z: -10}
+          settings:
+            duration: 3
+            ease: 0
+            customEase:
+              serializedVersion: 2
+              m_Curve: []
+              m_PreInfinity: 2
+              m_PostInfinity: 2
+              m_RotationOrder: 4
+            cycles: 1
+            cycleMode: 0
+            startDelay: 0
+            endDelay: 0
+            useUnscaledTime: 0
+            useFixedUpdate: 0
+        isItCamera: 1
+      dialogue:
+        delay: 0.5
+        dialogue: I have a quest for you son.
+      choice:
+        choiceLeft: 
+        cutsceneLeft: {fileID: 0}
+        choiceRight: 
+        cutsceneRight: {fileID: 0}
     - type: 1
-      cinemachineCamera: {fileID: 0}
-      movementSettings:
-        startFromCurrent: 0
-        startValue: {x: 0, y: 0, z: 0}
-        endValue: {x: 0, y: 0, z: 0}
-        settings:
-          duration: 0
-          ease: 0
-          customEase:
-            serializedVersion: 2
-            m_Curve: []
-            m_PreInfinity: 2
-            m_PostInfinity: 2
-            m_RotationOrder: 4
-          cycles: 0
-          cycleMode: 0
-          startDelay: 0
-          endDelay: 0
-          useUnscaledTime: 0
-          useFixedUpdate: 0
-      waitForCameraAnimation: 0
-      dialogueDelay: 0
-      dialogue: You have to kill the enemy mafia boss
-      choiceLeft: 
-      choiceRight: 
+      order: 2
+      movement:
+        gameObject: {fileID: 862372}
+        movementSettings:
+          startFromCurrent: 0
+          startValue: {x: 72.75, y: 12.5, z: -10}
+          endValue: {x: 79.25, y: 12.5, z: -10}
+          settings:
+            duration: 3
+            ease: 0
+            customEase:
+              serializedVersion: 2
+              m_Curve: []
+              m_PreInfinity: 2
+              m_PostInfinity: 2
+              m_RotationOrder: 4
+            cycles: 1
+            cycleMode: 0
+            startDelay: 0
+            endDelay: 0
+            useUnscaledTime: 0
+            useFixedUpdate: 0
+        isItCamera: 1
+      dialogue:
+        delay: 0
+        dialogue: The enemy is stealing our profits.
+      choice:
+        choiceLeft: 
+        cutsceneLeft: {fileID: 0}
+        choiceRight: 
+        cutsceneRight: {fileID: 0}
     - type: 1
-      cinemachineCamera: {fileID: 0}
-      movementSettings:
-        startFromCurrent: 0
-        startValue: {x: 0, y: 0, z: 0}
-        endValue: {x: 0, y: 0, z: 0}
-        settings:
-          duration: 0
-          ease: 0
-          customEase:
-            serializedVersion: 2
-            m_Curve: []
-            m_PreInfinity: 2
-            m_PostInfinity: 2
-            m_RotationOrder: 4
-          cycles: 0
-          cycleMode: 0
-          startDelay: 0
-          endDelay: 0
-          useUnscaledTime: 0
-          useFixedUpdate: 0
-      waitForCameraAnimation: 0
-      dialogueDelay: 0
-      dialogue: Ok?
-      choiceLeft: 
-      choiceRight: 
+      order: 3
+      movement:
+        gameObject: {fileID: 862372}
+        movementSettings:
+          startFromCurrent: 0
+          startValue: {x: 72.75, y: 12.5, z: -10}
+          endValue: {x: 79.25, y: 12.5, z: -10}
+          settings:
+            duration: 3
+            ease: 0
+            customEase:
+              serializedVersion: 2
+              m_Curve: []
+              m_PreInfinity: 2
+              m_PostInfinity: 2
+              m_RotationOrder: 4
+            cycles: 1
+            cycleMode: 0
+            startDelay: 0
+            endDelay: 0
+            useUnscaledTime: 0
+            useFixedUpdate: 0
+        isItCamera: 1
+      dialogue:
+        delay: 0
+        dialogue: Go there and massacre them all.
+      choice:
+        choiceLeft: 
+        cutsceneLeft: {fileID: 0}
+        choiceRight: 
+        cutsceneRight: {fileID: 0}
     - type: 0
-      cinemachineCamera: {fileID: 317658465}
-      movementSettings:
-        startFromCurrent: 0
-        startValue: {x: 76.5, y: 13.25, z: -10}
-        endValue: {x: 76.5, y: 13.25, z: -10}
-        settings:
-          duration: 0.01
-          ease: 0
-          customEase:
-            serializedVersion: 2
-            m_Curve: []
-            m_PreInfinity: 2
-            m_PostInfinity: 2
-            m_RotationOrder: 4
-          cycles: 1
-          cycleMode: 0
-          startDelay: 0
-          endDelay: 0
-          useUnscaledTime: 0
-          useFixedUpdate: 0
-      waitForCameraAnimation: 0
-      dialogueDelay: 0
-      dialogue: 
-      choiceLeft: 
-      choiceRight: 
+      order: 4
+      movement:
+        gameObject: {fileID: 317658463}
+        movementSettings:
+          startFromCurrent: 0
+          startValue: {x: 76.5, y: 13.25, z: -10}
+          endValue: {x: 76.5, y: 13.25, z: -10}
+          settings:
+            duration: 0.01
+            ease: 0
+            customEase:
+              serializedVersion: 2
+              m_Curve: []
+              m_PreInfinity: 2
+              m_PostInfinity: 2
+              m_RotationOrder: 4
+            cycles: 1
+            cycleMode: 0
+            startDelay: 0
+            endDelay: 0
+            useUnscaledTime: 0
+            useFixedUpdate: 0
+        isItCamera: 1
+      dialogue:
+        delay: 0
+        dialogue: Go there and massacre them all.
+      choice:
+        choiceLeft: Fuck off
+        cutsceneLeft: {fileID: 0}
+        choiceRight: Ok sir
+        cutsceneRight: {fileID: 0}
     - type: 2
-      cinemachineCamera: {fileID: 0}
-      movementSettings:
-        startFromCurrent: 0
-        startValue: {x: 0, y: 0, z: 0}
-        endValue: {x: 0, y: 0, z: 0}
-        settings:
-          duration: 1
-          ease: 0
-          customEase:
-            serializedVersion: 2
-            m_Curve: []
-            m_PreInfinity: 2
-            m_PostInfinity: 2
-            m_RotationOrder: 4
-          cycles: 1
-          cycleMode: 0
-          startDelay: 0
-          endDelay: 0
-          useUnscaledTime: 0
-          useFixedUpdate: 0
-      waitForCameraAnimation: 0
-      dialogueDelay: 0
-      dialogue: 
-      choiceLeft: LMOA stfu
-      choiceRight: Yes sir
+      order: 4
+      movement:
+        gameObject: {fileID: 862372}
+        movementSettings:
+          startFromCurrent: 0
+          startValue: {x: 72.75, y: 12.5, z: -10}
+          endValue: {x: 79.25, y: 12.5, z: -10}
+          settings:
+            duration: 3
+            ease: 0
+            customEase:
+              serializedVersion: 2
+              m_Curve: []
+              m_PreInfinity: 2
+              m_PostInfinity: 2
+              m_RotationOrder: 4
+            cycles: 1
+            cycleMode: 0
+            startDelay: 0
+            endDelay: 0
+            useUnscaledTime: 0
+            useFixedUpdate: 0
+        isItCamera: 1
+      dialogue:
+        delay: 0
+        dialogue: Go there and massacre them all.
+      choice:
+        choiceLeft: Fuck off
+        cutsceneLeft: {fileID: 678555935}
+        choiceRight: Ok sir
+        cutsceneRight: {fileID: 0}
+--- !u!114 &678555935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 678555932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17a8d10d5db94ffe927f022a0e574af5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cutscene:
+    cuts:
+    - type: 0
+      order: 0
+      movement:
+        gameObject: {fileID: 1347829542}
+        movementSettings:
+          startFromCurrent: 0
+          startValue: {x: 82, y: 13.5, z: -10}
+          endValue: {x: 82, y: 13.5, z: -10}
+          settings:
+            duration: 0.01
+            ease: 0
+            customEase:
+              serializedVersion: 2
+              m_Curve: []
+              m_PreInfinity: 0
+              m_PostInfinity: 0
+              m_RotationOrder: 0
+            cycles: 1
+            cycleMode: 0
+            startDelay: 0
+            endDelay: 0
+            useUnscaledTime: 0
+            useFixedUpdate: 0
+        isItCamera: 1
+      dialogue:
+        delay: 0
+        dialogue: 
+      choice:
+        choiceLeft: 
+        cutsceneLeft: {fileID: 0}
+        choiceRight: 
+        cutsceneRight: {fileID: 0}
+    - type: 1
+      order: 1
+      movement:
+        gameObject: {fileID: 1347829542}
+        movementSettings:
+          startFromCurrent: 0
+          startValue: {x: 82, y: 13.5, z: -10}
+          endValue: {x: 0, y: 0, z: 0}
+          settings:
+            duration: 1
+            ease: 0
+            customEase:
+              serializedVersion: 2
+              m_Curve: []
+              m_PreInfinity: 0
+              m_PostInfinity: 0
+              m_RotationOrder: 0
+            cycles: 1
+            cycleMode: 0
+            startDelay: 0
+            endDelay: 0
+            useUnscaledTime: 0
+            useFixedUpdate: 0
+        isItCamera: 1
+      dialogue:
+        delay: 2
+        dialogue: '>=('
+      choice:
+        choiceLeft: 
+        cutsceneLeft: {fileID: 0}
+        choiceRight: 
+        cutsceneRight: {fileID: 0}
 --- !u!1 &768313996
 GameObject:
   m_ObjectHideFlags: 0
@@ -3091,6 +3206,7 @@ Transform:
   m_Children:
   - {fileID: 678555933}
   - {fileID: 768313997}
+  - {fileID: 1323055652}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1143347245
@@ -3108,6 +3224,7 @@ MonoBehaviour:
   cutscenes:
   - {fileID: 678555934}
   currentCamera: {fileID: 0}
+  isPlayingCutscene: 0
 --- !u!1 &1254169612
 GameObject:
   m_ObjectHideFlags: 0
@@ -3403,7 +3520,7 @@ Transform:
   m_GameObject: {fileID: 1292247783}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.5, y: -1, z: -18.58421}
+  m_LocalPosition: {x: 7, y: -1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3490,7 +3607,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1323055652
 Transform:
   m_ObjectHideFlags: 0
@@ -3499,8 +3616,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1323055651}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.5, y: 9, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -45.127766, y: 26.646025, z: 10.225527}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3508,28 +3625,86 @@ Transform:
   - {fileID: 59913328}
   - {fileID: 195322970}
   - {fileID: 1292247784}
-  - {fileID: 1640065882}
-  m_Father: {fileID: 1642692049}
+  m_Father: {fileID: 1143347244}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!320 &1323055653
-PlayableDirector:
+--- !u!114 &1323055653
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1323055651}
   m_Enabled: 1
-  serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: 38f10ce414b8d4146b0eaa2b15ce7734, type: 2}
-  m_InitialState: 1
-  m_WrapMode: 2
-  m_DirectorUpdateMode: 1
-  m_InitialTime: 0
-  m_SceneBindings:
-  - key: {fileID: -7399531778569107039, guid: 38f10ce414b8d4146b0eaa2b15ce7734, type: 2}
-    value: {fileID: 1292247785}
-  m_ExposedReferences:
-    m_References: []
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69bc228fca0b4ab69b8e6723d865bc11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cutscene:
+    cuts:
+    - type: 0
+      order: 0
+      movement:
+        gameObject: {fileID: 1292247783}
+        movementSettings:
+          startFromCurrent: 0
+          startValue: {x: -3.5, y: 20.5, z: 0}
+          endValue: {x: -10.5, y: 20.5, z: 0}
+          settings:
+            duration: 15
+            ease: 0
+            customEase:
+              serializedVersion: 2
+              m_Curve: []
+              m_PreInfinity: 0
+              m_PostInfinity: 0
+              m_RotationOrder: 0
+            cycles: 1
+            cycleMode: 0
+            startDelay: 0
+            endDelay: 0
+            useUnscaledTime: 0
+            useFixedUpdate: 0
+        isItCamera: 0
+      dialogue:
+        delay: 0
+        dialogue: 
+      choice:
+        choiceLeft: 
+        cutsceneLeft: {fileID: 0}
+        choiceRight: 
+        cutsceneRight: {fileID: 0}
+    - type: 1
+      order: 0
+      movement:
+        gameObject: {fileID: 1292247783}
+        movementSettings:
+          startFromCurrent: 0
+          startValue: {x: -3.5, y: 20.5, z: 0}
+          endValue: {x: -10.5, y: 20.5, z: 0}
+          settings:
+            duration: 15
+            ease: 0
+            customEase:
+              serializedVersion: 2
+              m_Curve: []
+              m_PreInfinity: 0
+              m_PostInfinity: 0
+              m_RotationOrder: 0
+            cycles: 1
+            cycleMode: 0
+            startDelay: 0
+            endDelay: 0
+            useUnscaledTime: 0
+            useFixedUpdate: 0
+        isItCamera: 0
+      dialogue:
+        delay: 0
+        dialogue: You no like sign, you enter, oh no too many weapons, boss mad...
+      choice:
+        choiceLeft: 
+        cutsceneLeft: {fileID: 0}
+        choiceRight: 
+        cutsceneRight: {fileID: 0}
 --- !u!1 &1337505687
 GameObject:
   m_ObjectHideFlags: 0
@@ -3690,7 +3865,7 @@ Transform:
   m_GameObject: {fileID: 1347829542}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.7700005, y: 3.039997, z: 0.22552681}
+  m_LocalPosition: {x: 5.749996, y: 3.039997, z: 0.22552681}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4069,182 +4244,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mistakeId: 0
---- !u!1 &1640065881
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1640065882}
-  - component: {fileID: 1640065883}
-  m_Layer: 0
-  m_Name: MistakeAudio
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1640065882
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1640065881}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1323055652}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &1640065883
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1640065881}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 682d4568981f3bf44bc5e139749a323c, type: 3}
-  m_Resource: {fileID: 8300000, guid: 682d4568981f3bf44bc5e139749a323c, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
---- !u!1 &1642692047
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1642692049}
-  - component: {fileID: 1642692048}
-  m_Layer: 0
-  m_Name: MistakeManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1642692048
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1642692047}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d339894525d785e46b2d3c31c98f6841, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cutscenes: []
-  currentCamera: {fileID: 0}
---- !u!4 &1642692049
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1642692047}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 12.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1323055652}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1660631559
 GameObject:
   m_ObjectHideFlags: 0
@@ -4620,7 +4619,7 @@ Transform:
   m_GameObject: {fileID: 1689687176}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.375, y: -3, z: -10}
+  m_LocalPosition: {x: 85.62499, y: -0.25, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5164,7 +5163,7 @@ Transform:
   m_GameObject: {fileID: 1777632695}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -14.749995, y: -3, z: 0}
+  m_LocalPosition: {x: 70.5, y: -0.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6233,7 +6232,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1967909400813557402}
   - component: {fileID: 4922306629525813619}
-  - component: {fileID: 7350023218070152287}
   m_Layer: 0
   m_Name: BossAlly
   m_TagString: Untagged
@@ -6330,7 +6328,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3662359313471417092}
   - component: {fileID: 7913863053861831917}
-  - component: {fileID: 5736667167158147521}
   m_Layer: 0
   m_Name: Hitman1
   m_TagString: Untagged
@@ -6563,28 +6560,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 32, y: 8}
   m_EdgeRadius: 0
---- !u!95 &5736667167158147521
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4557267802075497313}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 7397995766444920290, guid: 236604fad45c9a341a43bc623e619d4c, type: 3}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &6170688850454463871
 GameObject:
   m_ObjectHideFlags: 0
@@ -6741,28 +6716,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &7350023218070152287
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1631026148217683711}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 575914621581407371, guid: fcffeb024b6fc4341887ac11347617ba, type: 3}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!212 &7913863053861831917
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6826,7 +6779,6 @@ SceneRoots:
   - {fileID: 1777632699}
   - {fileID: 619394802}
   - {fileID: 1985415924}
-  - {fileID: 1642692049}
   - {fileID: 120300300}
   - {fileID: 1143347244}
   - {fileID: 607365526}
