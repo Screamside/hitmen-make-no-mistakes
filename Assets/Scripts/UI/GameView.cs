@@ -2,7 +2,10 @@
 using System;
 using System.Collections;
 using PrimeTween;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Utilities;
 using UnityEngine.UIElements;
 
 public class GameView : View
@@ -12,6 +15,8 @@ public class GameView : View
     private VisualElement _overlay;
     private Label _sceneNameLabel;
     private Label _dialogueLabel;
+    private Button _leftChoice;
+    private Button _rightChoice;
 
     private string _textToAnimate;
 
@@ -20,17 +25,17 @@ public class GameView : View
         _overlay = ui.rootVisualElement.Q<VisualElement>("Overlay");
         _sceneNameLabel = ui.rootVisualElement.Q<Label>("Title");
         _dialogueLabel = ui.rootVisualElement.Q<Label>("Dialogue");
+        _leftChoice = ui.rootVisualElement.Q<Button>("Left");
+        _rightChoice = ui.rootVisualElement.Q<Button>("Right");
+        
+        _leftChoice.clicked += () => GameEvents.OnPlayerChooses.Invoke("left");
+        _rightChoice.clicked += () => GameEvents.OnPlayerChooses.Invoke("right");
     }
 
     public override void InitializeView(UIController uiController)
     {
-        
         GameEvents.OnChangeRoom.AddListener(ChangeRoom);
         GameEvents.OnEnteredScene.AddListener(ShowSceneName);
-        GameEvents.AskForFadeIn.AddListener(FadeIn);
-        GameEvents.AskForFadeOut.AddListener(FadeOut);
-        GameEvents.AskForDialogueAnimation.AddListener(PlayTextAnimation);
-
     }
 
     public override void UpdateView()
@@ -42,9 +47,6 @@ public class GameView : View
     {
         GameEvents.OnChangeRoom.RemoveListener(ChangeRoom);
         GameEvents.OnEnteredScene.RemoveListener(ShowSceneName);
-        GameEvents.AskForFadeIn.RemoveListener(FadeIn);
-        GameEvents.AskForFadeOut.RemoveListener(FadeOut);
-        GameEvents.AskForDialogueAnimation.RemoveListener(PlayTextAnimation);
     }
 
     private void ChangeRoom()
@@ -67,18 +69,22 @@ public class GameView : View
             
         });
     }
-    private void FadeIn()
+    public void FadeIn()
     {
+        _overlay.style.display = DisplayStyle.Flex;
         _overlay.AddToClassList("black");
     }
     
-    private void FadeOut()
+    public void FadeOut()
     {
         _overlay.RemoveFromClassList("black");
+        Tween.Delay(0.5f, onComplete: () => _overlay.style.display = DisplayStyle.None);
     }
 
-    private void PlayTextAnimation(string textToAnimate)
+    public void PlayTextAnimation(string textToAnimate)
     {
+        HideChoices();
+        _dialogueLabel.style.display = DisplayStyle.Flex;
         _textToAnimate = textToAnimate;
 
         _dialogueLabel.style.backgroundColor = new StyleColor(new Color(0f, 0f, 0f, 1f));
@@ -86,6 +92,11 @@ public class GameView : View
         _dialogueLabel.style.unityTextAlign = TextAnchor.UpperLeft;
         
         StartCoroutine(TypeWriterEffect());
+    }
+
+    public void HideDialogueBox()
+    {
+        _dialogueLabel.style.display = DisplayStyle.None;
     }
 
     private IEnumerator TypeWriterEffect()
@@ -104,6 +115,22 @@ public class GameView : View
             
         }
         
+        InputSystem.onAnyButtonPress.CallOnce((_) => {GameEvents.OnPlayerKeyPressAfterDialogue.Invoke();});
+        
+    }
+
+    public void ShowChoices(string right, string left)
+    {
+       HideDialogueBox(); 
+        ui.rootVisualElement.Q<VisualElement>("Choice").style.display = DisplayStyle.Flex;
+        
+        _rightChoice.text = right;
+        _leftChoice.text = left;
+    }
+    
+    public void HideChoices()
+    {
+        ui.rootVisualElement.Q<VisualElement>("Choice").style.display = DisplayStyle.None;
     }
     
 }

@@ -4,10 +4,8 @@ using UnityEngine;
 public class BossInteraction : MonoBehaviour, IInteractable
 {
 
-    public CinemachineCamera camera;
-
     public void Interact()
     {
-        
+        CutsceneManager.PlayCutscene(0);
     }
 }

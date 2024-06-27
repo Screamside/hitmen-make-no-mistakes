@@ -47,6 +47,54 @@ public class UIController : MonoBehaviour
         
     }
     
+    public static void FadeIn()
+    {
+        if (Instance._currentView is GameView gameView)
+        {
+            gameView.FadeIn();
+        }
+    }
+    
+    public static void FadeOut()
+    {
+        if (Instance._currentView is GameView gameView)
+        {
+            gameView.FadeOut();
+        }
+    }
+
+    public static void ShowChoices(string right, string left)
+    {
+        if(Instance._currentView is GameView gameView)
+        {
+            gameView.ShowChoices(right, left);
+        }
+    }
+    
+    public static void HideChoices()
+    {
+        if(Instance._currentView is GameView gameView)
+        {
+            gameView.HideChoices();
+        }
+    }
+    
+    public static void ShowDialogue(string textToAnimate)
+    {
+        if(Instance._currentView is GameView gameView)
+        {
+            gameView.PlayTextAnimation(textToAnimate);
+        }
+    }
+
+    public static void HideDialogue()
+    {
+        if(Instance._currentView is GameView gameView)
+        {
+            gameView.HideDialogueBox();
+        }
+    }
+    
 }
 
 [Serializable]
