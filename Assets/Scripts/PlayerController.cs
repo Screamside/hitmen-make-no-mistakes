@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float speed = 10f;
     [SerializeField] private float jumpForce = 10f;
     [SerializeField] private GameObject interactPrompt;
+    [SerializeField] private PlayerPistol _playerPistol;
 
     private Sound jumpSound;
 
@@ -25,6 +26,7 @@ public class PlayerController : MonoBehaviour
         _rigidBody2d = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         _sprite = GetComponentInChildren<SpriteRenderer>();
+        _playerPistol = GetComponent<PlayerPistol>();
         
         InputSystem.actions.FindAction("Move").started += context => _horizontalVelocity = context.ReadValue<float>();
         InputSystem.actions.FindAction("Move").performed += context => _horizontalVelocity = context.ReadValue<float>();
@@ -77,18 +79,16 @@ public class PlayerController : MonoBehaviour
         
         _animator.SetBool("isWalking", _horizontalVelocity != 0);
 
-        if (_horizontalVelocity > 0)
+        if (!_playerPistol.enabled)
         {
-            _sprite.flipX = false;
-        } else if (_horizontalVelocity < 0)
-        {
-            _sprite.flipX = true;
+            _sprite.flipX = _horizontalVelocity < 0;
         }
 
         if (_rigidBody2d.velocityY > 0.001f)
         {
             _animator.SetBool("isJumping", true);
-        }else
+        }
+        else
         {
             _animator.SetBool("isJumping", false);
         }

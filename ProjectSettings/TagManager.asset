@@ -47,6 +47,9 @@ TagManager:
   - name: Player
     uniqueID: 3982191051
     locked: 0
+  - name: Weapons
+    uniqueID: 685815179
+    locked: 0
   - name: DEBUG
     uniqueID: 3983473487
     locked: 0

@@ -49,7 +49,7 @@ public class Cutscene
 
                     groupCutsRunning++;
                     
-                    Tween.Position(cut.movement.gameObject.transform, cut.movement.movementSettings)
+                    Tween.LocalPosition(cut.movement.gameObject.transform, cut.movement.movementSettings)
                         .OnComplete(() => groupCutsRunning--);
                 }
 

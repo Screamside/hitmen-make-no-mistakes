@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d0aafaab73070ad40a4edecfdee41900
+guid: f927ab41d4463a0439cc7d62afcb5aaa
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,7 +97,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638550232001406757
+  platformSettingsDirtyTick: 638551147055034226
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -122,7 +122,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: levelOffice_Frame_0
+  - name: bat
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -132,9 +132,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 354
-      height: 128
-    spriteID: 680470393f215f34e82848dab4acce22
+      width: 1
+      height: 6
+    spriteID: f6b84418964361e4aae8fa0885dfdfad
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -146,21 +146,21 @@ ScriptedImporter:
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: 39772564
-    name: levelOffice
+    guid: 1445796219
+    name: bat
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: levelOffice
+    - name: bat
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
         x: 0
         y: 0
-        width: 354
-        height: 128
-      spriteId: 680470393f215f34e82848dab4acce22
+        width: 1
+        height: 6
+      spriteId: f6b84418964361e4aae8fa0885dfdfad
     linkedCells: []
     parentIndex: -1
   platformSettings:
@@ -191,4 +191,4 @@ ScriptedImporter:
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 354, y: 128}
+  canvasSize: {x: 1, y: 6}
