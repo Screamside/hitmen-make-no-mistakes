@@ -8,13 +8,12 @@ public class Bullet : MonoBehaviour
     
     private void Start()
     {
-        Destroy(gameObject, 10f);
+        Destroy(gameObject, 5f);
     }
     
     private void FixedUpdate()
     {
-        
         transform.position += transform.right * (speed * Time.deltaTime);
-        
     }
+    
 }

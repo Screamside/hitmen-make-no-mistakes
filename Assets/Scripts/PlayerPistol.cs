@@ -14,10 +14,13 @@ public class PlayerPistol : MonoBehaviour
     [SerializeField, MinMaxSlider(-90f, 90f)]private Vector2 _angleClamp;
     [SerializeField] private Transform _bulletSpawnPoint;
     [SerializeField] private GameObject _bulletPrefab;
-
+    [SerializeField] private float _cooldown;
+    
+    private float _cooldownTimer;
     private void Awake()
     {
         InputSystem.actions.FindAction("Shoot").started += (ctx) => Shoot();
+        _cooldownTimer = _cooldown;
     }
 
     private void OnEnable()
@@ -33,7 +36,8 @@ public class PlayerPistol : MonoBehaviour
 
     private void Shoot()
     {
-        Debug.Log("shoot");
+        if (_cooldownTimer > 0) { return;}
+        _cooldownTimer = _cooldown;
         
         GameObject bullet = Instantiate(_bulletPrefab, _bulletSpawnPoint.position, _bulletSpawnPoint.rotation);
         
@@ -81,6 +85,11 @@ public class PlayerPistol : MonoBehaviour
         
         // Apply the rotation to the transform
         _pistol.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+        
+        if(_cooldownTimer > 0)
+        {
+            _cooldownTimer -= Time.deltaTime;
+        }
         
     }
 }
