@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b8836be7cff103741983921795a0ea96
+guid: a729c10411b0a8d4eb08f01dfaa39522
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,7 +97,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638552816849499911
+  platformSettingsDirtyTick: 638553012528716703
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -122,28 +122,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: carWithAnimation_Frame_0
-    originalName: 
-    pivot: {x: 0.5, y: 0}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 23
-      width: 26
-      height: 10
-    spriteID: 43b49291a79b7224896771a39ca51c2d
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 23}
-  - name: carWithAnimation_Frame_1
+  - name: gateStick
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -153,9 +132,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 26
-      height: 11
-    spriteID: 9a29a24c5bc0eb548b3d7bf1632bbe1c
+      width: 1
+      height: 17
+    spriteID: c6d9600ffdbfa9845af946057c9084f1
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -167,30 +146,21 @@ ScriptedImporter:
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: 140841138
-    name: carWithAnimation
+    guid: 1093769425
+    name: gateStick
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: carWithAnimation_Frame_0
+    - name: gateStick
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
         x: 0
         y: 0
-        width: 26
-        height: 10
-      spriteId: 43b49291a79b7224896771a39ca51c2d
-    - name: carWithAnimation_Frame_1
-      frameIndex: 1
-      additiveSortOrder: 0
-      cellRect:
-        x: 0
-        y: 0
-        width: 26
-        height: 11
-      spriteId: 9a29a24c5bc0eb548b3d7bf1632bbe1c
+        width: 1
+        height: 17
+      spriteId: c6d9600ffdbfa9845af946057c9084f1
     linkedCells: []
     parentIndex: -1
   platformSettings:
@@ -221,4 +191,4 @@ ScriptedImporter:
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 26, y: 11}
+  canvasSize: {x: 1, y: 17}

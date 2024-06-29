@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b8836be7cff103741983921795a0ea96
+guid: 7e12e7ac11b2eaf4ebd70fdd7e8b5b75
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,7 +97,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638552816849499911
+  platformSettingsDirtyTick: 638552944090739403
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -122,28 +122,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: carWithAnimation_Frame_0
-    originalName: 
-    pivot: {x: 0.5, y: 0}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 23
-      width: 26
-      height: 10
-    spriteID: 43b49291a79b7224896771a39ca51c2d
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 23}
-  - name: carWithAnimation_Frame_1
+  - name: SecurityGuard_Frame_0
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -153,9 +132,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 26
-      height: 11
-    spriteID: 9a29a24c5bc0eb548b3d7bf1632bbe1c
+      width: 4
+      height: 8
+    spriteID: 0d0586270989de94486e782e4f452cf8
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -164,33 +143,54 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
+  - name: SecurityGuard_Frame_1
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 20
+      width: 4
+      height: 7
+    spriteID: 4b33605481fd63b48815593efefa6036
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 20}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: 140841138
-    name: carWithAnimation
+    guid: 1081128063
+    name: SecurityGuard
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: carWithAnimation_Frame_0
+    - name: SecurityGuard_Frame_0
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 0
+        x: 2
         y: 0
-        width: 26
-        height: 10
-      spriteId: 43b49291a79b7224896771a39ca51c2d
-    - name: carWithAnimation_Frame_1
+        width: 4
+        height: 8
+      spriteId: 0d0586270989de94486e782e4f452cf8
+    - name: SecurityGuard_Frame_1
       frameIndex: 1
       additiveSortOrder: 0
       cellRect:
-        x: 0
+        x: 2
         y: 0
-        width: 26
-        height: 11
-      spriteId: 9a29a24c5bc0eb548b3d7bf1632bbe1c
+        width: 4
+        height: 7
+      spriteId: 4b33605481fd63b48815593efefa6036
     linkedCells: []
     parentIndex: -1
   platformSettings:
@@ -221,4 +221,4 @@ ScriptedImporter:
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 26, y: 11}
+  canvasSize: {x: 8, y: 8}

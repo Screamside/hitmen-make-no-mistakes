@@ -12,6 +12,7 @@ public class Cut
     public int order;
     
     [EnableField(nameof(type), CutType.Movement)] public MovementCut movement;
+    [EnableField(nameof(type), CutType.Animation)] public Animation animation;
     [EnableField(nameof(type), CutType.Dialogue)] public DialogueCut dialogue;
     [EnableField(nameof(type), CutType.Question)] public ChoiceCut choice;
 }
@@ -19,6 +20,7 @@ public class Cut
 public enum CutType
 {
     Movement,
+    Animation,
     Dialogue,
     Question
 }
@@ -27,8 +29,16 @@ public enum CutType
 public struct MovementCut
 {
     public GameObject gameObject;
+    public bool hasAnimation;
     public TweenSettings<Vector3> movementSettings;
     public bool isItCamera;
+}
+
+[Serializable]
+public struct Animation
+{
+    public Animator animator;
+    public string animationName;
 }
 
 [Serializable]

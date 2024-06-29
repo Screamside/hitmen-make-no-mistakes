@@ -52,6 +52,11 @@ public class Cutscene
                     Tween.LocalPosition(cut.movement.gameObject.transform, cut.movement.movementSettings)
                         .OnComplete(() => groupCutsRunning--);
                 }
+                
+                if (cut.type.Equals(CutType.Animation))
+                {
+                    cut.animation.animator.CrossFade(cut.animation.animationName, 0);
+                }
 
                 if (cut.type.Equals(CutType.Dialogue))
                 {

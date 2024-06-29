@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b8836be7cff103741983921795a0ea96
+guid: ae971f0d7844c264abda637cc8edb20c
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -35,7 +35,7 @@ ScriptedImporter:
     spriteMeshType: 1
     alignment: 0
     spritePivot: {x: 0.5, y: 0.5}
-    spritePixelsToUnits: 4
+    spritePixelsToUnits: 100
     spriteBorder: {x: 0, y: 0, z: 0, w: 0}
     spriteGenerateFallbackPhysicsShape: 0
     generateCubemap: 6
@@ -97,7 +97,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638552816849499911
+  platformSettingsDirtyTick: 0
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -122,28 +122,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: carWithAnimation_Frame_0
-    originalName: 
-    pivot: {x: 0.5, y: 0}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 23
-      width: 26
-      height: 10
-    spriteID: 43b49291a79b7224896771a39ca51c2d
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 23}
-  - name: carWithAnimation_Frame_1
+  - name: cutsceneSurroundedByEnemies
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -153,9 +132,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 26
-      height: 11
-    spriteID: 9a29a24c5bc0eb548b3d7bf1632bbe1c
+      width: 101
+      height: 48
+    spriteID: 2ebcf77ece7809045ab54480d161b7be
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -167,58 +146,25 @@ ScriptedImporter:
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: 140841138
-    name: carWithAnimation
+    guid: 1356628648
+    name: cutsceneSurroundedByEnemies
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: carWithAnimation_Frame_0
+    - name: cutsceneSurroundedByEnemies
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
         x: 0
         y: 0
-        width: 26
-        height: 10
-      spriteId: 43b49291a79b7224896771a39ca51c2d
-    - name: carWithAnimation_Frame_1
-      frameIndex: 1
-      additiveSortOrder: 0
-      cellRect:
-        x: 0
-        y: 0
-        width: 26
-        height: 11
-      spriteId: 9a29a24c5bc0eb548b3d7bf1632bbe1c
+        width: 101
+        height: 48
+      spriteId: 2ebcf77ece7809045ab54480d161b7be
     linkedCells: []
     parentIndex: -1
-  platformSettings:
-  - name: DefaultTexturePlatform
-    overridden: 0
-    ignorePlatformSupport: 0
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    androidETC2FallbackOverride: 0
-  - name: Standalone
-    overridden: 0
-    ignorePlatformSupport: 0
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    androidETC2FallbackOverride: 0
+  platformSettings: []
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 26, y: 11}
+  canvasSize: {x: 101, y: 48}

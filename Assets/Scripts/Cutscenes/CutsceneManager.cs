@@ -12,7 +12,8 @@ public class CutsceneManager : MonoBehaviour
     public List<CutscenePlayer> mistakes = new();
     public CinemachineCamera currentCamera;
 
-    public bool isPlayingCutscene;
+    public int lastCutscene = 0;
+    public int lastMistake = 0;
 
     private void Awake()
     {
@@ -26,25 +27,36 @@ public class CutsceneManager : MonoBehaviour
             Instance = this;
         }
         
-        GameEvents.OnCutsceneFinished.AddListener(ResetCamera);
+        GameEvents.OnCutsceneFinished.AddListener(Handle);
         
     }
+    
+    
 
-    private void ResetCamera()
+    private void Handle()
     {
         
         foreach (var cinemachineCamera in GameObject.FindObjectsByType<CinemachineCamera>(FindObjectsSortMode.None))
         {
             cinemachineCamera.gameObject.SetActive(false);
         }
-        
-        currentCamera.gameObject.SetActive(true);
         UIController.HideChoices();
         UIController.HideDialogue();
+
+        switch (lastCutscene)
+        {
+            case 2:
+                PlayCutscene(3);
+                return;
+        }
+        
+        currentCamera.gameObject.SetActive(true);
     }
 
     public static void PlayCutscene(int index)
     {
+        Instance.lastCutscene = index;
+        
         UIController.FadeIn();
         Tween.Delay(0.5f, () =>
         {
@@ -54,13 +66,12 @@ public class CutsceneManager : MonoBehaviour
         });
     }
 
-    public static void PlayMistake(int index)
+    public static void PlayMistake(string mistake)
     {
         UIController.FadeIn();
         Tween.Delay(0.5f, () =>
         {
             UIController.FadeOut();
-            Instance.cutscenes[index].PlayCutscene();
             
         });
     }
