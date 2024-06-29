@@ -22,7 +22,7 @@ public class MovingAwayState : HostileEnemyState
             
             if (hit.collider != null)
             {
-                finalPosition = hit.point + (Vector2.right * 0.5f) + (Vector2.down);
+                finalPosition = hit.point + (Vector2.right * 0.5f) + (Vector2.down * 0.5f);
                 Debug.DrawLine(hostileEnemyBehaviour.transform.position, finalPosition, Color.red);
             }
             else
@@ -38,7 +38,7 @@ public class MovingAwayState : HostileEnemyState
             
             if (hit.collider != null)
             {
-                finalPosition = hit.point + (Vector2.left * 0.5f) + (Vector2.down);
+                finalPosition = hit.point + (Vector2.left * 0.5f) + (Vector2.down * 0.5f);
             }
             else
             {

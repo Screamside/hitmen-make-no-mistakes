@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 53fbb80d7a9318e4182193bfdd29c555
+guid: 3f27280d6b60f5b4c8c7ae18e57b9a3d
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,7 +97,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638552671454299174
+  platformSettingsDirtyTick: 638552734602034964
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -122,7 +122,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: officeLevel2
+  - name: levelOffice2
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -133,8 +133,8 @@ ScriptedImporter:
       x: 4
       y: 4
       width: 101
-      height: 33
-    spriteID: 9100bae84d5a10b4fa6fdfc904390f44
+      height: 48
+    spriteID: 1443b8c80ea00704bbfb15418af95ec0
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -146,21 +146,21 @@ ScriptedImporter:
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: -171805534
-    name: officeLevel2
+    guid: 482194978
+    name: levelOffice2
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: officeLevel2
+    - name: levelOffice2
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
         x: 0
         y: 0
         width: 101
-        height: 33
-      spriteId: 9100bae84d5a10b4fa6fdfc904390f44
+        height: 48
+      spriteId: 1443b8c80ea00704bbfb15418af95ec0
     linkedCells: []
     parentIndex: -1
   platformSettings:
@@ -191,4 +191,4 @@ ScriptedImporter:
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 101, y: 33}
+  canvasSize: {x: 101, y: 48}

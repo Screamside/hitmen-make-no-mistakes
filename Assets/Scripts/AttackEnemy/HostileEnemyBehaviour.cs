@@ -10,7 +10,7 @@ using Void = EditorAttributes.Void;
 
 public class HostileEnemyBehaviour : MonoBehaviour
 {
-    [FoldoutGroup("Controller", nameof(stateOrder), nameof(animator), nameof(player))]
+    [FoldoutGroup("Controller", nameof(stateOrder), nameof(animator), nameof(player), nameof(smgMan), nameof(batMan))]
     [SerializeField]private Void _controllerGroup;
     [HideInInspector]public List<HostileEnemyStateType> stateOrder;
     [HideInInspector]public Animator animator;
@@ -26,15 +26,29 @@ public class HostileEnemyBehaviour : MonoBehaviour
     [HideInInspector]public LayerMask layermask;
     
     [FoldoutGroup("Shooting State", nameof(delayBeforeShooting), nameof(delayAfterShooting), nameof(shootingPosition), nameof(weaponGameObject), nameof(bulletPrefab), nameof(shootingRange))]
-    [SerializeField]private Void _shootingGroup;
-    [HideInInspector]public float delayBeforeShooting;
-    [HideInInspector]public float delayAfterShooting;
-    [HideInInspector]public float shootingRange;
-    [FormerlySerializedAs("pistolGameObject")] [HideInInspector]public GameObject weaponGameObject;
-    [HideInInspector]public Transform shootingPosition;
-    [HideInInspector]public GameObject bulletPrefab;
-
-    [HideInInspector] public bool canRotateWeapon;
+    [SerializeField, HideField(nameof(batMan))]private Void _shootingGroup;
+    [HideInInspector,HideField(nameof(batMan))]public float delayBeforeShooting;
+    [HideInInspector, HideField(nameof(batMan))]public float delayAfterShooting;
+    [HideInInspector, HideField(nameof(batMan))]public float shootingRange;
+    [FormerlySerializedAs("pistolGameObject"), HideInInspector, HideField(nameof(batMan))]public GameObject weaponGameObject;
+    [HideInInspector, HideField(nameof(batMan))]public Transform shootingPosition;
+    [HideInInspector, HideField(nameof(batMan))]public GameObject bulletPrefab;
+    
+    [FoldoutGroup("Swing Bat State", nameof(delayBeforeAttack), nameof(resetBatRotationTime), nameof(delayPrepareBat), nameof(prepareBatTime), nameof(prepareBatAngle), nameof(delaySwingBat), nameof(swingBatTime), nameof(swingBatAngle), nameof(delayAfterSwing))]
+    [SerializeField, HideField(nameof(batMan))]private Void _swingGroup;
+    [HideInInspector]public float delayBeforeAttack;
+    [Space]
+    [HideInInspector]public float delayPrepareBat;
+    [HideInInspector]public Transform prepareBatPosition;
+    [HideInInspector]public float prepareBatTime;
+    [HideInInspector]public float prepareBatAngle;
+    [Space]
+    [HideInInspector]public float delaySwingBat;
+    [HideInInspector]public float swingBatTime;
+    [HideInInspector]public float swingBatAngle;
+    [Space]
+    [HideInInspector]public float resetBatRotationTime;
+    [HideInInspector]public float delayAfterSwing;
     
     private readonly HostileEnemyStateFactory _stateFactory = new();
     private HostileEnemyState _currentState;
@@ -75,7 +89,7 @@ public class HostileEnemyBehaviour : MonoBehaviour
 
     private void UpdateWeaponDirection()
     {
-        if (!canRotateWeapon) { return;}
+        if (batMan) { return;}
 
         weaponGameObject.transform.LookAt(player.transform.position + player.transform.up);
 

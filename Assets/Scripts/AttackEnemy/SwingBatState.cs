@@ -7,53 +7,37 @@ public class SwingBatState : HostileEnemyState
     {
 
         Vector3 originalRotation = enemyBehaviour.weaponGameObject.transform.eulerAngles;
-
-        enemyBehaviour.canRotateWeapon = false;
-
-        Sequence.Create(Tween.Delay(1f))
-            .Chain(Tween.Rotation(enemyBehaviour.weaponGameObject.transform,
-                Quaternion.Euler(originalRotation + Vector3.forward * 20),
-                0.1f))
-            .Chain(Tween.Rotation(enemyBehaviour.weaponGameObject.transform,
-                Quaternion.Euler(originalRotation + Vector3.forward * -80f), 0.1f))
-            .Chain(Tween.Rotation(enemyBehaviour.weaponGameObject.transform, Quaternion.Euler(originalRotation), 0.3f))
-            .Chain(Tween.Delay(2f))
-            .OnComplete(() =>
-            {
-                enemyBehaviour.SwitchState(HostileEnemyStateType.MovingAway);
-                enemyBehaviour.canRotateWeapon = true;
-            });
         
         if(enemyBehaviour.transform.position.x > enemyBehaviour.player.transform.position.x)
         {
-            Sequence.Create(Tween.Delay(1f))
+            Sequence.Create(Tween.Delay(enemyBehaviour.delayBeforeAttack))
+                .Group(Tween.Rotation(enemyBehaviour.weaponGameObject.transform,
+                    Quaternion.Euler(originalRotation + Vector3.forward * -enemyBehaviour.prepareBatAngle),
+                    enemyBehaviour.prepareBatTime))
+                .Group(Tween.Position(enemyBehaviour.weaponGameObject.transform, enemyBehaviour.prepareBatPosition.position, enemyBehaviour.prepareBatTime))
                 .Chain(Tween.Rotation(enemyBehaviour.weaponGameObject.transform,
-                    Quaternion.Euler(originalRotation + Vector3.forward * 20),
-                    0.1f))
-                .Chain(Tween.Rotation(enemyBehaviour.weaponGameObject.transform,
-                    Quaternion.Euler(originalRotation + Vector3.forward * -80f), 0.1f))
-                .Chain(Tween.Rotation(enemyBehaviour.weaponGameObject.transform, Quaternion.Euler(originalRotation), 0.3f))
-                .Chain(Tween.Delay(2f))
+                    Quaternion.Euler(originalRotation + Vector3.forward * enemyBehaviour.swingBatAngle), enemyBehaviour.swingBatTime))
+                .Chain(Tween.Rotation(enemyBehaviour.weaponGameObject.transform, Quaternion.Euler(originalRotation), enemyBehaviour.resetBatRotationTime))
+                .Chain(Tween.Delay(enemyBehaviour.delayAfterSwing))
                 .OnComplete(() =>
                 {
                     enemyBehaviour.SwitchState(HostileEnemyStateType.MovingAway);
-                    enemyBehaviour.canRotateWeapon = true;
                 });
         }
         else
         {
-            Sequence.Create(Tween.Delay(1f))
+            Sequence.Create(Tween.Delay(enemyBehaviour.delayBeforeAttack))
+                .Group(Tween.Rotation(enemyBehaviour.weaponGameObject.transform,
+                    Quaternion.Euler(originalRotation + Vector3.forward * enemyBehaviour.prepareBatAngle),
+                    enemyBehaviour.prepareBatTime))
+                .Group(Tween.Position(enemyBehaviour.weaponGameObject.transform, enemyBehaviour.prepareBatPosition.position, enemyBehaviour.prepareBatTime))
                 .Chain(Tween.Rotation(enemyBehaviour.weaponGameObject.transform,
-                    Quaternion.Euler(originalRotation + Vector3.forward * -20),
-                    0.1f))
-                .Chain(Tween.Rotation(enemyBehaviour.weaponGameObject.transform,
-                    Quaternion.Euler(originalRotation + Vector3.forward * 80f), 0.1f))
-                .Chain(Tween.Rotation(enemyBehaviour.weaponGameObject.transform, Quaternion.Euler(originalRotation), 0.3f))
-                .Chain(Tween.Delay(2f))
+                    Quaternion.Euler(originalRotation + Vector3.forward * -enemyBehaviour.swingBatAngle), enemyBehaviour.swingBatTime))
+                .Chain(Tween.Rotation(enemyBehaviour.weaponGameObject.transform, Quaternion.Euler(originalRotation), enemyBehaviour.resetBatRotationTime))
+                .Chain(Tween.Delay(enemyBehaviour.delayAfterSwing))
                 .OnComplete(() =>
                 {
                     enemyBehaviour.SwitchState(HostileEnemyStateType.MovingAway);
-                    enemyBehaviour.canRotateWeapon = true;
                 });
         }
 
