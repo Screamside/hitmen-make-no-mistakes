@@ -7,7 +7,9 @@ public class ShootingState : HostileEnemyState
     {
         Tween.Delay(enemyBehaviour.delayBeforeShooting, () =>
         {
-            Debug.Log("I SHOOTED");
+            
+            enemyBehaviour.SpawnBullet();
+            
             Tween.Delay(enemyBehaviour.delayAfterShooting, () =>
             {
                 enemyBehaviour.SwitchState(HostileEnemyStateType.MovingAway);

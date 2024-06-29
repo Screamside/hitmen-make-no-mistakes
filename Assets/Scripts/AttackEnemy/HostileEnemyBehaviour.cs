@@ -19,10 +19,14 @@ public class HostileEnemyBehaviour : MonoBehaviour
     [HideInInspector]public float maxDistanceToRunAway;
     [HideInInspector]public LayerMask layermask;
     
-    [FoldoutGroup("Shooting State", nameof(delayBeforeShooting), nameof(delayAfterShooting))]
+    [FoldoutGroup("Shooting State", nameof(delayBeforeShooting), nameof(delayAfterShooting), nameof(shootingPosition), nameof(pistolGameObject), nameof(bulletPrefab))]
     [SerializeField]private Void _shootingGroup;
     [HideInInspector]public float delayBeforeShooting;
     [HideInInspector]public float delayAfterShooting;
+    [HideInInspector, MinMaxSlider(-10f, 10f)]public Vector2 shootingDirectionRange;
+    [HideInInspector]public GameObject pistolGameObject;
+    [HideInInspector]public Transform shootingPosition;
+    [HideInInspector]public GameObject bulletPrefab;
 
     private readonly HostileEnemyStateFactory _stateFactory = new();
     private HostileEnemyState _currentState;
@@ -49,7 +53,7 @@ public class HostileEnemyBehaviour : MonoBehaviour
     {
         _currentState.UpdateState();
 
-        if(player.transform.position.x > transform.position.x)
+        if(transform.position.x >player.transform.position.x)
         {
             transform.localScale = new Vector3(-1, 1, 1);
         }
@@ -57,6 +61,29 @@ public class HostileEnemyBehaviour : MonoBehaviour
         {
             transform.localScale = new Vector3(1, 1, 1);
         }
+        
+        UpdateWeaponDirection();
+    }
+
+    private void UpdateWeaponDirection()
+    {
+        pistolGameObject.transform.LookAt(player.transform.position + player.transform.up);
+
+        if(transform.position.x >player.transform.position.x)
+        {
+            pistolGameObject.transform.right = -pistolGameObject.transform.forward;
+        }
+        else
+        {
+            pistolGameObject.transform.right = pistolGameObject.transform.forward;
+        }
+    }
+
+    public void SpawnBullet()
+    {
+        
+        Instantiate(bulletPrefab, shootingPosition.position, pistolGameObject.transform.rotation);
+        
     }
 }
 

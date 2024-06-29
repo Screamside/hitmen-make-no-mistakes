@@ -18,11 +18,11 @@ public class MovingAwayState : HostileEnemyState
         if (_transform.position.x > hostileEnemyBehaviour.player.transform.position.x) // To the right of the player
         {
 
-            RaycastHit2D hit = Physics2D.Raycast(_transform.position + Vector3.up * 0.5f, Vector2.right, hostileEnemyBehaviour.maxDistanceToRunAway);
+            RaycastHit2D hit = Physics2D.Raycast(_transform.position + Vector3.up * 0.5f, Vector2.right, hostileEnemyBehaviour.maxDistanceToRunAway, hostileEnemyBehaviour.layermask);
             
             if (hit.collider != null)
             {
-                finalPosition = hit.point + (Vector2.right * 0.5f);
+                finalPosition = hit.point + (Vector2.right * 0.5f) + (Vector2.down);
                 Debug.DrawLine(hostileEnemyBehaviour.transform.position, finalPosition, Color.red);
             }
             else
@@ -34,11 +34,11 @@ public class MovingAwayState : HostileEnemyState
         }
         else
         {
-            RaycastHit2D hit = Physics2D.Raycast(_transform.position + Vector3.up * 0.5f, Vector2.left, hostileEnemyBehaviour.maxDistanceToRunAway);
+            RaycastHit2D hit = Physics2D.Raycast(_transform.position + Vector3.up * 0.5f, Vector2.left, hostileEnemyBehaviour.maxDistanceToRunAway, hostileEnemyBehaviour.layermask);
             
             if (hit.collider != null)
             {
-                finalPosition = hit.point + (Vector2.left * 0.5f);
+                finalPosition = hit.point + (Vector2.left * 0.5f) + (Vector2.down);
             }
             else
             {
