@@ -35,7 +35,15 @@ public class MovingCloserState : HostileEnemyState
         }
         else
         {
-            _hostileEnemyBehaviour.SwitchState(HostileEnemyStateType.Shooting);
+
+            if (_hostileEnemyBehaviour.batMan)
+            {
+                _hostileEnemyBehaviour.SwitchState(HostileEnemyStateType.Swing);
+            }
+            else
+            {
+                _hostileEnemyBehaviour.SwitchState(HostileEnemyStateType.Shooting);
+            }
         }
         
     }

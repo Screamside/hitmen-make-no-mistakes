@@ -124,7 +124,7 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: bat
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.5000005, y: 0.17709167}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
