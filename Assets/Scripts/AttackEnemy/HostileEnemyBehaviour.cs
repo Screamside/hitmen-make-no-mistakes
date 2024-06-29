@@ -97,6 +97,8 @@ public class HostileEnemyBehaviour : MonoBehaviour
         {
             animator.CrossFade("Idle", 0);
         }
+
+        _previousPosition = transform.position;
         
         UpdateWeaponDirection();
     }
