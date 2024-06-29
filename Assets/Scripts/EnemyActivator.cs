@@ -27,4 +27,23 @@ public class EnemyActivator : MonoBehaviour
             }
         }
     }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            foreach (var enemy in enemies)
+            {
+                
+                if(enemy == null)
+                {
+                    continue;
+                }
+                
+                HostileEnemyBehaviour enemyBehaviour = enemy.GetComponent<HostileEnemyBehaviour>();
+                enemyBehaviour.enabled = false;
+                
+            }
+        }
+    }
 }

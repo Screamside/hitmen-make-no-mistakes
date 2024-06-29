@@ -28,7 +28,6 @@ public class MovingAwayState : HostileEnemyState
             else
             {
                 finalPosition = _transform.position + (Vector3.right * hostileEnemyBehaviour.maxDistanceToRunAway);
-                Debug.Log("nowall");
             }
             
         }

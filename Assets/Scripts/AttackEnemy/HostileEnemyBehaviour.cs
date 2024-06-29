@@ -29,16 +29,15 @@ public class HostileEnemyBehaviour : MonoBehaviour
     [SerializeField, HideField(nameof(batMan))]private Void _shootingGroup;
     [HideInInspector,HideField(nameof(batMan))]public float delayBeforeShooting;
     [HideInInspector, HideField(nameof(batMan))]public float delayAfterShooting;
-    [HideInInspector, HideField(nameof(batMan))]public float shootingRange;
+    [HideInInspector, HideField(nameof(batMan))]public int shootingRange;
     [FormerlySerializedAs("pistolGameObject"), HideInInspector, HideField(nameof(batMan))]public GameObject weaponGameObject;
     [HideInInspector, HideField(nameof(batMan))]public Transform shootingPosition;
     [HideInInspector, HideField(nameof(batMan))]public GameObject bulletPrefab;
     
-    [FoldoutGroup("Swing Bat State", nameof(delayBeforeAttack), nameof(resetBatRotationTime), nameof(delayPrepareBat), nameof(prepareBatTime), nameof(prepareBatAngle), nameof(delaySwingBat), nameof(swingBatTime), nameof(swingBatAngle), nameof(delayAfterSwing))]
+    [FoldoutGroup("Swing Bat State", nameof(delayBeforeAttack), nameof(prepareBatPosition), nameof(prepareBatTime), nameof(prepareBatAngle), nameof(delaySwingBat), nameof(swingBatTime), nameof(swingBatAngle), nameof(resetBatRotationTime), nameof(delayAfterSwing))]
     [SerializeField, HideField(nameof(batMan))]private Void _swingGroup;
     [HideInInspector]public float delayBeforeAttack;
     [Space]
-    [HideInInspector]public float delayPrepareBat;
     [HideInInspector]public Transform prepareBatPosition;
     [HideInInspector]public float prepareBatTime;
     [HideInInspector]public float prepareBatAngle;
@@ -53,6 +52,12 @@ public class HostileEnemyBehaviour : MonoBehaviour
     private readonly HostileEnemyStateFactory _stateFactory = new();
     private HostileEnemyState _currentState;
 
+    public SpriteRenderer weaponSpriteRenderer;
+    public GameObject warning;
+    public float delayBetweenShots;
+
+    private Vector3 _previousPosition;
+    
     private void Awake()
     {
         player = FindFirstObjectByType<PlayerController>();
@@ -82,6 +87,15 @@ public class HostileEnemyBehaviour : MonoBehaviour
         else
         {
             transform.localScale = new Vector3(1, 1, 1);
+        }
+
+        if (_previousPosition != transform.position)
+        {
+            animator.CrossFade("Walking", 0);
+        }
+        else
+        {
+            animator.CrossFade("Idle", 0);
         }
         
         UpdateWeaponDirection();
@@ -132,7 +146,7 @@ public class HostileEnemyBehaviour : MonoBehaviour
             bullet.transform.right = bullet.transform.forward;
             Vector3 originalRotation = bullet.transform.eulerAngles;
             bullet.transform.rotation = Quaternion.Euler(originalRotation.x, originalRotation.y, originalRotation.z + Random.Range(shootingRange, -shootingRange));
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(delayBetweenShots);
         }
         
     }

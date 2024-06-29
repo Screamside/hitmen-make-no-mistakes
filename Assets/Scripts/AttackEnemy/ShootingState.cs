@@ -8,11 +8,23 @@ public class ShootingState : HostileEnemyState
         Tween.Delay(enemyBehaviour.delayBeforeShooting, () =>
         {
             enemyBehaviour.SpawnBullet();
-            
-            Tween.Delay(enemyBehaviour.delayAfterShooting, () =>
+            if (enemyBehaviour.smgMan)
             {
-                enemyBehaviour.SwitchState(HostileEnemyStateType.MovingAway);
-            });
+                Tween.Delay(enemyBehaviour.delayBetweenShots * 3).OnComplete(() =>
+                {
+                    Tween.Delay(enemyBehaviour.delayAfterShooting, () =>
+                    {
+                        enemyBehaviour.SwitchState(HostileEnemyStateType.MovingAway);
+                    });
+                });
+            }
+            else
+            {
+                Tween.Delay(enemyBehaviour.delayAfterShooting, () =>
+                {
+                    enemyBehaviour.SwitchState(HostileEnemyStateType.MovingAway);
+                });
+            }
         });
     }
 
