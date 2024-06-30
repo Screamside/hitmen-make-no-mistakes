@@ -11,18 +11,31 @@ public class Cut
     public CutType type;
     public int order;
     
+    [EnableField(nameof(type), CutType.SelectCamera)] public SelectCameraCut selectCamera;
     [EnableField(nameof(type), CutType.Movement)] public MovementCut movement;
-    [EnableField(nameof(type), CutType.Animation)] public Animation animation;
+    [EnableField(nameof(type), CutType.Animation)] public AnimationCut animation;
     [EnableField(nameof(type), CutType.Dialogue)] public DialogueCut dialogue;
+    [EnableField(nameof(type), CutType.MistakeTitle)] public MistakeTitleCut mistakeTitle;
+    [EnableField(nameof(type), CutType.Delay)] public DelayCut delay;
     [EnableField(nameof(type), CutType.Question)] public ChoiceCut choice;
 }
 
 public enum CutType
 {
+    SelectCamera,
     Movement,
     Animation,
     Dialogue,
+    MistakeTitle,
+    Delay,
+    WaitForInput,
     Question
+}
+
+[Serializable]
+public struct SelectCameraCut
+{
+    public GameObject camera;
 }
 
 [Serializable]
@@ -31,11 +44,10 @@ public struct MovementCut
     public GameObject gameObject;
     public bool hasAnimation;
     public TweenSettings<Vector3> movementSettings;
-    public bool isItCamera;
 }
 
 [Serializable]
-public struct Animation
+public struct AnimationCut
 {
     public Animator animator;
     public string animationName;
@@ -46,6 +58,20 @@ public struct DialogueCut
 {
     public float delay;
     [TextArea] public string dialogue;
+    public bool ignoreInput;
+}
+
+[Serializable]
+public struct MistakeTitleCut
+{
+    public float delay;
+    public string title;
+}
+
+[Serializable]
+public struct DelayCut
+{
+    public float time;
 }
 
 [Serializable]

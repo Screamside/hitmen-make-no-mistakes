@@ -9,7 +9,8 @@
 
     public static readonly GEvent<int> OnPlayerMakesMistake = new();
     public static readonly GEvent<string> OnPlayerChooses = new();
-    public static readonly GEvent OnPlayerKeyPressAfterDialogue = new();
+    public static readonly GEvent OnAnyKeyPress = new();
+    public static readonly GEvent OnUIDialogueFinishWriting = new();
 
     public static readonly GEvent OnCutsceneFinished = new();
 

@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Utilities;
 
 public class GameManager : MonoBehaviour
 {
@@ -22,6 +24,18 @@ public class GameManager : MonoBehaviour
         } 
         
         LoadMistakes();
+
+        InputSystem.onAnyButtonPress.CallOnce(HandleAnyKeyPress);
+        
+        void HandleAnyKeyPress(InputControl control)
+        {
+            Debug.Log(control.name);
+            if (!control.name.Equals("e"))
+            {
+                GameEvents.OnAnyKeyPress.Invoke();
+            }
+            InputSystem.onAnyButtonPress.CallOnce(HandleAnyKeyPress);
+        }
         
     }
 

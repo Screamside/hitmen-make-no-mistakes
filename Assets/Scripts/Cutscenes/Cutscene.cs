@@ -10,14 +10,17 @@ using UnityEngine;
 public class Cutscene
 {
     public List<Cut> cuts;
-    
-    private bool playerFinishedTask = true;
+
+    private bool playerPressedAnyButton;
+    private bool playerChoosed;
     private string choosenPath;
     private List<List<Cut>> organizedCuts;
 
     private bool isOrganized;
 
     private int groupCutsRunning = 0;
+
+    private Dictionary<int, Tween> _tweens = new Dictionary<int, Tween>();
 
     public IEnumerator PlayCutscene()
     {
@@ -26,70 +29,108 @@ public class Cutscene
         {
             organizedCuts = cuts.GroupBy(cut => cut.order).OrderBy(group => group.Key).Select(group => group.ToList()).ToList();
         }
+
+        groupCutsRunning = 0;
         
         foreach (var group in organizedCuts)
         {
 
             foreach (var cut in group)
             {
+
+                //==================== SELECT CAMERA
+                if (cut.type.Equals(CutType.SelectCamera))
+                {
+                    
+                   foreach (var cinemachineCamera in GameObject.FindObjectsByType<CinemachineCamera>(
+                                FindObjectsSortMode.None))
+                   {
+                       cinemachineCamera.gameObject.SetActive(false);
+                   }
+                    
+                   cut.selectCamera.camera.SetActive(true);
+                }
                 
+                //==================== MOVEMENT
                 if (cut.type.Equals(CutType.Movement))
                 {
-
-                    if (cut.movement.isItCamera)
-                    {
-                        foreach (var cinemachineCamera in GameObject.FindObjectsByType<CinemachineCamera>(
-                                     FindObjectsSortMode.None))
-                        {
-                            cinemachineCamera.gameObject.SetActive(false);
-                        }
-                    }
-                    
-                    cut.movement.gameObject.SetActive(true);
-
                     groupCutsRunning++;
                     
                     Tween.LocalPosition(cut.movement.gameObject.transform, cut.movement.movementSettings)
                         .OnComplete(() => groupCutsRunning--);
                 }
                 
+                //==================== ANIMATION
                 if (cut.type.Equals(CutType.Animation))
                 {
                     cut.animation.animator.CrossFade(cut.animation.animationName, 0);
                 }
 
+                //==================== DIALOGUE
                 if (cut.type.Equals(CutType.Dialogue))
                 {
                     groupCutsRunning++;
-                    
-                    yield return new WaitForSeconds(cut.dialogue.delay);
-                    
-                    UIController.ShowDialogue(cut.dialogue.dialogue);
-                    playerFinishedTask = false;
-                    GameEvents.OnPlayerKeyPressAfterDialogue.AddListener(SetDialogueFinished);
-                    
-                    yield return new WaitUntil(() => playerFinishedTask);
-                    GameEvents.OnPlayerKeyPressAfterDialogue.RemoveListener(SetDialogueFinished);
 
-                    groupCutsRunning--;
+                    Tween.Delay(cut.dialogue.delay + 0.01f, () =>
+                    {
+                        UIController.ShowDialogue(cut.dialogue.dialogue);
+
+                        GameEvents.OnUIDialogueFinishWriting.AddListener(WaitForUIDialogue);
+                        
+                        void WaitForUIDialogue()
+                        {
+                            GameEvents.OnUIDialogueFinishWriting.RemoveListener(WaitForUIDialogue);
+                            groupCutsRunning--;
+                        }
+                    });
+                    
+                }
+                
+                //==================== MISTAKE TITLE
+                if (cut.type.Equals(CutType.MistakeTitle))
+                {
+                    groupCutsRunning++;
+
+                    Tween.Delay(cut.mistakeTitle.delay + 0.01f, () =>
+                    {
+                        UIController.ShowMistakeTitle(cut.mistakeTitle.title);
+                        Tween.Delay(0.5f, () => groupCutsRunning--);
+                    });
+
+                }
+                
+                //==================== DELAY
+                if (cut.type.Equals(CutType.Delay))
+                {
+                    yield return new WaitForSeconds(cut.delay.time);
+                }
+                
+                //==================== WAIT FOR INPUT
+                if (cut.type.Equals(CutType.WaitForInput))
+                {
+                    groupCutsRunning++;
+                    GameEvents.OnAnyKeyPress.AddListener(OnAnyKeyPress);
+                    
+                    void OnAnyKeyPress()
+                    {
+                        GameEvents.OnAnyKeyPress.RemoveListener(OnAnyKeyPress);
+                        groupCutsRunning--;
+                    }
                 }
 
+                //==================== QUESTION
                 if (cut.type.Equals(CutType.Question))
                 {
                     groupCutsRunning++;
                     UIController.ShowChoices(cut.choice.choiceRight, cut.choice.choiceLeft);
-                    playerFinishedTask = false;
                     GameEvents.OnPlayerChooses.AddListener(ChoseOption);
-                    yield return new WaitUntil(() => playerFinishedTask);
-                    
-                    UIController.HideChoices();
                     
                     if (choosenPath == "left")
                     {
                         if (cut.choice.cutsceneLeft != null)
                         {
                             cut.choice.cutsceneLeft.ContinueCutscene();
-                            groupCutsRunning--;
+                            UIController.HideChoices();
                             yield break;
                         }
                     }
@@ -98,7 +139,7 @@ public class Cutscene
                         if (cut.choice.cutsceneRight != null)
                         {
                             cut.choice.cutsceneRight.ContinueCutscene();
-                            groupCutsRunning--;
+                            UIController.HideChoices();
                             yield break;
                         }
                     }
@@ -106,23 +147,20 @@ public class Cutscene
                 }
             }
 
-            yield return new WaitUntil(() => groupCutsRunning == 0);
+            yield return new WaitUntil(() =>
+            {
+                return groupCutsRunning == 0;
+            });
         }
         
         GameEvents.OnCutsceneFinished.Invoke();
 
-        groupCutsRunning = 0;
-
     }
 
-    private void SetDialogueFinished()
-    {
-        playerFinishedTask = true;
-    }
     
     private void ChoseOption(string option)
     {
-        playerFinishedTask = true;
+        //playerFinishedTask = true;
         choosenPath = option;
     }
 }

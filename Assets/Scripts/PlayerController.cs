@@ -50,7 +50,6 @@ public class PlayerController : MonoBehaviour
         InputSystem.actions.FindAction("Jump").started += UpdateJump;
         
         InputSystem.actions.FindAction("Interact").started += Interact;
-        InputSystem.actions.FindAction("Interact").performed += Interact;
     }
 
     public void DisableInput()
@@ -58,11 +57,11 @@ public class PlayerController : MonoBehaviour
         InputSystem.actions.FindAction("Move").started -= UpdateHorizontalVelocity;
         InputSystem.actions.FindAction("Move").performed -= UpdateHorizontalVelocity;
         InputSystem.actions.FindAction("Move").canceled -= ResetHorizontalVelocity;
+        ResetHorizontalVelocity(default);
 
         InputSystem.actions.FindAction("Jump").started -= UpdateJump;
         
         InputSystem.actions.FindAction("Interact").started -= Interact;
-        InputSystem.actions.FindAction("Interact").performed -= Interact;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -127,8 +126,6 @@ public class PlayerController : MonoBehaviour
 
     public void Interact(InputAction.CallbackContext callbackContext)
     {
-        
-        Debug.Log("interact???");
         
         if(_currentHoveredInteractable != null)
         {

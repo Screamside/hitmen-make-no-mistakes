@@ -30,18 +30,18 @@ public class CutsceneManager : MonoBehaviour
         GameEvents.OnCutsceneFinished.AddListener(Handle);
         
     }
-    
-    
 
     private void Handle()
     {
         
-        foreach (var cinemachineCamera in GameObject.FindObjectsByType<CinemachineCamera>(FindObjectsSortMode.None))
+        foreach (var cinemachineCamera in FindObjectsByType<CinemachineCamera>(FindObjectsSortMode.None))
         {
             cinemachineCamera.gameObject.SetActive(false);
         }
+        
         UIController.HideChoices();
         UIController.HideDialogue();
+        UIController.HideMistakeTitle();
 
         switch (lastCutscene)
         {
@@ -72,6 +72,13 @@ public class CutsceneManager : MonoBehaviour
         Tween.Delay(0.5f, () =>
         {
             UIController.FadeOut();
+
+            switch (mistake)
+            {
+                case "ExitDoor":
+                    Instance.mistakes[1].PlayCutscene();
+                    break;
+            }
             
         });
     }

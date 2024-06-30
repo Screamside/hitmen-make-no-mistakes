@@ -353,6 +353,48 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 53, y: 4}
+  - name: Hitman1_Frame_11
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 16
+      y: 33
+      width: 4
+      height: 6
+    spriteID: 0442781c59d644b41adcea5963f7cea7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 16, y: 33}
+  - name: Hitman1_Frame_12
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 28
+      y: 33
+      width: 4
+      height: 5
+    spriteID: f834232f34687b848b5048d4d090e278
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 28, y: 33}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
@@ -461,6 +503,24 @@ ScriptedImporter:
         width: 4
         height: 6
       spriteId: 379f5588244f19c409800b05dd817cf3
+    - name: Hitman1_Frame_11
+      frameIndex: 11
+      additiveSortOrder: 0
+      cellRect:
+        x: 2
+        y: 0
+        width: 4
+        height: 6
+      spriteId: 0442781c59d644b41adcea5963f7cea7
+    - name: Hitman1_Frame_12
+      frameIndex: 12
+      additiveSortOrder: 0
+      cellRect:
+        x: 2
+        y: 0
+        width: 4
+        height: 5
+      spriteId: f834232f34687b848b5048d4d090e278
     linkedCells: []
     parentIndex: -1
   platformSettings:

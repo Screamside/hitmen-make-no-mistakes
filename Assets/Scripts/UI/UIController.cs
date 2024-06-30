@@ -94,6 +94,24 @@ public class UIController : MonoBehaviour
             gameView.HideDialogueBox();
         }
     }
+
+    public static void ShowMistakeTitle(string text)
+    {
+        
+        if(Instance._currentView is GameView gameView)
+        {
+            gameView.ShowMistakeTitle(text);
+        }
+        
+    }
+
+    public static void HideMistakeTitle()
+    {
+        if(Instance._currentView is GameView gameView)
+        {
+            gameView.HideMistakeTitle();
+        }
+    }
     
 }
 

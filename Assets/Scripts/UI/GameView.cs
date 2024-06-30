@@ -18,6 +18,9 @@ public class GameView : View
     private Button _leftChoice;
     private Button _rightChoice;
 
+    private VisualElement _mistakeElement;
+    private Label _mistakeLabel;
+
     private string _textToAnimate;
 
     private void OnEnable()
@@ -27,6 +30,9 @@ public class GameView : View
         _dialogueLabel = ui.rootVisualElement.Q<Label>("Dialogue");
         _leftChoice = ui.rootVisualElement.Q<Button>("Left");
         _rightChoice = ui.rootVisualElement.Q<Button>("Right");
+
+        _mistakeElement = ui.rootVisualElement.Q<VisualElement>("MistakeTitle");
+        _mistakeLabel = ui.rootVisualElement.Q<Label>("MistakeTitleLabel");
         
         _leftChoice.clicked += () => GameEvents.OnPlayerChooses.Invoke("left");
         _rightChoice.clicked += () => GameEvents.OnPlayerChooses.Invoke("right");
@@ -96,6 +102,7 @@ public class GameView : View
 
     public void HideDialogueBox()
     {
+        _dialogueLabel.text = "";
         _dialogueLabel.style.display = DisplayStyle.None;
     }
 
@@ -115,7 +122,7 @@ public class GameView : View
             
         }
         
-        InputSystem.onAnyButtonPress.CallOnce((_) => {GameEvents.OnPlayerKeyPressAfterDialogue.Invoke();});
+        GameEvents.OnUIDialogueFinishWriting.Invoke();
         
     }
 
@@ -131,6 +138,17 @@ public class GameView : View
     public void HideChoices()
     {
         ui.rootVisualElement.Q<VisualElement>("Choice").style.display = DisplayStyle.None;
+    }
+
+    public void ShowMistakeTitle(string text)
+    {
+        _mistakeLabel.text = text;
+        _mistakeElement.AddToClassList("show-mistake-title");
+    }
+    
+    public void HideMistakeTitle()
+    {
+        _mistakeElement.RemoveFromClassList("show-mistake-title");
     }
     
 }
