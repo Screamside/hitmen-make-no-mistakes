@@ -28,20 +28,41 @@ public class PlayerController : MonoBehaviour
         _sprite = GetComponentInChildren<SpriteRenderer>();
         _playerPistol = GetComponent<PlayerPistol>();
         
-        InputSystem.actions.FindAction("Move").started += context => _horizontalVelocity = context.ReadValue<float>();
-        InputSystem.actions.FindAction("Move").performed += context => _horizontalVelocity = context.ReadValue<float>();
-        InputSystem.actions.FindAction("Move").canceled += context => _horizontalVelocity = 0f;
-        
-        InputSystem.actions.FindAction("Jump").started += context =>
-        {
-            jumpSound.Play();
-            _rigidBody2d.AddForceY(jumpForce);
-        };
-        
-        InputSystem.actions.FindAction("Interact").started += Interact;
+        EnableInput();
         
         jumpSound = new Sound(SFX.PlayerJump).SetSpatialSound(false);
         
+    }
+
+    private void UpdateHorizontalVelocity(InputAction.CallbackContext context) => _horizontalVelocity = context.ReadValue<float>();
+    private void ResetHorizontalVelocity(InputAction.CallbackContext context) => _horizontalVelocity = 0;
+    private void UpdateJump(InputAction.CallbackContext context) { 
+        jumpSound.Play();
+        _rigidBody2d.AddForceY(jumpForce);
+    }
+
+    public void EnableInput()
+    {
+        InputSystem.actions.FindAction("Move").started += UpdateHorizontalVelocity;
+        InputSystem.actions.FindAction("Move").performed += UpdateHorizontalVelocity;
+        InputSystem.actions.FindAction("Move").canceled += ResetHorizontalVelocity;
+
+        InputSystem.actions.FindAction("Jump").started += UpdateJump;
+        
+        InputSystem.actions.FindAction("Interact").started += Interact;
+        InputSystem.actions.FindAction("Interact").performed += Interact;
+    }
+
+    public void DisableInput()
+    {
+        InputSystem.actions.FindAction("Move").started -= UpdateHorizontalVelocity;
+        InputSystem.actions.FindAction("Move").performed -= UpdateHorizontalVelocity;
+        InputSystem.actions.FindAction("Move").canceled -= ResetHorizontalVelocity;
+
+        InputSystem.actions.FindAction("Jump").started -= UpdateJump;
+        
+        InputSystem.actions.FindAction("Interact").started -= Interact;
+        InputSystem.actions.FindAction("Interact").performed -= Interact;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -106,6 +127,8 @@ public class PlayerController : MonoBehaviour
 
     public void Interact(InputAction.CallbackContext callbackContext)
     {
+        
+        Debug.Log("interact???");
         
         if(_currentHoveredInteractable != null)
         {

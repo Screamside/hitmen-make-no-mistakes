@@ -2,11 +2,10 @@ using UnityEngine;
 
 public class MistakeInteract : MonoBehaviour, IInteractable
 {
-
     public int mistakeId;
     
     public void Interact()
     {
-        CutsceneManager.PlayMistake(0);
+        CutsceneManager.PlayMistake("WrongDoor");
     }
 }

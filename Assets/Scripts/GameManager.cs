@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
 
     public List<String> mistakes;
 
+    public PlayerController player;
+
     private void Awake() 
     {
         if (Instance != null && Instance != this) 
@@ -21,6 +23,11 @@ public class GameManager : MonoBehaviour
         
         LoadMistakes();
         
+    }
+
+    private void Start()
+    {
+        player = FindFirstObjectByType<PlayerController>();
     }
 
     private void LoadMistakes()
@@ -46,6 +53,17 @@ public class GameManager : MonoBehaviour
     {
         PlayerPrefs.SetInt(mistake, done ? 1 : 0);
     }
+
+    public static void EnablePlayerControls()
+    {
+        Instance.player.EnableInput();
+    }
+
+    public static void DisablePlayerControls()
+    {
+        Instance.player.DisableInput();
+    }
+    
 }
 
 
