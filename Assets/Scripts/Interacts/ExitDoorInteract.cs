@@ -3,9 +3,18 @@ using UnityEngine.InputSystem;
 
 public class ExitDoorInteract : MonoBehaviour, IInteractable
 {
+
+    public Transform destination;
+    
     public void Interact()
     {
 
+        if (GameManager.IsCutsceneDone("BossMission"))
+        {
+            GameManager.Instance.player.transform.position = destination.position;
+            return;
+        }
+        
         if (GameManager.IsMistakeDone("ExitDoor"))
         {
             //TODO: say that you should really talk to the boss
@@ -17,7 +26,6 @@ public class ExitDoorInteract : MonoBehaviour, IInteractable
         else
         {
             CutsceneManager.PlayMistake("ExitDoor");
-            GameManager.UpdateMistake("ExitDoor", true);
         }
 
         void WaitForKeyPress()

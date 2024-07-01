@@ -4,7 +4,14 @@ public class InteractCar : MonoBehaviour, IInteractable
 {
     public void Interact()
     {
-        Debug.Log("Car Interacted");
-        CutsceneManager.PlayCutscene(2);
+        if (GameManager.IsMistakeDone("LostKeys"))
+        {
+            CutsceneManager.PlayCutscene("ExitHeadquarters");
+        }
+        else
+        {
+            CutsceneManager.PlayMistake("LostKeys");
+        }
+        
     }
 }

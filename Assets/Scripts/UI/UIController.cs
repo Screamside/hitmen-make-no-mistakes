@@ -78,7 +78,22 @@ public class UIController : MonoBehaviour
             gameView.HideChoices();
         }
     }
+
+    public static void HideLeftButton()
+    {
+        if(Instance._currentView is GameView gameView)
+        {
+            gameView.HideLeftButton();
+        }
+    }
     
+    public static void ShowLeftButton()
+    {
+        if(Instance._currentView is GameView gameView)
+        {
+            gameView.ShowLeftButton();
+        }
+    }
     public static void ShowDialogue(string textToAnimate)
     {
         if(Instance._currentView is GameView gameView)

@@ -9,11 +9,11 @@ using UnityEngine;
 public class CutsceneManager : MonoBehaviour
 {
     public static CutsceneManager Instance { get; private set; }
-    public List<CutscenePlayer> cutscenes = new();
+    public List<MyKeyPair<string, CutscenePlayer>> cutscenes = new();
     public List<MyKeyPair<string, CutscenePlayer>> mistakes;
     public CinemachineCamera currentCamera;
 
-    public int lastCutscene = 0;
+    public string lastCutscene;
     public string lastMistake;
 
     public bool wasLastAMistake;
@@ -39,46 +39,59 @@ public class CutsceneManager : MonoBehaviour
 
         if (wasLastAMistake)
         {
-            
             GameManager.RestartFromMistake(lastMistake);
-            
         }
         else
         {
-            foreach (var cinemachineCamera in FindObjectsByType<CinemachineCamera>(FindObjectsSortMode.None))
-            {
-                cinemachineCamera.gameObject.SetActive(false);
-            }
-        
-            UIController.HideChoices();
-            UIController.HideDialogue();
-            UIController.HideMistakeTitle();
+            UIController.FadeIn();
 
-            switch (lastCutscene)
+            Tween.Delay(0.5f, () =>
             {
-                case 2:
-                    PlayCutscene(3);
-                    return;
-            }
+                
+                foreach (var cinemachineCamera in FindObjectsByType<CinemachineCamera>(FindObjectsSortMode.None))
+                {
+                    cinemachineCamera.gameObject.SetActive(false);
+                }
         
-            currentCamera.gameObject.SetActive(true);
+                UIController.HideChoices();
+                UIController.HideDialogue();
+                UIController.HideMistakeTitle();
+
+                switch (lastCutscene)
+                {
+                    //case 2:
+                    //   PlayCutscene(3);
+                    //  return;
+                }
+        
+                currentCamera.gameObject.SetActive(true);
+                
+                UIController.FadeOut();
+            });
+            
         }
-        
-        
     }
 
-    public static void PlayCutscene(int index)
+    public static void PlayCutscene(string cutscene)
     {
-        Instance.lastCutscene = index;
-        
-        UIController.FadeIn();
-        Tween.Delay(0.5f, () =>
+        if (Instance.cutscenes.All(keyPair => keyPair.key != cutscene))
         {
-            UIController.FadeOut();
-            Instance.cutscenes[index].PlayCutscene();
-            Instance.wasLastAMistake = false;
+            Debug.LogError("No such cutscene exists: " + cutscene);
+            return;
+        }
+        
+        GameManager.DisablePlayerControls();
+        
+        Sequence.Create()
+            .Chain(Tween.Delay(0.01f, () => UIController.FadeIn()))
+            .Chain(Tween.Delay(0.5f, () =>
+            {
+                UIController.FadeOut();
 
-        });
+                Instance.cutscenes.First(keyPair => keyPair.key == cutscene).value.PlayCutscene();
+                Instance.lastCutscene = cutscene;
+                Instance.wasLastAMistake = false;
+            }));
     }
 
     public static void PlayMistake(string mistake)
