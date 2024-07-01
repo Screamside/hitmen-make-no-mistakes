@@ -7,8 +7,8 @@
         <ui:VisualElement name="Footer" style="flex-grow: 2; flex-shrink: 10; flex-basis: 0.2%; background-color: rgba(0, 0, 0, 0);">
             <ui:Label name="Dialogue" enabled="true" style="color: rgb(255, 255, 255); font-size: 45px; -unity-text-align: middle-left; -unity-text-outline-width: 0; -unity-text-outline-color: rgb(0, 0, 0); -unity-font-definition: url(&quot;project://database/Packages/com.unity.render-pipelines.core/Runtime/Debugging/Prefabs/Fonts/PerfectDOSVGA437.ttf?fileID=12800000&amp;guid=74a5091d8707f334b9a5c31ef71a64ba&amp;type=3#PerfectDOSVGA437&quot;); flex-shrink: 1; white-space: normal; flex-grow: 1; padding-right: 40px; padding-left: 40px; padding-top: 20px; padding-bottom: 20px; display: flex; visibility: visible; margin-right: 0; margin-top: 0; margin-left: 0; margin-bottom: 0;" />
             <ui:VisualElement name="Choice" style="flex-grow: 1; flex-direction: row; display: none;">
-                <ui:Button text="Left" name="Left" />
-                <ui:Button text="Right" name="Right" />
+                <ui:Button text="Left" name="Left" enabled="true" class="disable-button" style="display: flex; visibility: visible;" />
+                <ui:Button text="Right" name="Right" enabled="true" />
             </ui:VisualElement>
         </ui:VisualElement>
         <ui:VisualElement name="MistakeTitle" class="hide-mistake-title">

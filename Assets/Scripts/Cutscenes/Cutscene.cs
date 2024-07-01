@@ -117,13 +117,49 @@ public class Cutscene
                         groupCutsRunning--;
                     }
                 }
+                
+                //==================== PLAY MISTAKE
+                if (cut.type.Equals(CutType.PlayMistake))
+                {
+
+                    Tween.Delay(1f, () =>
+                    {
+                        foreach (var cinemachineCamera in GameObject.FindObjectsByType<CinemachineCamera>(
+                                     FindObjectsSortMode.None))
+                        {
+                            if (cinemachineCamera.gameObject.activeSelf)
+                            {
+                                var noise = cinemachineCamera.GetComponent<CinemachineBasicMultiChannelPerlin>();
+                                noise.enabled = true;
+                                Tween.Delay(0.5f, () => noise.enabled = false);
+                            }
+                        }
+
+                        Tween.Delay(2.5f, () =>
+                        {
+                            CutsceneManager.PlayMistake(cut.mistake.mistake);
+                            UIController.HideDialogue();
+                            UIController.HideChoices();
+                            UIController.HideMistakeTitle();
+                        });
+                    });
+                    
+                    yield break;
+                }
 
                 //==================== QUESTION
                 if (cut.type.Equals(CutType.Question))
                 {
-                    groupCutsRunning++;
                     UIController.ShowChoices(cut.choice.choiceRight, cut.choice.choiceLeft);
+                    if (GameManager.IsMistakeDone("BossMistake"))
+                    {
+                        UIController.HideLeftButton();
+                    }
                     GameEvents.OnPlayerChooses.AddListener(ChoseOption);
+
+                    yield return new WaitUntil(() => playerChoosed);
+                    
+                    playerChoosed = false;
                     
                     if (choosenPath == "left")
                     {
@@ -131,6 +167,8 @@ public class Cutscene
                         {
                             cut.choice.cutsceneLeft.ContinueCutscene();
                             UIController.HideChoices();
+                            UIController.ShowLeftButton();
+                            
                             yield break;
                         }
                     }
@@ -140,10 +178,13 @@ public class Cutscene
                         {
                             cut.choice.cutsceneRight.ContinueCutscene();
                             UIController.HideChoices();
+                            UIController.ShowLeftButton();
+                            
                             yield break;
                         }
                     }
-                    
+
+                    groupCutsRunning = 0;
                 }
             }
 
@@ -156,11 +197,10 @@ public class Cutscene
         GameEvents.OnCutsceneFinished.Invoke();
 
     }
-
     
     private void ChoseOption(string option)
     {
-        //playerFinishedTask = true;
+        playerChoosed = true;
         choosenPath = option;
     }
 }

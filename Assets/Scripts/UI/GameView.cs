@@ -140,6 +140,16 @@ public class GameView : View
         ui.rootVisualElement.Q<VisualElement>("Choice").style.display = DisplayStyle.None;
     }
 
+    public void HideLeftButton()
+    {
+        ui.rootVisualElement.Q<Button>("Left").style.display = DisplayStyle.None;
+    }
+    
+    public void ShowLeftButton()
+    {
+        ui.rootVisualElement.Q<Button>("Left").style.display = DisplayStyle.Flex;
+    }
+
     public void ShowMistakeTitle(string text)
     {
         _mistakeLabel.text = text;

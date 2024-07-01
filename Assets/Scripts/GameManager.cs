@@ -10,7 +10,6 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
-    public List<String> mistakes;
 
     public PlayerController player;
 
@@ -27,7 +26,11 @@ public class GameManager : MonoBehaviour
             Instance = this; 
         } 
         
-        LoadMistakes();
+        foreach (var cinemachineCamera in FindObjectsByType<CinemachineCamera>(
+                     FindObjectsSortMode.None))
+        {
+            cinemachineCamera.gameObject.SetActive(false);
+        }
 
         InputSystem.onAnyButtonPress.CallOnce(HandleAnyKeyPress);
         
@@ -47,20 +50,16 @@ public class GameManager : MonoBehaviour
         player = FindFirstObjectByType<PlayerController>();
     }
 
-    private void LoadMistakes()
-    {
-        foreach (var mistake in mistakes)
-        {
-
-            if (PlayerPrefs.HasKey(mistake))
-            {
-                continue;
-            }
-            
-            PlayerPrefs.SetInt(mistake, 0);
-        }
+    public static bool IsCutsceneDone(string cutscene)
+    { 
+        return PlayerPrefs.GetInt(cutscene) == 1;
     }
 
+    public static void UpdateCutscene(string cutscene, bool done)
+    {
+        PlayerPrefs.SetInt(cutscene, done ? 1 : 0);
+    }
+    
     public static bool IsMistakeDone(string mistake)
     { 
         return PlayerPrefs.GetInt(mistake) == 1;
@@ -94,6 +93,11 @@ public class GameManager : MonoBehaviour
             {
                 cinemachineCamera.gameObject.SetActive(false);
             }
+            UpdateMistake(mistake, true);
+            Instance.player.transform.position = Instance.restartPoint.position;
+            Instance.player.transform.rotation = Instance.restartPoint.rotation;
+            Instance.player.transform.localScale = new Vector3(1f, 1f, 1f);
+            Instance.player.GetComponent<PlayerPistol>().enabled = false;
             
             UIController.HideDialogue();
             UIController.HideChoices();
@@ -102,6 +106,18 @@ public class GameManager : MonoBehaviour
             {
                 case "ExitDoor":
                     Instance.ExitDoor();
+                    break;
+                
+                case "WrongDoor":
+                    Instance.WrongDoor();
+                    break;
+                
+                case "BossMistake":
+                    Instance.BossMistake();
+                    break;
+                
+                case "LostKeys":
+                    Instance.LostKeys();
                     break;
             }
         });
@@ -119,15 +135,42 @@ public class GameManager : MonoBehaviour
         {
             GameEvents.OnAnyKeyPress.RemoveListener(OnAnyKeyPress);
             UIController.HideDialogue();
+            EnablePlayerControls();
         }
         
     }
 
     private void ExitDoor()
     {
-        UIController.ShowDialogue("After checking your bank balance, you had enough money to live comfortably... until thursday.  \n\nWell retirement looked good, but you need enough money for it.");
+        Tween.Delay(2f, () =>
+        {
+            UIController.ShowDialogue("After checking your bank balance, you had enough money to live comfortably... until thursday.  \n\nWell retirement looked good, but you need enough money for it.");
+        });
     }
     
+    private void WrongDoor()
+    {
+        Tween.Delay(2f, () =>
+        {
+            UIController.ShowDialogue("The boss gave you a considerable amount of money to keep your mouth shut.  \n\nThis was your most profitable service til today, but the trauma is not worth this kind of experience... ");
+        });
+    }
+
+    private void BossMistake()
+    {
+        Tween.Delay(2f, () =>
+        {
+            UIController.ShowDialogue("What a truly crazy dream you had last night! \n\nYou recall something going wrong between you and your boss, but surely you're an indispensable asset to the organization... right?");
+        });
+    }
+    
+    private void LostKeys()
+    {
+        Tween.Delay(2f, () =>
+        {
+            UIController.ShowDialogue("You searched every nook and cranny of the gare but could not find the car keys... \n\nThankfully you had a spare set in your office.");
+        });
+    }
 }
 
 
