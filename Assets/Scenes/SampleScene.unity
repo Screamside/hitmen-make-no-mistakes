@@ -774,7 +774,7 @@ MonoBehaviour:
         hasAnimation: 0
         movementSettings:
           startFromCurrent: 0
-          startValue: {x: -3, y: 0.75, z: 0}
+          startValue: {x: -2.75, y: 0.75, z: 0}
           endValue: {x: 18.5, y: 0.75, z: 0}
           settings:
             duration: 2
@@ -17682,7 +17682,7 @@ Transform:
   m_GameObject: {fileID: 845413901}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -64.25, y: 51.75, z: -10}
+  m_LocalPosition: {x: -44.5, y: 72.5, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -27446,7 +27446,7 @@ Transform:
   m_GameObject: {fileID: 1180903833}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -73.25, y: 25, z: -10}
+  m_LocalPosition: {x: -53.5, y: 45.75, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -28925,7 +28925,7 @@ Transform:
   m_GameObject: {fileID: 1297003627}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -37.75, y: 82.75, z: -10}
+  m_LocalPosition: {x: -18, y: 103.5, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -29547,6 +29547,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1342775524}
   - component: {fileID: 1342775525}
+  - component: {fileID: 1342775526}
   m_Layer: 0
   m_Name: SecurityGuard
   m_TagString: Untagged
@@ -29624,6 +29625,28 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1342775526
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1342775523}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: -8569400473701176838, guid: 7e12e7ac11b2eaf4ebd70fdd7e8b5b75, type: 3}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1343625773
 GameObject:
   m_ObjectHideFlags: 0
@@ -37243,7 +37266,7 @@ Transform:
   m_GameObject: {fileID: 1777632695}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -29.25, y: -21.75, z: 0}
+  m_LocalPosition: {x: -9.5, y: -1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -46896,7 +46919,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2053757514}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -51106,7 +51129,7 @@ MonoBehaviour:
         animator: {fileID: 0}
         animationName: 
       dialogue:
-        delay: 0
+        delay: 1
         dialogue: 'You know, the boss clearly said to complete this job more discreetly,
           so maybe going through the front entrance was not such a good idea.
 
@@ -51130,7 +51153,7 @@ MonoBehaviour:
         cutsceneName: 
       choiceId: 
     - type: 4
-      order: 0
+      order: 1
       selectCamera:
         camera: {fileID: 1157605520}
       movement:
@@ -51169,7 +51192,7 @@ MonoBehaviour:
         ignoreInput: 0
       mistakeTitle:
         delay: 0
-        title: 
+        title: Mistake 5# - Where's the pizza?
       mistake:
         mistake: Mistake 5# - Wheres's the pizza?
       delay:
@@ -51183,7 +51206,7 @@ MonoBehaviour:
         cutsceneName: 
       choiceId: 
     - type: 7
-      order: 0
+      order: 2
       selectCamera:
         camera: {fileID: 1157605520}
       movement:
@@ -53249,7 +53272,7 @@ Transform:
   m_GameObject: {fileID: 6969460406669349543}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.75, y: 0, z: 0}
+  m_LocalPosition: {x: -4.75, y: 0.04, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
