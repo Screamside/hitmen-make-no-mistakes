@@ -263,7 +263,7 @@ public class GameManager : MonoBehaviour
         Tween.Delay(2f,
             () =>
             {
-                UIController.ShowDialogue("Died from bullet...");
+                UIController.ShowDialogue("Got some bad luck. \n\nIt's time to turn over a new leaf and sure hope I don't die this time...");
             });
     }
 }
