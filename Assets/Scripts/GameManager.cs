@@ -217,7 +217,7 @@ public class GameManager : MonoBehaviour
     {
         Tween.Delay(2f, () =>
         {
-            UIController.ShowDialogue("After checking your bank balance, you had enough money to live comfortably... until thursday.  \n\nWell, retirement looked good, but you need enough money for it.");
+            UIController.ShowDialogue("After checking your bank balance, you see enough money to live comfortably... until thursday.  \n\nWell, retirement sounds fun, but you need enough money for it.");
         });
     }
     
