@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 04d7d39c9c52c6344b7ee6796fc87f26
+guid: 29f4e6be1e8ce31449d286ff0385919b
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -122,7 +122,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: PlayerHP1
+  - name: BossHPB7
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -132,9 +132,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 2
-      height: 2
-    spriteID: edc8c756667d58c4399183a0a81f52f0
+      width: 66
+      height: 12
+    spriteID: 97d0f2cb90286454194430f099e5c963
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -146,25 +146,25 @@ ScriptedImporter:
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: 135906106
-    name: PlayerHP1
+    guid: 1681533764
+    name: BossHPB7
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: PlayerHP1
+    - name: BossHPB7
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
         x: 0
         y: 0
-        width: 2
-        height: 2
-      spriteId: edc8c756667d58c4399183a0a81f52f0
+        width: 66
+        height: 12
+      spriteId: 97d0f2cb90286454194430f099e5c963
     linkedCells: []
     parentIndex: -1
   platformSettings: []
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 2, y: 2}
+  canvasSize: {x: 66, y: 12}
