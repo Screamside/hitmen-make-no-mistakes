@@ -4989,7 +4989,7 @@ MonoBehaviour:
   delayAfterSwing: 0
   weaponSpriteRenderer: {fileID: 0}
   warning: {fileID: 0}
-  delayBetweenShots: 1
+  delayBetweenShots: 0.65
 --- !u!61 &1340640518428948459
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5051,6 +5051,7 @@ MonoBehaviour:
   health: 3
   currentHealth: 0
   sprite: {fileID: 3878759816425473765}
+  enemyActivator: {fileID: 0}
 --- !u!1 &5394324255212869058
 GameObject:
   m_ObjectHideFlags: 0
