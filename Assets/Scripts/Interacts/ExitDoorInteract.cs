@@ -1,3 +1,4 @@
+using PrimeTween;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,9 +10,21 @@ public class ExitDoorInteract : MonoBehaviour, IInteractable
     public void Interact()
     {
 
+        if (GameManager.IsCutsceneDone("ChooseReceptionPark"))
+        {
+            GameManager.StartCarParkArea();
+            return;
+        }
+        
         if (GameManager.IsCutsceneDone("BossMission"))
         {
-            GameManager.Instance.player.transform.position = destination.position;
+            GameEvents.OnChangeRoom.Invoke();
+            
+            Tween.Delay(0.5f, () =>
+            {
+                GameManager.Instance.player.transform.position = destination.position;
+            });
+            
             return;
         }
         

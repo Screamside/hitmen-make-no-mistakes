@@ -20,7 +20,9 @@ public class HitmanKeysMistake : MonoBehaviour
         while (true)
         {
             yield return Tween.PositionAtSpeed(hitman.transform, secondPoint.position, speed).ToYieldInstruction();
+            hitman.transform.localScale = new Vector3(-2, 2, 2);
             yield return Tween.PositionAtSpeed(hitman.transform, firstPoint.position, speed).ToYieldInstruction();
+            hitman.transform.localScale = new Vector3(2, 2, 2);
         }
     }
 }

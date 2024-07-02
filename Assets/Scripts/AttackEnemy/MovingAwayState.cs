@@ -46,7 +46,6 @@ public class MovingAwayState : HostileEnemyState
             }
         }
 
-        Debug.Log(finalPosition);
         
         Tween.PositionAtSpeed(_hostileEnemyBehaviour.transform, finalPosition, hostileEnemyBehaviour.moveSpeed, ease: Ease.Linear)
             .OnComplete(() =>

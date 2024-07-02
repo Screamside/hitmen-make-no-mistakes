@@ -15,32 +15,34 @@ public class PlayerPistol : MonoBehaviour
     [SerializeField] private Transform _bulletSpawnPoint;
     [SerializeField] private GameObject _bulletPrefab;
     [SerializeField] private float _cooldown;
+    [SerializeField] private float _bulletSpeed;
     
     private float _cooldownTimer;
     private void Awake()
     {
-        InputSystem.actions.FindAction("Shoot").started += (ctx) => Shoot();
         _cooldownTimer = _cooldown;
     }
 
     private void OnEnable()
     {
         _pistol.gameObject.SetActive(true);
-        
+        InputSystem.actions.FindAction("Shoot").started += Shoot;
     }
 
     private void OnDisable()
     {
         _pistol.gameObject.SetActive(false);
+        InputSystem.actions.FindAction("Shoot").started -= Shoot;
     }
 
-    private void Shoot()
+    private void Shoot(InputAction.CallbackContext callbackContext)
     {
         if (_cooldownTimer > 0) { return;}
         _cooldownTimer = _cooldown;
         
         GameObject bullet = Instantiate(_bulletPrefab, _bulletSpawnPoint.position, _bulletSpawnPoint.rotation);
-        
+        bullet.GetComponent<Bullet>().speed = _bulletSpeed;
+
     }
 
     private void Update()

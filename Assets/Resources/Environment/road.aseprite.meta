@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 935d905215f7f5445836f41ad79fb2c3
+guid: 52e587256dec40947829d59714394abb
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -53,9 +53,9 @@ ScriptedImporter:
     filterMode: 0
     aniso: 1
     mipBias: 0
-    wrapU: 1
-    wrapV: 1
-    wrapW: 1
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
     normalMap: 0
     textureFormat: 0
     maxTextureSize: 0
@@ -77,7 +77,7 @@ ScriptedImporter:
     defaultPivotSpace: 0
     defaultPivotAlignment: 7
     customPivotPosition: {x: 0.5, y: 0.5}
-    mosaicPadding: 4
+    mosaicPadding: 0
     spritePadding: 0
     generateModelPrefab: 1
     generateAnimationClips: 1
@@ -90,14 +90,14 @@ ScriptedImporter:
     defaultPivotSpace: 0
     defaultPivotAlignment: 7
     customPivotPosition: {x: 0.5, y: 0.5}
-    mosaicPadding: 4
+    mosaicPadding: 0
     spritePadding: 0
     generateModelPrefab: 1
     generateAnimationClips: 1
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638554798976971856
+  platformSettingsDirtyTick: 638554569116573171
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -122,28 +122,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: laserTripwireWithAnimation_Frame_0
-    originalName: 
-    pivot: {x: 1, y: 0}
-    alignment: 8
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 4
-      width: 3
-      height: 3
-    spriteID: e1dbc69670a2a8d4dba7a20e7f671c7c
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 4}
-  - name: laserTripwireWithAnimation_Frame_1
+  - name: road
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -151,11 +130,11 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 4
-      y: 15
-      width: 3
+      x: 0
+      y: 0
+      width: 128
       height: 3
-    spriteID: 2f9cac521dfd1144eb4085a8b2bc597c
+    spriteID: 993f5b269da1ae7408c228c5bb1a0d1e
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -163,34 +142,25 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 15}
+    uvTransform: {x: 0, y: 0}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: 1930156711
-    name: laserTripwireWithAnimation
+    guid: -150304244
+    name: road
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: laserTripwireWithAnimation_Frame_0
+    - name: road
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
         x: 0
         y: 0
-        width: 3
+        width: 128
         height: 3
-      spriteId: e1dbc69670a2a8d4dba7a20e7f671c7c
-    - name: laserTripwireWithAnimation_Frame_1
-      frameIndex: 1
-      additiveSortOrder: 0
-      cellRect:
-        x: 0
-        y: 0
-        width: 3
-        height: 3
-      spriteId: 2f9cac521dfd1144eb4085a8b2bc597c
+      spriteId: 993f5b269da1ae7408c228c5bb1a0d1e
     linkedCells: []
     parentIndex: -1
   platformSettings:
@@ -221,4 +191,4 @@ ScriptedImporter:
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 3, y: 3}
+  canvasSize: {x: 128, y: 3}

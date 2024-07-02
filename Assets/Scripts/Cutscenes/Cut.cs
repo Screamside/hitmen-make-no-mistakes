@@ -19,6 +19,7 @@ public class Cut
     [EnableField(nameof(type), CutType.MistakeTitle)] public PlayMistakeCut mistake;
     [EnableField(nameof(type), CutType.Delay)] public DelayCut delay;
     [EnableField(nameof(type), CutType.Question)] public ChoiceCut choice;
+    [EnableField(nameof(type), CutType.Cutscene)] public PlayCutsceneCut cutscene;
 }
 
 public enum CutType
@@ -31,7 +32,8 @@ public enum CutType
     PlayMistake,
     Delay,
     WaitForInput,
-    Question
+    Question,
+    Cutscene
 }
 
 [Serializable]
@@ -59,6 +61,12 @@ public struct AnimationCut
 public struct PlayMistakeCut
 {
     public string mistake;
+}
+
+[Serializable]
+public struct PlayCutsceneCut
+{
+    public string cutsceneName;
 }
 
 [Serializable]

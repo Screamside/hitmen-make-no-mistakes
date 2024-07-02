@@ -56,17 +56,20 @@ public class CutsceneManager : MonoBehaviour
                 UIController.HideChoices();
                 UIController.HideDialogue();
                 UIController.HideMistakeTitle();
+        
+                currentCamera.gameObject.SetActive(true);
 
                 switch (lastCutscene)
                 {
-                    //case 2:
-                    //   PlayCutscene(3);
-                    //  return;
+                    case "ChooseReceptionPark":
+                        GameManager.StartCarParkArea();
+                        break;
                 }
-        
-                currentCamera.gameObject.SetActive(true);
                 
-                UIController.FadeOut();
+                GameManager.UpdateCutscene(lastCutscene, true);
+                Tween.Delay(0.5f, () => UIController.FadeOut());
+                
+                GameManager.EnablePlayerControls();
             });
             
         }

@@ -12,12 +12,15 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer _sprite;
     private IInteractable _currentHoveredInteractable;
     private Vector2 _lastVelocity;
-    public SceneInitializer currentScene;
+    public bool stopControlling;
 
     [SerializeField] private float speed = 10f;
+    [SerializeField] public float ladderSpeed = 2f;
     [SerializeField] private float jumpForce = 10f;
     [SerializeField] private GameObject interactPrompt;
     [SerializeField] private PlayerPistol _playerPistol;
+    [SerializeField] private Transform _groundTransform;
+    [SerializeField] private LayerMask _groundLayer;
 
     private Sound jumpSound;
 
@@ -34,11 +37,30 @@ public class PlayerController : MonoBehaviour
         
     }
 
+    public void EnablePistol()
+    {
+        _playerPistol.enabled = true;
+    }
+    
+    public void DisablePistol()
+    {
+        _playerPistol.enabled = false;
+    }
+
     private void UpdateHorizontalVelocity(InputAction.CallbackContext context) => _horizontalVelocity = context.ReadValue<float>();
     private void ResetHorizontalVelocity(InputAction.CallbackContext context) => _horizontalVelocity = 0;
-    private void UpdateJump(InputAction.CallbackContext context) { 
-        jumpSound.Play();
-        _rigidBody2d.AddForceY(jumpForce);
+
+    private bool IsGrounded()
+    {
+        return Physics2D.OverlapCircle(_groundTransform.position, 0.1f, _groundLayer);
+    }
+    
+    private void UpdateJump(InputAction.CallbackContext context) {
+        if (IsGrounded())
+        {
+            jumpSound.Play();
+            _rigidBody2d.velocityY = jumpForce;
+        }
     }
 
     public void EnableInput()
@@ -89,19 +111,25 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (stopControlling) return;
         
         _rigidBody2d.velocity = (Vector2.right * _horizontalVelocity * speed) + _rigidBody2d.velocity.y * Vector2.up;
-        
     }
 
     private void UpdateAnimator()
     {
-        
         _animator.SetBool("isWalking", _horizontalVelocity != 0);
 
         if (!_playerPistol.enabled)
         {
-            _sprite.flipX = _horizontalVelocity < 0;
+            if (_horizontalVelocity < 0)
+            {
+                _sprite.flipX = true;
+            }
+            else if (_horizontalVelocity > 0)
+            {
+                _sprite.flipX = false;
+            }
         }
 
         if (_rigidBody2d.velocityY > 0.001f)

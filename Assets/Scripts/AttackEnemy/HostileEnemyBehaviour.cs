@@ -25,7 +25,7 @@ public class HostileEnemyBehaviour : MonoBehaviour
     [HideInInspector]public float maxDistanceToRunAway;
     [HideInInspector]public LayerMask layermask;
     
-    [FoldoutGroup("Shooting State", nameof(delayBeforeShooting), nameof(delayAfterShooting), nameof(shootingPosition), nameof(weaponGameObject), nameof(bulletPrefab), nameof(shootingRange))]
+    [FoldoutGroup("Shooting State", nameof(delayBeforeShooting), nameof(delayAfterShooting), nameof(shootingPosition), nameof(weaponGameObject), nameof(bulletPrefab), nameof(shootingRange), nameof(bulletSpeed))]
     [SerializeField, HideField(nameof(batMan))]private Void _shootingGroup;
     [HideInInspector,HideField(nameof(batMan))]public float delayBeforeShooting;
     [HideInInspector, HideField(nameof(batMan))]public float delayAfterShooting;
@@ -33,6 +33,7 @@ public class HostileEnemyBehaviour : MonoBehaviour
     [FormerlySerializedAs("pistolGameObject"), HideInInspector, HideField(nameof(batMan))]public GameObject weaponGameObject;
     [HideInInspector, HideField(nameof(batMan))]public Transform shootingPosition;
     [HideInInspector, HideField(nameof(batMan))]public GameObject bulletPrefab;
+    [HideInInspector, HideField(nameof(batMan))]public float bulletSpeed;
     
     [FoldoutGroup("Swing Bat State", nameof(delayBeforeAttack), nameof(prepareBatPosition), nameof(prepareBatTime), nameof(prepareBatAngle), nameof(delaySwingBat), nameof(swingBatTime), nameof(swingBatAngle), nameof(resetBatRotationTime), nameof(delayAfterSwing))]
     [SerializeField, HideField(nameof(batMan))]private Void _swingGroup;

@@ -1,10 +1,12 @@
 using System;
 using System.Collections.Generic;
+using System.Numerics;
 using PrimeTween;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
+using Vector3 = UnityEngine.Vector3;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,6 +16,7 @@ public class GameManager : MonoBehaviour
     public PlayerController player;
 
     public Transform restartPoint;
+    public Transform carParkPoint;
 
     private void Awake() 
     {
@@ -79,6 +82,14 @@ public class GameManager : MonoBehaviour
     {
         Instance.player.DisableInput();
     }
+
+    public static void StartCarParkArea()
+    {
+        Instance.player.transform.position = Instance.carParkPoint.position;
+        Instance.player.transform.localScale = Vector3.one;
+        Instance.player.EnablePistol();
+        
+    }
     
     public static void RestartFromMistake(string mistake)
     {
@@ -97,7 +108,7 @@ public class GameManager : MonoBehaviour
             Instance.player.transform.position = Instance.restartPoint.position;
             Instance.player.transform.rotation = Instance.restartPoint.rotation;
             Instance.player.transform.localScale = new Vector3(1f, 1f, 1f);
-            Instance.player.GetComponent<PlayerPistol>().enabled = false;
+            Instance.player.DisablePistol();
             
             UIController.HideDialogue();
             UIController.HideChoices();
@@ -144,7 +155,7 @@ public class GameManager : MonoBehaviour
     {
         Tween.Delay(2f, () =>
         {
-            UIController.ShowDialogue("After checking your bank balance, you had enough money to live comfortably... until thursday.  \n\nWell retirement looked good, but you need enough money for it.");
+            UIController.ShowDialogue("After checking your bank balance, you had enough money to live comfortably... until thursday.  \n\nWell, retirement looked good, but you need enough money for it.");
         });
     }
     
@@ -168,7 +179,7 @@ public class GameManager : MonoBehaviour
     {
         Tween.Delay(2f, () =>
         {
-            UIController.ShowDialogue("You searched every nook and cranny of the gare but could not find the car keys... \n\nThankfully you had a spare set in your office.");
+            UIController.ShowDialogue("You searched every nook and cranny of the garage but could not find the car keys... \n\nThankfully you had a spare set in your office.");
         });
     }
 }

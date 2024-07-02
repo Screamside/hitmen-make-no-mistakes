@@ -105,6 +105,12 @@ public class Cutscene
                     yield return new WaitForSeconds(cut.delay.time);
                 }
                 
+                //==================== PLAY CUTSCENE
+                if (cut.type.Equals(CutType.Cutscene))
+                {
+                    CutsceneManager.PlayCutscene(cut.cutscene.cutsceneName);
+                }
+                
                 //==================== WAIT FOR INPUT
                 if (cut.type.Equals(CutType.WaitForInput))
                 {

@@ -3,8 +3,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    
-    [SerializeField] private float speed = 5f;
+    public float speed = 5f;
     
     private void Start()
     {
@@ -19,5 +18,14 @@ public class Bullet : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other)
     {
         Destroy(gameObject);
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.TryGetComponent(out LivingEntity livingEntity))
+        {
+            livingEntity.Damage(1);
+            Destroy(gameObject );
+        }
     }
 }
