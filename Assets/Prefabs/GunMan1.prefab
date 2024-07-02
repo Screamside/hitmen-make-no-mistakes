@@ -84,8 +84,8 @@ PolygonCollider2D:
     - - {x: 0, y: 0}
       - {x: 1, y: 3.25}
       - {x: 4, y: 3.25}
-      - {x: 4, y: -1.25}
-      - {x: 0.75, y: -1.25}
+      - {x: 4, y: -0.5}
+      - {x: 0.75, y: -0.5}
   m_UseDelaunayMesh: 0
 --- !u!1971053207 &7417126087923568183
 SpriteShapeRenderer:
@@ -145,8 +145,8 @@ SpriteShapeRenderer:
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   m_LocalAABB:
-    m_Center: {x: 2, y: 1, z: 0}
-    m_Extent: {x: 2, y: 2.25, z: 0}
+    m_Center: {x: 2, y: 1.375, z: 0}
+    m_Extent: {x: 2, y: 1.875, z: 0}
   m_SpriteSortPoint: 0
 --- !u!114 &7946340453647349600
 MonoBehaviour:
@@ -187,7 +187,7 @@ MonoBehaviour:
       spriteIndex: 0
       corner: 1
       m_CornerMode: 1
-    - position: {x: 4, y: -1.25, z: 0}
+    - position: {x: 4, y: -0.5, z: 0}
       leftTangent: {x: 0, y: 0, z: 0}
       rightTangent: {x: 0, y: 0, z: 0}
       mode: 0
@@ -195,7 +195,7 @@ MonoBehaviour:
       spriteIndex: 0
       corner: 1
       m_CornerMode: 1
-    - position: {x: 0.75, y: -1.25, z: 0}
+    - position: {x: 0.75, y: -0.5, z: 0}
       leftTangent: {x: 0, y: 0, z: 0}
       rightTangent: {x: 0, y: 0, z: 0}
       mode: 0
@@ -227,8 +227,8 @@ MonoBehaviour:
   - {x: 0, y: 0}
   - {x: 1, y: 3.25}
   - {x: 4, y: 3.25}
-  - {x: 4, y: -1.25}
-  - {x: 0.75, y: -1.25}
+  - {x: 4, y: -0.5}
+  - {x: 0.75, y: -0.5}
   m_ShadowSegment: []
 --- !u!114 &1364320326196508743
 MonoBehaviour:
