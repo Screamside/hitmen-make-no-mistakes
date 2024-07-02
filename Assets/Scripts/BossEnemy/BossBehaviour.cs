@@ -34,7 +34,7 @@ public class BossBehaviour : MonoBehaviour
     [HideInInspector]public GameObject smgObject;
     [HideInInspector]public Transform smgShootingPosition;
     
-    [FoldoutGroup("Gun", nameof(smgObject), nameof(gunShootingPosition))]
+    [FoldoutGroup("Gun", nameof(gunObject), nameof(gunShootingPosition))]
     [SerializeField]private Void _gun;
     [HideInInspector]public GameObject gunObject;
     [HideInInspector]public Transform gunShootingPosition;
@@ -43,7 +43,7 @@ public class BossBehaviour : MonoBehaviour
     [SerializeField]private Void _bat;
     [HideInInspector]public GameObject batObject;
     
-    [FoldoutGroup("Bat", nameof(dynamiteObject))]
+    [FoldoutGroup("Dynamite", nameof(dynamiteObject))]
     [SerializeField]private Void _dynamite;
     [HideInInspector]public GameObject dynamiteObject;
     

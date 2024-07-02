@@ -36,6 +36,7 @@ public class BossMovingCloserState : BossState
         else
         {
 
+            _hostileEnemyBehaviour.SwitchToNextState();
             
         }
         
