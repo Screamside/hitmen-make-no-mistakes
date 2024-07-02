@@ -249,7 +249,7 @@ public class GameManager : MonoBehaviour
     {
         Tween.Delay(2f, () =>
         {
-            UIController.ShowDialogue("After persuading them on telling that the pizza was in the car, you managed to escape. \n\nYou should get some props ready before doing this generic way of infiltrating...");
+            UIController.ShowDialogue("After persuading them on telling that the pizza was in the car, you managed to escape. \n\nYou should take some precautions before performing this generic way of infiltrating...");
         });
     }
 }
