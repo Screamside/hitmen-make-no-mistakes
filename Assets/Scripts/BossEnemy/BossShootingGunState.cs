@@ -10,7 +10,7 @@ public class BossShootingGunState : BossState
             enemyBehaviour.SpawnGunBullet();
             Tween.Delay(enemyBehaviour.delayAfterShooting, () =>
             {
-                //enemyBehaviour.SwitchState(BossStateType.MovingAway);
+                enemyBehaviour.SwitchToNextState();
             });
         });
     }

@@ -12,7 +12,8 @@ public class ExitDoorInteract : MonoBehaviour, IInteractable
 
         if (GameManager.IsCutsceneDone("ChooseReceptionPark"))
         {
-            GameManager.StartCarParkArea();
+            GameEvents.OnChangeRoom.Invoke();
+            Tween.Delay(0.5f, () => { GameManager.StartCarParkArea(); });
             return;
         }
         

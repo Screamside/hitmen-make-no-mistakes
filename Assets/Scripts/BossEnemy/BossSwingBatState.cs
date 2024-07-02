@@ -30,10 +30,7 @@ public class BossSwingBatState : BossState
                 .Group(Tween.Position(enemyBehaviour.batObject.transform, originalPosition, enemyBehaviour.swingBatTime))
                 .Chain(Tween.Rotation(enemyBehaviour.batObject.transform, Quaternion.Euler(originalRotation), enemyBehaviour.resetBatRotationTime))
                 .Chain(Tween.Delay(enemyBehaviour.delayAfterSwing))
-                .OnComplete(() =>
-                {
-                    //enemyBehaviour.SwitchState(BossStateType.MovingAway);
-                });
+                .OnComplete(enemyBehaviour.SwitchToNextState);
         }
         else
         {
@@ -48,10 +45,7 @@ public class BossSwingBatState : BossState
                 .Group(Tween.Position(enemyBehaviour.batObject.transform, originalPosition, enemyBehaviour.swingBatTime))
                 .Chain(Tween.Rotation(enemyBehaviour.batObject.transform, Quaternion.Euler(originalRotation), enemyBehaviour.resetBatRotationTime))
                 .Chain(Tween.Delay(enemyBehaviour.delayAfterSwing))
-                .OnComplete(() =>
-                {
-                    //enemyBehaviour.SwitchState(BossStateType.MovingAway);
-                });
+                .OnComplete(enemyBehaviour.SwitchToNextState);
         }
 
     }
