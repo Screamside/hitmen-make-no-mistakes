@@ -6819,7 +6819,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 6
+  orthographic size: 8
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -6844,7 +6844,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 22.75, y: -66.5, z: -10}
+  m_LocalPosition: {x: 93.002426, y: -18.72047, z: -16.125011}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -31181,6 +31181,14 @@ PrefabInstance:
       propertyPath: m_Creator
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6916108768667399487, guid: b000edc140b9f5647ac7c198ec062c4a, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: -4915081219200405151, guid: bc72ab91521198b45b0b2ac8a2c10faf, type: 3}
+    - target: {fileID: 8767429892507314087, guid: b000edc140b9f5647ac7c198ec062c4a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 6476139748964665699, guid: bc72ab91521198b45b0b2ac8a2c10faf, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
