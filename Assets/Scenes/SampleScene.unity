@@ -8102,6 +8102,37 @@ Transform:
   - {fileID: 925123531}
   m_Father: {fileID: 5240124634288637727}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &591539266
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 591539267}
+  m_Layer: 0
+  m_Name: BatMan1_point2 (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &591539267
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 591539266}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 22.25, y: 6.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2060540758}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &596983110
 GameObject:
   m_ObjectHideFlags: 0
@@ -28036,7 +28067,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6484580540174376509, guid: 351b60e0f7eb7494eab724e72e134c6c, type: 3}
       propertyPath: isStatic
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6484580540174376509, guid: 351b60e0f7eb7494eab724e72e134c6c, type: 3}
+      propertyPath: alertTimer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6484580540174376509, guid: 351b60e0f7eb7494eab724e72e134c6c, type: 3}
       propertyPath: 'points.Array.data[0]'
@@ -28045,7 +28080,7 @@ PrefabInstance:
     - target: {fileID: 6484580540174376509, guid: 351b60e0f7eb7494eab724e72e134c6c, type: 3}
       propertyPath: 'points.Array.data[1]'
       value: 
-      objectReference: {fileID: 2026504338}
+      objectReference: {fileID: 591539267}
     - target: {fileID: 7946340453647349600, guid: 351b60e0f7eb7494eab724e72e134c6c, type: 3}
       propertyPath: m_Creator
       value: 
@@ -40618,6 +40653,7 @@ Transform:
   m_Children:
   - {fileID: 19336691}
   - {fileID: 2026504338}
+  - {fileID: 591539267}
   - {fileID: 1985704093}
   - {fileID: 1819934174}
   - {fileID: 1038543402}
