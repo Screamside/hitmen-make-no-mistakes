@@ -76,6 +76,11 @@ public class BossBehaviour : MonoBehaviour
     {
         player = FindFirstObjectByType<PlayerController>();
         
+        dynamiteObject.SetActive(false);
+        batObject.SetActive(false);
+        smgObject.SetActive(false);
+        gunObject.SetActive(true);
+        stateIndex++;
         _currentState = _stateFactory.GetStateFromType(stateOrder[stateIndex]);
         stateIndex++;
         _currentState.EnterState(this);
@@ -217,6 +222,7 @@ public class BossStateFactory
     private BossMovingCloserState _movingCloser = new ();
     private BossMovingAwayState _movingAway = new ();
     private BossSwingBatState _swing = new ();
+    private BossDynamiteState _dynamite = new ();
     
     public BossState GetStateFromType(BossStateType stateType)
     {
@@ -233,6 +239,8 @@ public class BossStateFactory
                 return _shootingSMG;
             case BossStateType.Swing:
                 return _swing;
+            case BossStateType.Dynamite:
+                return _dynamite;
         }
         
         return null;

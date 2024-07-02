@@ -23,6 +23,7 @@ public class PlayerHealth : MonoBehaviour
 
         if (currentHealth <= 0)
         {
+            currentHealth = health;
             GameManager.RestartFromMistake("DiedFromBullet");
         }
 
