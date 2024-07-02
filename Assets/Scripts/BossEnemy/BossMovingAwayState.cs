@@ -50,7 +50,6 @@ public class BossMovingAwayState : BossState
             .OnComplete(() =>
             {
                 _hostileEnemyBehaviour.SwitchToNextState();
-                
             });
 
     }

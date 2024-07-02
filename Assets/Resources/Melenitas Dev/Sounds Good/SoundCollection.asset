@@ -60,37 +60,37 @@ MonoBehaviour:
     forceToMono: 0
   - tag: Shoot
     clips:
-    - {fileID: 8300000, guid: 7affb960eb7f6b44fafca7e829a95544, type: 3}
+    - {fileID: 8300000, guid: e8bccd05509c33a4ab456e367ada69f3, type: 3}
     compressionPreset: 1
     forceToMono: 0
   - tag: Explosion
     clips:
-    - {fileID: 8300000, guid: 175cabc2cf261344dabfa728ff4703a9, type: 3}
+    - {fileID: 8300000, guid: 83f9a34e28775e8429d9e716fdee0d85, type: 3}
     compressionPreset: 1
     forceToMono: 0
   - tag: Damage
     clips:
-    - {fileID: 8300000, guid: f7c5c41deb39db447ba06b94523d61a7, type: 3}
+    - {fileID: 8300000, guid: a7c175cf34dbb634e8ffe62b9a824171, type: 3}
     compressionPreset: 1
     forceToMono: 0
   - tag: Die
     clips:
-    - {fileID: 8300000, guid: 9f1f7430c9fc37d4db23b37b900aacc9, type: 3}
+    - {fileID: 8300000, guid: 79a0bb649f523654abd9bae1cc056829, type: 3}
     compressionPreset: 1
     forceToMono: 0
   - tag: Car
     clips:
-    - {fileID: 8300000, guid: dca4c868687687443a24129af2fb715f, type: 3}
+    - {fileID: 8300000, guid: 62cb6e69429f7c74398e11a7bdbffc4e, type: 3}
     compressionPreset: 1
     forceToMono: 0
   - tag: Letter
     clips:
-    - {fileID: 8300000, guid: 588da93bc51589147a9740b405d2817d, type: 3}
+    - {fileID: 8300000, guid: d061c2c62bbfb894ea91fb2109eb759f, type: 3}
     compressionPreset: 1
     forceToMono: 0
   - tag: MistakeTrigger
     clips:
-    - {fileID: 8300000, guid: e36c8d47c2aac5840a6cacd17e6412da, type: 3}
+    - {fileID: 8300000, guid: 99c3bbaae2d819a439ebacb7210c27f7, type: 3}
     compressionPreset: 1
     forceToMono: 0
   - tag: Jump

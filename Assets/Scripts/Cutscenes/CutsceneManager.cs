@@ -19,6 +19,8 @@ public class CutsceneManager : MonoBehaviour
 
     public bool wasLastAMistake;
 
+    private Sound mistakeTrigger;
+
     private void Awake()
     {
         if(Instance != null && Instance != this)
@@ -32,7 +34,9 @@ public class CutsceneManager : MonoBehaviour
         }
         
         GameEvents.OnCutsceneFinished.AddListener(Handle);
-        
+
+        mistakeTrigger = new Sound(SFX.MistakeTrigger).SetSpatialSound(false).SetOutput(Output.SFX);
+
     }
 
     private void Handle()
@@ -107,7 +111,7 @@ public class CutsceneManager : MonoBehaviour
         }
         
         GameManager.StopSoundtrack();
-        new Sound(SFX.MistakeTrigger).SetSpatialSound(false).SetOutput(Output.SFX).Play();
+         Instance.mistakeTrigger.Play();
         
         GameManager.DisablePlayerControls();
         

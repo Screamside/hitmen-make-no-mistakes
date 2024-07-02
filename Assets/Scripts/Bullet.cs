@@ -5,12 +5,20 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public float speed = 5f;
-    
+
+    private Sound bulletSound;
+
+    private void Awake()
+    {
+        bulletSound = new Sound(SFX.Shoot).SetSpatialSound(false).SetOutput(Output.SFX);
+    }
+
     private void Start()
     {
         Destroy(gameObject, 5f);
         
-        new Sound(SFX.Shoot).SetSpatialSound(false).SetOutput(Output.SFX).Play();
+        
+        bulletSound.Play();
     }
     
     private void FixedUpdate()

@@ -10,6 +10,17 @@ public class LivingEntity : MonoBehaviour
     [ReadOnly]public int currentHealth;
     public SpriteRenderer sprite;
 
+    public EnemyActivator enemyActivator;
+
+    private Sound damage;
+    private Sound die;
+
+    private void Awake()
+    {
+        damage = new Sound(SFX.Damage).SetOutput(Output.SFX).SetSpatialSound(false);
+        die = new Sound(SFX.Die).SetOutput(Output.SFX).SetSpatialSound(false);
+    }
+
     private void OnEnable()
     {
         currentHealth = health;
@@ -24,12 +35,13 @@ public class LivingEntity : MonoBehaviour
         if (currentHealth <= 0)
         {
             Destroy(gameObject, 10f);
-            new Sound(SFX.Die).SetOutput(Output.SFX).SetSpatialSound(false).Play();
+            enemyActivator.EnemyDied();
+            die.Play();
             gameObject.SetActive(false);
             return;
         }
         
-        new Sound(SFX.Damage).SetOutput(Output.SFX).SetSpatialSound(false).Play();
+        damage.Play();
         
     }
     

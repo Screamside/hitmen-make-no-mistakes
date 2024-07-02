@@ -125,7 +125,10 @@ public class HostileEnemyBehaviour : MonoBehaviour
 
         if (smgMan)
         {
-            StartCoroutine(SpawnSMGBullets());
+            if (gameObject.activeSelf)
+            {
+                StartCoroutine(SpawnSMGBullets());
+            }
             return;
         }
 
