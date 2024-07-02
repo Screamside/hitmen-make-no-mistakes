@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ae971f0d7844c264abda637cc8edb20c
+guid: a469bc396bfb5594cb87180c6c317291
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,7 +97,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638555419701248159
+  platformSettingsDirtyTick: 638555409949470172
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -122,7 +122,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: cutsceneSurroundedByEnemies
+  - name: anime_room
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -132,9 +132,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 101
-      height: 48
-    spriteID: 2ebcf77ece7809045ab54480d161b7be
+      width: 128
+      height: 32
+    spriteID: 2db1f87a03187ea40ae6df6a854a86e5
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -146,21 +146,21 @@ ScriptedImporter:
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: 1356628648
-    name: cutsceneSurroundedByEnemies
+    guid: 93023500
+    name: anime_room
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: cutsceneSurroundedByEnemies
+    - name: anime_room
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
         x: 0
         y: 0
-        width: 101
-        height: 48
-      spriteId: 2ebcf77ece7809045ab54480d161b7be
+        width: 128
+        height: 32
+      spriteId: 2db1f87a03187ea40ae6df6a854a86e5
     linkedCells: []
     parentIndex: -1
   platformSettings:
@@ -191,4 +191,4 @@ ScriptedImporter:
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 101, y: 48}
+  canvasSize: {x: 128, y: 32}

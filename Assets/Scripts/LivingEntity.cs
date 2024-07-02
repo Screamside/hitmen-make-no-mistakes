@@ -1,5 +1,6 @@
 using System;
 using EditorAttributes;
+using MelenitasDev.SoundsGood;
 using PrimeTween;
 using UnityEngine;
 
@@ -23,8 +24,13 @@ public class LivingEntity : MonoBehaviour
         if (currentHealth <= 0)
         {
             Destroy(gameObject, 10f);
+            new Sound(SFX.Die).SetOutput(Output.SFX).SetSpatialSound(false).Play();
             gameObject.SetActive(false);
+            return;
         }
         
+        new Sound(SFX.Damage).SetOutput(Output.SFX).SetSpatialSound(false).Play();
+        
     }
+    
 }

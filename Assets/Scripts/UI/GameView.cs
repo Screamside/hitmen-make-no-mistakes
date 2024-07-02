@@ -1,6 +1,7 @@
 ﻿
 using System;
 using System.Collections;
+using MelenitasDev.SoundsGood;
 using PrimeTween;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -23,6 +24,8 @@ public class GameView : View
 
     private string _textToAnimate;
 
+    private Sound letterSound;
+
     private void OnEnable()
     {
         _overlay = ui.rootVisualElement.Q<VisualElement>("Overlay");
@@ -36,6 +39,8 @@ public class GameView : View
         
         _leftChoice.clicked += () => GameEvents.OnPlayerChooses.Invoke("left");
         _rightChoice.clicked += () => GameEvents.OnPlayerChooses.Invoke("right");
+
+        letterSound = new Sound(SFX.Letter).SetOutput(Output.SFX).SetSpatialSound(false);
     }
 
     public override void InitializeView(UIController uiController)
@@ -98,6 +103,7 @@ public class GameView : View
         _dialogueLabel.style.unityTextAlign = TextAnchor.UpperLeft;
         
         StartCoroutine(TypeWriterEffect());
+        letterSound.Play();
     }
 
     public void HideDialogueBox()
@@ -118,6 +124,7 @@ public class GameView : View
             {
                 continue;
             }
+            
             yield return new WaitForSeconds(0.025f);
             
         }

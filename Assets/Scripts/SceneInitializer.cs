@@ -7,6 +7,8 @@ public class SceneInitializer : MonoBehaviour
     
     public CinemachineCamera cinemachineCamera;
     public string SceneName;
+    public Soundtracks sceneSoundTrack;
+    public bool forceReplay;
     
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -16,6 +18,7 @@ public class SceneInitializer : MonoBehaviour
             cinemachineCamera.gameObject.SetActive(true);
             CutsceneManager.Instance.currentCamera = cinemachineCamera;
             GameEvents.OnEnteredScene.Invoke(SceneName);
+            GameManager.PlaySoundtrack(sceneSoundTrack, forceReplay);
         }
         
     }

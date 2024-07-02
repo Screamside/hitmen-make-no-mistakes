@@ -1,4 +1,5 @@
 using System;
+using MelenitasDev.SoundsGood;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
@@ -8,6 +9,8 @@ public class Bullet : MonoBehaviour
     private void Start()
     {
         Destroy(gameObject, 5f);
+        
+        new Sound(SFX.Shoot).SetSpatialSound(false).SetOutput(Output.SFX).Play();
     }
     
     private void FixedUpdate()
@@ -25,7 +28,7 @@ public class Bullet : MonoBehaviour
         if (other.TryGetComponent(out LivingEntity livingEntity))
         {
             livingEntity.Damage(1);
-            Destroy(gameObject );
+            Destroy(gameObject);
         }
     }
 }

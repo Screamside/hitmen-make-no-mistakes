@@ -2,6 +2,22 @@ namespace MelenitasDev.SoundsGood
 {
 	public enum SFX
 	{
-		PlayerJump
+		PlayerJump,
+		Boss,
+		Stealth,
+		Fight,
+		Mistake,
+		MistakeStart,
+		StealthStart,
+		FightStart,
+		BossStart,
+		Shoot,
+		Explosion,
+		Damage,
+		Die,
+		Car,
+		Letter,
+		MistakeTrigger,
+		Jump
 	}
 }

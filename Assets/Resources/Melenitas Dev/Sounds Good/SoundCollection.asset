@@ -18,3 +18,83 @@ MonoBehaviour:
     - {fileID: 8300000, guid: ec230000ffbb2f04c8c25bc9463b4035, type: 3}
     compressionPreset: 1
     forceToMono: 0
+  - tag: Boss
+    clips:
+    - {fileID: 8300000, guid: 426d9393b08c92745b174055dc398ff9, type: 3}
+    compressionPreset: 0
+    forceToMono: 0
+  - tag: Stealth
+    clips:
+    - {fileID: 8300000, guid: 95c78854fce9ced4c8db6519af7cd2d5, type: 3}
+    compressionPreset: 0
+    forceToMono: 0
+  - tag: Fight
+    clips:
+    - {fileID: 8300000, guid: b63b6c7946fbe8a4ebc883281df0d73e, type: 3}
+    compressionPreset: 0
+    forceToMono: 0
+  - tag: Mistake
+    clips:
+    - {fileID: 8300000, guid: 45ad52eb381d8894587bf4f7f5b88832, type: 3}
+    compressionPreset: 0
+    forceToMono: 0
+  - tag: MistakeStart
+    clips:
+    - {fileID: 8300000, guid: f96f9d068e0f5e84da191f95070b341c, type: 3}
+    compressionPreset: 2
+    forceToMono: 0
+  - tag: StealthStart
+    clips:
+    - {fileID: 8300000, guid: b6a0bf3dddd6da74eb6400d7d51e480a, type: 3}
+    compressionPreset: 2
+    forceToMono: 0
+  - tag: FightStart
+    clips:
+    - {fileID: 8300000, guid: 257ee56dda6b87c4080d6ef0bc0cb3e7, type: 3}
+    compressionPreset: 2
+    forceToMono: 0
+  - tag: BossStart
+    clips:
+    - {fileID: 8300000, guid: e5ae92b19e8e547409cee2017585b90b, type: 3}
+    compressionPreset: 1
+    forceToMono: 0
+  - tag: Shoot
+    clips:
+    - {fileID: 8300000, guid: 7affb960eb7f6b44fafca7e829a95544, type: 3}
+    compressionPreset: 1
+    forceToMono: 0
+  - tag: Explosion
+    clips:
+    - {fileID: 8300000, guid: 175cabc2cf261344dabfa728ff4703a9, type: 3}
+    compressionPreset: 1
+    forceToMono: 0
+  - tag: Damage
+    clips:
+    - {fileID: 8300000, guid: f7c5c41deb39db447ba06b94523d61a7, type: 3}
+    compressionPreset: 1
+    forceToMono: 0
+  - tag: Die
+    clips:
+    - {fileID: 8300000, guid: 9f1f7430c9fc37d4db23b37b900aacc9, type: 3}
+    compressionPreset: 1
+    forceToMono: 0
+  - tag: Car
+    clips:
+    - {fileID: 8300000, guid: dca4c868687687443a24129af2fb715f, type: 3}
+    compressionPreset: 1
+    forceToMono: 0
+  - tag: Letter
+    clips:
+    - {fileID: 8300000, guid: 588da93bc51589147a9740b405d2817d, type: 3}
+    compressionPreset: 1
+    forceToMono: 0
+  - tag: MistakeTrigger
+    clips:
+    - {fileID: 8300000, guid: e36c8d47c2aac5840a6cacd17e6412da, type: 3}
+    compressionPreset: 1
+    forceToMono: 0
+  - tag: Jump
+    clips:
+    - {fileID: 8300000, guid: ec230000ffbb2f04c8c25bc9463b4035, type: 3}
+    compressionPreset: 1
+    forceToMono: 0

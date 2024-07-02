@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ae971f0d7844c264abda637cc8edb20c
+guid: fef72fcc63713e749ab81fdbd1859c27
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -35,7 +35,7 @@ ScriptedImporter:
     spriteMeshType: 1
     alignment: 0
     spritePivot: {x: 0.5, y: 0.5}
-    spritePixelsToUnits: 4
+    spritePixelsToUnits: 100
     spriteBorder: {x: 0, y: 0, z: 0, w: 0}
     spriteGenerateFallbackPhysicsShape: 0
     generateCubemap: 6
@@ -97,7 +97,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638555419701248159
+  platformSettingsDirtyTick: 0
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -122,7 +122,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: cutsceneSurroundedByEnemies
+  - name: PlayerHP1
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -132,9 +132,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 101
-      height: 48
-    spriteID: 2ebcf77ece7809045ab54480d161b7be
+      width: 2
+      height: 2
+    spriteID: a46ae6ca0ffce19408f3dfe4f7eb244b
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -146,49 +146,25 @@ ScriptedImporter:
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: 1356628648
-    name: cutsceneSurroundedByEnemies
+    guid: 135906106
+    name: PlayerHP1
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: cutsceneSurroundedByEnemies
+    - name: PlayerHP1
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
         x: 0
         y: 0
-        width: 101
-        height: 48
-      spriteId: 2ebcf77ece7809045ab54480d161b7be
+        width: 2
+        height: 2
+      spriteId: a46ae6ca0ffce19408f3dfe4f7eb244b
     linkedCells: []
     parentIndex: -1
-  platformSettings:
-  - name: DefaultTexturePlatform
-    overridden: 0
-    ignorePlatformSupport: 0
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    androidETC2FallbackOverride: 0
-  - name: Standalone
-    overridden: 0
-    ignorePlatformSupport: 0
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    androidETC2FallbackOverride: 0
+  platformSettings: []
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 101, y: 48}
+  canvasSize: {x: 2, y: 2}

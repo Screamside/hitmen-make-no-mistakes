@@ -149,6 +149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  audioClip: {fileID: 8300000, guid: 7affb960eb7f6b44fafca7e829a95544, type: 3}
 --- !u!50 &1258303879086063517
 Rigidbody2D:
   serializedVersion: 4
