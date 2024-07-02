@@ -56,7 +56,8 @@ public class HostileEnemyBehaviour : MonoBehaviour
     public SpriteRenderer weaponSpriteRenderer;
     public GameObject warning;
     public float delayBetweenShots;
-
+    
+    private Coroutine smgCoroutine;
     private Vector3 _previousPosition;
     
     private void Awake()
@@ -65,6 +66,11 @@ public class HostileEnemyBehaviour : MonoBehaviour
         
         _currentState = _stateFactory.GetStateFromType(HostileEnemyStateType.MovingCloser);
         _currentState.EnterState(this);
+    }
+
+    private void OnDisable()
+    {
+        StopAllCoroutines();
     }
 
     public void SwitchState(HostileEnemyStateType stateType)
@@ -127,7 +133,7 @@ public class HostileEnemyBehaviour : MonoBehaviour
         {
             if (gameObject.activeSelf)
             {
-                StartCoroutine(SpawnSMGBullets());
+                smgCoroutine = StartCoroutine(SpawnSMGBullets());
             }
             return;
         }
