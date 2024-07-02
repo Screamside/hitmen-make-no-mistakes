@@ -110,6 +110,9 @@ public class Cutscene
                 if (cut.type.Equals(CutType.Cutscene))
                 {
                     CutsceneManager.PlayCutscene(cut.cutscene.cutsceneName);
+                    UIController.HideDialogue();
+                    UIController.HideChoices();
+                    UIController.HideMistakeTitle();
                     yield break;
                 }
                 
