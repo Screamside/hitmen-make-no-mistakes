@@ -12,7 +12,7 @@ public class BossBehaviour : MonoBehaviour
 {
     [FoldoutGroup("Controller", nameof(stateOrder), nameof(animator), nameof(player), nameof(smgMan), nameof(batMan))]
     [SerializeField]private Void _controllerGroup;
-    [HideInInspector]public List<BossHostileEnemyStateType> stateOrder;
+    [HideInInspector]public List<BossStateType> stateOrder;
     [HideInInspector]public Animator animator;
     [HideInInspector]public PlayerController player;
     [HideInInspector]public bool smgMan = false;

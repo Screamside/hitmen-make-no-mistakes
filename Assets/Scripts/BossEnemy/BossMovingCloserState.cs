@@ -1,14 +1,14 @@
 ﻿using UnityEngine;
 
-public class BossMovingCloserState : HostileEnemyState
+public class BossMovingCloserState : BossState
 {
 
-    private HostileEnemyBehaviour _hostileEnemyBehaviour;
+    private BossBehaviour _hostileEnemyBehaviour;
 
     private Transform _transform;
     private Transform _playerTransform;
     
-    public override void EnterState(HostileEnemyBehaviour enemyBehaviour)
+    public override void EnterState(BossBehaviour enemyBehaviour)
     {
         _hostileEnemyBehaviour = enemyBehaviour;
         _transform = enemyBehaviour.transform;
@@ -38,11 +38,11 @@ public class BossMovingCloserState : HostileEnemyState
 
             if (_hostileEnemyBehaviour.batMan)
             {
-                _hostileEnemyBehaviour.SwitchState(HostileEnemyStateType.Swing);
+                _hostileEnemyBehaviour.SwitchState(BossStateType.Swing);
             }
             else
             {
-                _hostileEnemyBehaviour.SwitchState(HostileEnemyStateType.Shooting);
+                _hostileEnemyBehaviour.SwitchState(BossStateType.Shooting);
             }
         }
         

@@ -2,13 +2,13 @@
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class BossMovingAwayState : HostileEnemyState
+public class BossMovingAwayState : BossState
 {
     
-    private HostileEnemyBehaviour _hostileEnemyBehaviour;
+    private BossBehaviour _hostileEnemyBehaviour;
     private Transform _transform;
     
-    public override void EnterState(HostileEnemyBehaviour hostileEnemyBehaviour)
+    public override void EnterState(BossBehaviour hostileEnemyBehaviour)
     {
         _hostileEnemyBehaviour = hostileEnemyBehaviour;
         _transform = hostileEnemyBehaviour.transform;
@@ -50,7 +50,7 @@ public class BossMovingAwayState : HostileEnemyState
         Tween.PositionAtSpeed(_hostileEnemyBehaviour.transform, finalPosition, hostileEnemyBehaviour.moveSpeed, ease: Ease.Linear)
             .OnComplete(() =>
             {
-                _hostileEnemyBehaviour.SwitchState(HostileEnemyStateType.MovingCloser);
+                _hostileEnemyBehaviour.SwitchState(BossStateType.MovingCloser);
                 
             });
 

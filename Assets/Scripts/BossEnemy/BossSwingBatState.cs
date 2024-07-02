@@ -3,9 +3,9 @@ using Unity.VisualScripting;
 using UnityEngine;
 using Sequence = PrimeTween.Sequence;
 
-public class BossSwingBatState : HostileEnemyState
+public class BossSwingBatState : BossState
 {
-    public override void EnterState(HostileEnemyBehaviour enemyBehaviour)
+    public override void EnterState(BossBehaviour enemyBehaviour)
     {
 
         Vector3 originalRotation = enemyBehaviour.weaponGameObject.transform.eulerAngles;
@@ -32,7 +32,7 @@ public class BossSwingBatState : HostileEnemyState
                 .Chain(Tween.Delay(enemyBehaviour.delayAfterSwing))
                 .OnComplete(() =>
                 {
-                    enemyBehaviour.SwitchState(HostileEnemyStateType.MovingAway);
+                    enemyBehaviour.SwitchState(BossStateType.MovingAway);
                 });
         }
         else
@@ -50,7 +50,7 @@ public class BossSwingBatState : HostileEnemyState
                 .Chain(Tween.Delay(enemyBehaviour.delayAfterSwing))
                 .OnComplete(() =>
                 {
-                    enemyBehaviour.SwitchState(HostileEnemyStateType.MovingAway);
+                    enemyBehaviour.SwitchState(BossStateType.MovingAway);
                 });
         }
 
