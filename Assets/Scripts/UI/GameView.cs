@@ -103,7 +103,7 @@ public class GameView : View
         _dialogueLabel.style.unityTextAlign = TextAnchor.UpperLeft;
         
         StartCoroutine(TypeWriterEffect());
-        letterSound.Play();
+        
     }
 
     public void HideDialogueBox()
