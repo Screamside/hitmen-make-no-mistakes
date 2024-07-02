@@ -145,8 +145,8 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 4}
   - name: laserTripwireWithAnimation_Frame_1
     originalName: 
-    pivot: {x: 0.5, y: 0}
-    alignment: 9
+    pivot: {x: 1, y: 0}
+    alignment: 8
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
