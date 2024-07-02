@@ -16,7 +16,7 @@ public class Bullet : MonoBehaviour
 
     private void Start()
     {
-        Destroy(gameObject, 5f);
+        Destroy(gameObject, 2f);
         
         bulletSound.Play();
     }

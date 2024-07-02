@@ -4989,7 +4989,7 @@ MonoBehaviour:
   delayAfterSwing: 0
   weaponSpriteRenderer: {fileID: 0}
   warning: {fileID: 0}
-  delayBetweenShots: 0.65
+  delayBetweenShots: 0.75
 --- !u!61 &1340640518428948459
 BoxCollider2D:
   m_ObjectHideFlags: 0

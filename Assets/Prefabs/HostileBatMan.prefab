@@ -456,3 +456,4 @@ MonoBehaviour:
   health: 3
   currentHealth: 0
   sprite: {fileID: 8208949222775094691}
+  enemyActivator: {fileID: 0}
