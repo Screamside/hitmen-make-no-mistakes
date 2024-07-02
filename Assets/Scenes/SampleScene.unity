@@ -21733,10 +21733,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 363453874}
     m_Modifications:
+    - target: {fileID: 5444501637343518487, guid: 351b60e0f7eb7494eab724e72e134c6c, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 8365518033562068973, guid: 8e15d3d99c166fb4eb9d0682e2cd4097, type: 3}
     - target: {fileID: 5459550380601801461, guid: 351b60e0f7eb7494eab724e72e134c6c, type: 3}
       propertyPath: m_Name
       value: GunMan1 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5593909580103323059, guid: 351b60e0f7eb7494eab724e72e134c6c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -872001153980996452, guid: 8e15d3d99c166fb4eb9d0682e2cd4097, type: 3}
     - target: {fileID: 6484580540174376509, guid: 351b60e0f7eb7494eab724e72e134c6c, type: 3}
       propertyPath: 'points.Array.data[0]'
       value: 
@@ -27293,10 +27301,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 363453874}
     m_Modifications:
+    - target: {fileID: 5444501637343518487, guid: 351b60e0f7eb7494eab724e72e134c6c, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 8673239866238626133, guid: 90118e41d667fec4293f04bf2a9d9060, type: 3}
     - target: {fileID: 5459550380601801461, guid: 351b60e0f7eb7494eab724e72e134c6c, type: 3}
       propertyPath: m_Name
       value: GunMan1 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 5593909580103323059, guid: 351b60e0f7eb7494eab724e72e134c6c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 5188379505876108177, guid: 90118e41d667fec4293f04bf2a9d9060, type: 3}
     - target: {fileID: 6484580540174376509, guid: 351b60e0f7eb7494eab724e72e134c6c, type: 3}
       propertyPath: isStatic
       value: 0
@@ -32140,10 +32156,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 363453874}
     m_Modifications:
+    - target: {fileID: 5444501637343518487, guid: 351b60e0f7eb7494eab724e72e134c6c, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 8673239866238626133, guid: 90118e41d667fec4293f04bf2a9d9060, type: 3}
     - target: {fileID: 5459550380601801461, guid: 351b60e0f7eb7494eab724e72e134c6c, type: 3}
       propertyPath: m_Name
       value: GunMan1
       objectReference: {fileID: 0}
+    - target: {fileID: 5593909580103323059, guid: 351b60e0f7eb7494eab724e72e134c6c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 5188379505876108177, guid: 90118e41d667fec4293f04bf2a9d9060, type: 3}
     - target: {fileID: 6484580540174376509, guid: 351b60e0f7eb7494eab724e72e134c6c, type: 3}
       propertyPath: 'points.Array.data[0]'
       value: 
@@ -40438,10 +40462,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 363453874}
     m_Modifications:
+    - target: {fileID: 5444501637343518487, guid: 351b60e0f7eb7494eab724e72e134c6c, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 8365518033562068973, guid: 8e15d3d99c166fb4eb9d0682e2cd4097, type: 3}
     - target: {fileID: 5459550380601801461, guid: 351b60e0f7eb7494eab724e72e134c6c, type: 3}
       propertyPath: m_Name
       value: GunMan1
       objectReference: {fileID: 0}
+    - target: {fileID: 5593909580103323059, guid: 351b60e0f7eb7494eab724e72e134c6c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -872001153980996452, guid: 8e15d3d99c166fb4eb9d0682e2cd4097, type: 3}
     - target: {fileID: 6484580540174376509, guid: 351b60e0f7eb7494eab724e72e134c6c, type: 3}
       propertyPath: 'points.Array.data[0]'
       value: 
