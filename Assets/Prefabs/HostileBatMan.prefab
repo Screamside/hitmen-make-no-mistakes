@@ -371,8 +371,8 @@ MonoBehaviour:
   smgMan: 0
   batMan: 1
   moveSpeed: 3
-  minDistanceToShoot: 1
-  maxDistanceToRunAway: 6
+  minDistanceToShoot: {x: 0.5, y: 1}
+  maxDistanceToRunAway: {x: 1, y: 10}
   layermask:
     serializedVersion: 2
     m_Bits: 128

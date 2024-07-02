@@ -20,7 +20,7 @@ public class BossBehaviour : MonoBehaviour
     [HideInInspector]public float maxDistanceToRunAway;
     [HideInInspector]public LayerMask layermask;
     
-    [FoldoutGroup("Shooting State", nameof(delayBeforeShooting), nameof(delayAfterShooting), nameof(bulletPrefab), nameof(bulletSpeed))]
+    [FoldoutGroup("Shooting State", nameof(delayBeforeShooting), nameof(delayAfterShooting), nameof(shootingAngle), nameof(bulletPrefab), nameof(bulletSpeed))]
     [SerializeField]private Void _shootingGroup;
     [HideInInspector]public float delayBeforeShooting;
     [HideInInspector]public float delayAfterShooting;
@@ -88,6 +88,12 @@ public class BossBehaviour : MonoBehaviour
 
     public void SwitchToNextState()
     {
+        
+        if(stateIndex >= stateOrder.Count)
+        {
+            stateIndex = 0;
+        }
+        
         _currentState.ExitState();
         
         switch (stateOrder[stateIndex])

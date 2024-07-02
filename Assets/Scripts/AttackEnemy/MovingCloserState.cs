@@ -7,12 +7,16 @@ public class MovingCloserState : HostileEnemyState
 
     private Transform _transform;
     private Transform _playerTransform;
+
+    private float randomDistance;
     
     public override void EnterState(HostileEnemyBehaviour enemyBehaviour)
     {
         _hostileEnemyBehaviour = enemyBehaviour;
         _transform = enemyBehaviour.transform;
         _playerTransform = enemyBehaviour.player.transform;
+        
+        randomDistance = Random.Range(enemyBehaviour.minDistanceToShoot.x, enemyBehaviour.minDistanceToShoot.y);
     }
 
     public override void UpdateState()
@@ -20,7 +24,7 @@ public class MovingCloserState : HostileEnemyState
         
         float distance = Vector3.Distance(_transform.position, _playerTransform.position);
 
-        if (distance > _hostileEnemyBehaviour.minDistanceToShoot)
+        if (distance > randomDistance)
         {
 
             if (_transform.position.x > _playerTransform.position.x)

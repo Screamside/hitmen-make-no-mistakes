@@ -18,7 +18,10 @@ public class MovingAwayState : HostileEnemyState
         if (_transform.position.x > hostileEnemyBehaviour.player.transform.position.x) // To the right of the player
         {
 
-            RaycastHit2D hit = Physics2D.Raycast(_transform.position + Vector3.up * 0.5f, Vector2.right, hostileEnemyBehaviour.maxDistanceToRunAway, hostileEnemyBehaviour.layermask);
+            float movingAway = Random.Range(hostileEnemyBehaviour.maxDistanceToRunAway.x,
+                hostileEnemyBehaviour.maxDistanceToRunAway.y);
+            
+            RaycastHit2D hit = Physics2D.Raycast(_transform.position + Vector3.up * 0.5f, Vector2.right, movingAway, hostileEnemyBehaviour.layermask);
             
             if (hit.collider != null)
             {
@@ -27,13 +30,17 @@ public class MovingAwayState : HostileEnemyState
             }
             else
             {
-                finalPosition = _transform.position + (Vector3.right * hostileEnemyBehaviour.maxDistanceToRunAway);
+                finalPosition = _transform.position + (Vector3.right * movingAway);
             }
             
         }
         else
         {
-            RaycastHit2D hit = Physics2D.Raycast(_transform.position + Vector3.up * 0.5f, Vector2.left, hostileEnemyBehaviour.maxDistanceToRunAway, hostileEnemyBehaviour.layermask);
+            
+            float movingAway = Random.Range(hostileEnemyBehaviour.maxDistanceToRunAway.x,
+                hostileEnemyBehaviour.maxDistanceToRunAway.y);
+            
+            RaycastHit2D hit = Physics2D.Raycast(_transform.position + Vector3.up * 0.5f, Vector2.left, movingAway, hostileEnemyBehaviour.layermask);
             
             if (hit.collider != null)
             {
@@ -41,7 +48,7 @@ public class MovingAwayState : HostileEnemyState
             }
             else
             {
-                finalPosition = _transform.position + (Vector3.left * hostileEnemyBehaviour.maxDistanceToRunAway);
+                finalPosition = _transform.position + (Vector3.left * movingAway);
                 Debug.Log("nowall");
             }
         }

@@ -21,8 +21,8 @@ public class HostileEnemyBehaviour : MonoBehaviour
     [FoldoutGroup("Moving State", nameof(moveSpeed), nameof(minDistanceToShoot), nameof(maxDistanceToRunAway), nameof(layermask))]
     [SerializeField]private Void _movingGroup;
     [HideInInspector]public float moveSpeed;
-    [HideInInspector]public float minDistanceToShoot;
-    [HideInInspector]public float maxDistanceToRunAway;
+    [HideInInspector, MinMaxSlider(0f, 20f)]public Vector2 minDistanceToShoot;
+    [HideInInspector, MinMaxSlider(0f, 20f)]public Vector2 maxDistanceToRunAway;
     [HideInInspector]public LayerMask layermask;
     
     [FoldoutGroup("Shooting State", nameof(delayBeforeShooting), nameof(delayAfterShooting), nameof(shootingPosition), nameof(weaponGameObject), nameof(bulletPrefab), nameof(shootingRange), nameof(bulletSpeed))]

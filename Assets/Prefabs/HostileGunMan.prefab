@@ -164,8 +164,8 @@ MonoBehaviour:
   smgMan: 0
   batMan: 0
   moveSpeed: 2
-  minDistanceToShoot: 7
-  maxDistanceToRunAway: 3
+  minDistanceToShoot: {x: 6, y: 8}
+  maxDistanceToRunAway: {x: 2, y: 4}
   layermask:
     serializedVersion: 2
     m_Bits: 128
@@ -249,6 +249,7 @@ MonoBehaviour:
   health: 3
   currentHealth: 0
   sprite: {fileID: 4968058696937923660}
+  enemyActivator: {fileID: 0}
 --- !u!1 &4084939701953536712
 GameObject:
   m_ObjectHideFlags: 0
