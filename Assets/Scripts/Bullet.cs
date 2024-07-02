@@ -38,6 +38,8 @@ public class Bullet : MonoBehaviour
     {
         if(other.CompareTag("Enemy") && owner == "enemy") return;
         
+        
+        
         if (other.TryGetComponent(out LivingEntity livingEntity))
         {
             livingEntity.Damage(1);
