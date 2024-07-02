@@ -110,6 +110,7 @@ public class Cutscene
                 if (cut.type.Equals(CutType.Cutscene))
                 {
                     CutsceneManager.PlayCutscene(cut.cutscene.cutsceneName);
+                    yield break;
                 }
                 
                 //==================== WAIT FOR INPUT
