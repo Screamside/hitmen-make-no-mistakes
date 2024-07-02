@@ -4,10 +4,6 @@ namespace MelenitasDev.SoundsGood
 	{
 		Master,
 		SFX,
-		Music,
-		Weather,
-		Mobs,
-		Interface,
-		VoiceChat
+		Music
 	}
 }

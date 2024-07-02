@@ -20,6 +20,8 @@ public class Cut
     [EnableField(nameof(type), CutType.Delay)] public DelayCut delay;
     [EnableField(nameof(type), CutType.Question)] public ChoiceCut choice;
     [EnableField(nameof(type), CutType.Cutscene)] public PlayCutsceneCut cutscene;
+
+    public string choiceId;
 }
 
 public enum CutType

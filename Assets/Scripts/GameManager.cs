@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Numerics;
+using MelenitasDev.SoundsGood;
 using PrimeTween;
 using Unity.Cinemachine;
 using UnityEngine;
@@ -18,6 +19,10 @@ public class GameManager : MonoBehaviour
     public Transform restartPoint;
     public Transform carParkPoint;
 
+    private Soundtracks currentSoundtrack;
+    private Sound playingSoundtrack;
+    private Sound playingLoopedSoundtrack;
+    
     private void Awake() 
     {
         if (Instance != null && Instance != this) 
@@ -46,11 +51,64 @@ public class GameManager : MonoBehaviour
             InputSystem.onAnyButtonPress.CallOnce(HandleAnyKeyPress);
         }
         
+        PlaySoundtrack(Soundtracks.Fight, true);
+        
     }
 
     private void Start()
     {
         player = FindFirstObjectByType<PlayerController>();
+    }
+
+    public static void StopSoundtrack()
+    {
+        Instance.playingSoundtrack?.Stop();
+        Instance.playingLoopedSoundtrack?.Stop();
+    }
+    
+    public static void PlaySoundtrack(Soundtracks sound, bool force = false)
+    {
+        
+        if (Instance.currentSoundtrack == sound && !force)
+        {
+            return;
+        }
+
+        Instance.currentSoundtrack = sound;
+        
+        StopSoundtrack();
+        
+        switch (sound)
+        {
+            case Soundtracks.Mistake:
+                Instance.playingSoundtrack = new Sound(SFX.MistakeStart).SetOutput(Output.Music)
+                    .OnComplete(() => Instance.PlayLoopedSoundtrack(SFX.Mistake));
+                break;
+            case Soundtracks.Fight:
+                Instance.playingSoundtrack = new Sound(SFX.FightStart).SetOutput(Output.Music)
+                    .OnComplete(() => Instance.PlayLoopedSoundtrack(SFX.Fight));
+                break;
+            case Soundtracks.Stealth:
+                Instance.playingSoundtrack = new Sound(SFX.StealthStart).SetOutput(Output.Music)
+                    .OnComplete(() => Instance.PlayLoopedSoundtrack(SFX.Stealth));
+                break;
+            case Soundtracks.Boss:
+                Instance.playingSoundtrack = new Sound(SFX.BossStart).SetOutput(Output.Music)
+                    .OnComplete(() => Instance.PlayLoopedSoundtrack(SFX.Boss));
+                break;
+            default:
+                return;
+        }
+        
+        Instance.playingSoundtrack.SetLoop(false).SetSpatialSound(false).Play();
+
+    }
+
+    private void PlayLoopedSoundtrack(SFX sfx)
+    {
+        Instance.playingLoopedSoundtrack = new Sound(sfx).SetLoop(true).SetSpatialSound(false).SetOutput(Output.Music);
+        
+        Instance.playingLoopedSoundtrack.Play();
     }
 
     public static bool IsCutsceneDone(string cutscene)
@@ -130,6 +188,10 @@ public class GameManager : MonoBehaviour
                 case "LostKeys":
                     Instance.LostKeys();
                     break;
+                
+                case "Reception":
+                    Instance.Reception();
+                    break;
             }
         });
         
@@ -182,6 +244,22 @@ public class GameManager : MonoBehaviour
             UIController.ShowDialogue("You searched every nook and cranny of the garage but could not find the car keys... \n\nThankfully you had a spare set in your office.");
         });
     }
+    
+    private void Reception()
+    {
+        Tween.Delay(2f, () =>
+        {
+            UIController.ShowDialogue("After persuading them on telling that the pizza was in the car, you managed to escape. \n\nYou should get some props ready before doing this generic way of infiltrating...");
+        });
+    }
+}
+
+public enum Soundtracks
+{
+    Fight,
+    Stealth,
+    Boss,
+    Mistake
 }
 
 

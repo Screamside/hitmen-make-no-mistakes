@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using MelenitasDev.SoundsGood;
 using PrimeTween;
 using Unity.Cinemachine;
 using UnityEngine;
@@ -127,20 +128,9 @@ public class Cutscene
                 //==================== PLAY MISTAKE
                 if (cut.type.Equals(CutType.PlayMistake))
                 {
-
+                    
                     Tween.Delay(1f, () =>
                     {
-                        foreach (var cinemachineCamera in GameObject.FindObjectsByType<CinemachineCamera>(
-                                     FindObjectsSortMode.None))
-                        {
-                            if (cinemachineCamera.gameObject.activeSelf)
-                            {
-                                var noise = cinemachineCamera.GetComponent<CinemachineBasicMultiChannelPerlin>();
-                                noise.enabled = true;
-                                Tween.Delay(0.5f, () => noise.enabled = false);
-                            }
-                        }
-
                         Tween.Delay(2.5f, () =>
                         {
                             CutsceneManager.PlayMistake(cut.mistake.mistake);
@@ -157,7 +147,8 @@ public class Cutscene
                 if (cut.type.Equals(CutType.Question))
                 {
                     UIController.ShowChoices(cut.choice.choiceRight, cut.choice.choiceLeft);
-                    if (GameManager.IsMistakeDone("BossMistake"))
+                    
+                    if (GameManager.IsMistakeDone(cut.choiceId))
                     {
                         UIController.HideLeftButton();
                     }

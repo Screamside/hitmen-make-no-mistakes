@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour
         
         EnableInput();
         
-        jumpSound = new Sound(SFX.PlayerJump).SetSpatialSound(false);
+        jumpSound = new Sound(SFX.PlayerJump).SetSpatialSound(false).SetOutput(Output.SFX);
         
     }
 

@@ -69,7 +69,6 @@ public class Ladder : MonoBehaviour
         }
         
         player._rigidBody2d.velocity = new Vector2(horizontalMovement, verticalMovement).normalized * player.ladderSpeed;
-        Debug.Log(player._rigidBody2d.velocity);
     }
 
     private void OnTriggerEnter2D(Collider2D other)

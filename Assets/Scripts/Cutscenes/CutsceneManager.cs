@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using MelenitasDev.SoundsGood;
 using PrimeTween;
 using Unity.Cinemachine;
 using UnityEditor.Timeline.Actions;
@@ -105,6 +106,9 @@ public class CutsceneManager : MonoBehaviour
             return;
         }
         
+        GameManager.StopSoundtrack();
+        new Sound(SFX.MistakeTrigger).SetSpatialSound(false).SetOutput(Output.SFX).Play();
+        
         GameManager.DisablePlayerControls();
         
         var noise = Instance.currentCamera.GetComponent<CinemachineBasicMultiChannelPerlin>();
@@ -116,6 +120,8 @@ public class CutsceneManager : MonoBehaviour
             .Chain(Tween.Delay(2f, () => UIController.FadeIn()))
             .Chain(Tween.Delay(0.5f, () =>
             {
+                GameManager.PlaySoundtrack(Soundtracks.Mistake);
+                
                 UIController.FadeOut();
 
                 Instance.mistakes.First(keyPair => keyPair.key == mistake).value.PlayCutscene();
