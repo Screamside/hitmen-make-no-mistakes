@@ -142,6 +142,7 @@ public class HostileEnemyBehaviour : MonoBehaviour
         bullet.transform.position = shootingPosition.position;
         bullet.transform.LookAt(player.transform.position + Vector3.up);
         bullet.transform.right = bullet.transform.forward;
+        bullet.GetComponent<Bullet>().owner = "enemy";
         Vector3 originalRotation = bullet.transform.eulerAngles;
         bullet.transform.rotation = Quaternion.Euler(originalRotation.x, originalRotation.y, originalRotation.z + Random.Range(shootingRange, -shootingRange));
         
@@ -157,6 +158,7 @@ public class HostileEnemyBehaviour : MonoBehaviour
             bullet.transform.LookAt(player.transform.position + Vector3.up);
             bullet.transform.right = bullet.transform.forward;
             Vector3 originalRotation = bullet.transform.eulerAngles;
+            bullet.GetComponent<Bullet>().owner = "enemy";
             bullet.transform.rotation = Quaternion.Euler(originalRotation.x, originalRotation.y, originalRotation.z + Random.Range(shootingRange, -shootingRange));
             yield return new WaitForSeconds(delayBetweenShots);
         }

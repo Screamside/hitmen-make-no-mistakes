@@ -192,6 +192,10 @@ public class GameManager : MonoBehaviour
                 case "Reception":
                     Instance.Reception();
                     break;
+                
+                case "DiedFromBullet":
+                    Instance.DiedFromBullet();
+                    break;
             }
         });
         
@@ -251,6 +255,15 @@ public class GameManager : MonoBehaviour
         {
             UIController.ShowDialogue("After persuading them saying that the pizza was in the car, you managed to escape. \n\nYou should take some precautions before performing this generic way of infiltrating...");
         });
+    }
+
+    private void DiedFromBullet()
+    {
+        Tween.Delay(2f,
+            () =>
+            {
+                UIController.ShowDialogue("Died from bullet...");
+            });
     }
 }
 

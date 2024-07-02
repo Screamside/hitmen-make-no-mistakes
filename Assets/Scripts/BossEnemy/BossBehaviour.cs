@@ -43,6 +43,10 @@ public class BossBehaviour : MonoBehaviour
     [SerializeField]private Void _bat;
     [HideInInspector]public GameObject batObject;
     
+    [FoldoutGroup("Bat", nameof(dynamiteObject))]
+    [SerializeField]private Void _dynamite;
+    [HideInInspector]public GameObject dynamiteObject;
+    
     [FoldoutGroup("Swing Bat State", nameof(delayBeforeAttack), nameof(prepareBatPosition), nameof(prepareBatTime), nameof(prepareBatAngle), nameof(delaySwingBat), nameof(swingBatTime), nameof(swingBatAngle), nameof(resetBatRotationTime), nameof(delayAfterSwing))]
     [SerializeField]private Void _swingGroup;
     [HideInInspector]public float delayBeforeAttack;
@@ -81,10 +85,43 @@ public class BossBehaviour : MonoBehaviour
     {
         _currentState.ExitState();
         
+        switch (stateOrder[stateIndex])
+        {
+            case BossStateType.ChangeToGun:
+                dynamiteObject.SetActive(false);
+                batObject.SetActive(false);
+                smgObject.SetActive(false);
+                gunObject.SetActive(true);
+                stateIndex++;
+                break;
+            
+            case BossStateType.ChangeToSMG:
+                dynamiteObject.SetActive(false);
+                batObject.SetActive(false);
+                gunObject.SetActive(false);
+                smgObject.SetActive(true);
+                stateIndex++;
+                break;
+            
+            case BossStateType.ChangeToSwing:
+                dynamiteObject.SetActive(false);
+                batObject.SetActive(true);
+                gunObject.SetActive(false);
+                smgObject.SetActive(false);
+                stateIndex++;
+                break;
+            
+            case BossStateType.ChangeToDynamite:
+                dynamiteObject.SetActive(true);
+                batObject.SetActive(false);
+                gunObject.SetActive(false);
+                smgObject.SetActive(false);
+                stateIndex++;
+                break;
+        }
+        
         _currentState = _stateFactory.GetStateFromType(stateOrder[stateIndex]);
         stateIndex++;
-        
-        
         
         _currentState.EnterState(this);
 
@@ -213,5 +250,6 @@ public enum BossStateType
     Swing,
     ChangeToGun,
     ChangeToSMG,
-    ChangeToSwing
+    ChangeToSwing,
+    ChangeToDynamite
 }

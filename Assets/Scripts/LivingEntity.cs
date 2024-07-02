@@ -37,7 +37,7 @@ public class LivingEntity : MonoBehaviour
             Tween.StopAll(gameObject);
             enemyActivator.EnemyDied();
             die.Play();
-            Destroy(gameObject);
+            Destroy(gameObject, 10f);
             gameObject.SetActive(false);
             return;
         }
