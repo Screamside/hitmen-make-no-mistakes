@@ -50,7 +50,7 @@ public class BossMovingAwayState : BossState
         Tween.PositionAtSpeed(_hostileEnemyBehaviour.transform, finalPosition, hostileEnemyBehaviour.moveSpeed, ease: Ease.Linear)
             .OnComplete(() =>
             {
-                _hostileEnemyBehaviour.SwitchState(BossStateType.MovingCloser);
+                //_hostileEnemyBehaviour.SwitchState(BossStateType.MovingCloser);
                 
             });
 

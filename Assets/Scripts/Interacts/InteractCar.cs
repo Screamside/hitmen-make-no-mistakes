@@ -6,10 +6,12 @@ public class InteractCar : MonoBehaviour, IInteractable
     {
         if (GameManager.IsMistakeDone("LostKeys"))
         {
+            GameManager.DisablePlayerControls();
             CutsceneManager.PlayCutscene("ExitHeadquarters");
         }
         else
         {
+            GameManager.DisablePlayerControls();
             CutsceneManager.PlayMistake("LostKeys");
         }
         

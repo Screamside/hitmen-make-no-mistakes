@@ -13,6 +13,7 @@ public class MistakeInteract : MonoBehaviour, IInteractable
         }
         else
         {
+            
             CutsceneManager.PlayMistake("WrongDoor");
         }
 

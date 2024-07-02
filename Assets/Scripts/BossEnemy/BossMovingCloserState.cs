@@ -36,14 +36,7 @@ public class BossMovingCloserState : BossState
         else
         {
 
-            if (_hostileEnemyBehaviour.batMan)
-            {
-                _hostileEnemyBehaviour.SwitchState(BossStateType.Swing);
-            }
-            else
-            {
-                _hostileEnemyBehaviour.SwitchState(BossStateType.Shooting);
-            }
+            
         }
         
     }

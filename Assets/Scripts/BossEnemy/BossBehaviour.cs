@@ -1,22 +1,17 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using EditorAttributes;
-using PrimeTween;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 using Void = EditorAttributes.Void;
 
 public class BossBehaviour : MonoBehaviour
 {
-    [FoldoutGroup("Controller", nameof(stateOrder), nameof(animator), nameof(player), nameof(smgMan), nameof(batMan))]
+    [FoldoutGroup("Controller", nameof(stateOrder), nameof(animator), nameof(player))]
     [SerializeField]private Void _controllerGroup;
     [HideInInspector]public List<BossStateType> stateOrder;
     [HideInInspector]public Animator animator;
     [HideInInspector]public PlayerController player;
-    [HideInInspector]public bool smgMan = false;
-    [HideInInspector]public bool batMan = false;
     
     [FoldoutGroup("Moving State", nameof(moveSpeed), nameof(minDistanceToShoot), nameof(maxDistanceToRunAway), nameof(layermask))]
     [SerializeField]private Void _movingGroup;
@@ -25,18 +20,31 @@ public class BossBehaviour : MonoBehaviour
     [HideInInspector]public float maxDistanceToRunAway;
     [HideInInspector]public LayerMask layermask;
     
-    [FoldoutGroup("Shooting State", nameof(delayBeforeShooting), nameof(delayAfterShooting), nameof(shootingPosition), nameof(weaponGameObject), nameof(bulletPrefab), nameof(shootingRange), nameof(bulletSpeed))]
-    [SerializeField, HideField(nameof(batMan))]private Void _shootingGroup;
-    [HideInInspector,HideField(nameof(batMan))]public float delayBeforeShooting;
-    [HideInInspector, HideField(nameof(batMan))]public float delayAfterShooting;
-    [HideInInspector, HideField(nameof(batMan))]public int shootingRange;
-    [FormerlySerializedAs("pistolGameObject"), HideInInspector, HideField(nameof(batMan))]public GameObject weaponGameObject;
-    [HideInInspector, HideField(nameof(batMan))]public Transform shootingPosition;
-    [HideInInspector, HideField(nameof(batMan))]public GameObject bulletPrefab;
-    [HideInInspector, HideField(nameof(batMan))]public float bulletSpeed;
+    [FoldoutGroup("Shooting State", nameof(delayBeforeShooting), nameof(delayAfterShooting), nameof(bulletPrefab), nameof(bulletSpeed))]
+    [SerializeField]private Void _shootingGroup;
+    [HideInInspector]public float delayBeforeShooting;
+    [HideInInspector]public float delayAfterShooting;
+    [HideInInspector]public int shootingAngle;
+    [Space]
+    [HideInInspector]public GameObject bulletPrefab;
+    [HideInInspector]public float bulletSpeed;
+    
+    [FoldoutGroup("SMG", nameof(smgObject), nameof(smgShootingPosition))]
+    [SerializeField]private Void _smg;
+    [HideInInspector]public GameObject smgObject;
+    [HideInInspector]public Transform smgShootingPosition;
+    
+    [FoldoutGroup("Gun", nameof(smgObject), nameof(gunShootingPosition))]
+    [SerializeField]private Void _gun;
+    [HideInInspector]public GameObject gunObject;
+    [HideInInspector]public Transform gunShootingPosition;
+    
+    [FoldoutGroup("Bat", nameof(batObject))]
+    [SerializeField]private Void _bat;
+    [HideInInspector]public GameObject batObject;
     
     [FoldoutGroup("Swing Bat State", nameof(delayBeforeAttack), nameof(prepareBatPosition), nameof(prepareBatTime), nameof(prepareBatAngle), nameof(delaySwingBat), nameof(swingBatTime), nameof(swingBatAngle), nameof(resetBatRotationTime), nameof(delayAfterSwing))]
-    [SerializeField, HideField(nameof(batMan))]private Void _swingGroup;
+    [SerializeField]private Void _swingGroup;
     [HideInInspector]public float delayBeforeAttack;
     [Space]
     [HideInInspector]public Transform prepareBatPosition;
@@ -56,6 +64,7 @@ public class BossBehaviour : MonoBehaviour
     public SpriteRenderer weaponSpriteRenderer;
     public GameObject warning;
     public float delayBetweenShots;
+    private int stateIndex = 0;
 
     private Vector3 _previousPosition;
     
@@ -63,15 +72,19 @@ public class BossBehaviour : MonoBehaviour
     {
         player = FindFirstObjectByType<PlayerController>();
         
-        _currentState = _stateFactory.GetStateFromType(BossStateType.MovingCloser);
+        _currentState = _stateFactory.GetStateFromType(stateOrder[stateIndex]);
+        stateIndex++;
         _currentState.EnterState(this);
     }
 
-    public void SwitchState(BossStateType stateType)
+    public void SwitchToNextState()
     {
         _currentState.ExitState();
         
-        _currentState = _stateFactory.GetStateFromType(stateType);
+        _currentState = _stateFactory.GetStateFromType(stateOrder[stateIndex]);
+        stateIndex++;
+        
+        
         
         _currentState.EnterState(this);
 
@@ -80,16 +93,8 @@ public class BossBehaviour : MonoBehaviour
     private void Update()
     {
         _currentState.UpdateState();
-
-        if(transform.position.x >player.transform.position.x)
-        {
-            transform.localScale = new Vector3(-1, 1, 1);
-        }
-        else
-        {
-            transform.localScale = new Vector3(1, 1, 1);
-        }
-
+        UpdateWeaponDirection();
+        
         if (_previousPosition != transform.position)
         {
             animator.CrossFade("Walking", 0);
@@ -99,56 +104,68 @@ public class BossBehaviour : MonoBehaviour
             animator.CrossFade("Idle", 0);
         }
 
+        if (_currentState.GetType() == typeof(BossSwingBatState))
+        {
+            return;
+        }
+        
+        if(transform.position.x >player.transform.position.x)
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
+        else
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+        }
+
         _previousPosition = transform.position;
         
-        UpdateWeaponDirection();
     }
 
     private void UpdateWeaponDirection()
     {
-        if (batMan) { return;}
-
-        weaponGameObject.transform.LookAt(player.transform.position + player.transform.up);
+        smgObject.transform.LookAt(player.transform.position + player.transform.up);
+        gunObject.transform.LookAt(player.transform.position + player.transform.up);
 
         if(transform.position.x >player.transform.position.x)
         {
-            weaponGameObject.transform.right = -weaponGameObject.transform.forward;
+            smgObject.transform.right = -smgObject.transform.forward;
+            gunObject.transform.right = -gunObject.transform.forward;
         }
         else
         {
-            weaponGameObject.transform.right = weaponGameObject.transform.forward;
+            smgObject.transform.right = smgObject.transform.forward;
+            gunObject.transform.right = gunObject.transform.forward;
         }
     }
 
-    public void SpawnBullet()
+    public void SpawnGunBullet()
     {
 
-        if (smgMan)
-        {
-            StartCoroutine(SpawnSMGBullets());
-            return;
-        }
-
         GameObject bullet = Instantiate(bulletPrefab);
-        bullet.transform.position = shootingPosition.position;
+        bullet.transform.position = gunShootingPosition.position;
         bullet.transform.LookAt(player.transform.position + Vector3.up);
         bullet.transform.right = bullet.transform.forward;
         Vector3 originalRotation = bullet.transform.eulerAngles;
-        bullet.transform.rotation = Quaternion.Euler(originalRotation.x, originalRotation.y, originalRotation.z + Random.Range(shootingRange, -shootingRange));
+        bullet.transform.rotation = Quaternion.Euler(originalRotation.x, originalRotation.y, originalRotation.z + Random.Range(shootingAngle, -shootingAngle));
         
     }
-
-    private IEnumerator SpawnSMGBullets()
+    
+    public void SpawnSMGBullet()
     {
+        StartCoroutine(SMGBullets());
+    }
 
+    private IEnumerator SMGBullets()
+    {
         for (int i = 0; i < 3; i++)
         {
             GameObject bullet = Instantiate(bulletPrefab);
-            bullet.transform.position = shootingPosition.position;
+            bullet.transform.position = smgShootingPosition.position;
             bullet.transform.LookAt(player.transform.position + Vector3.up);
             bullet.transform.right = bullet.transform.forward;
             Vector3 originalRotation = bullet.transform.eulerAngles;
-            bullet.transform.rotation = Quaternion.Euler(originalRotation.x, originalRotation.y, originalRotation.z + Random.Range(shootingRange, -shootingRange));
+            bullet.transform.rotation = Quaternion.Euler(originalRotation.x, originalRotation.y, originalRotation.z + Random.Range(shootingAngle, -shootingAngle));
             yield return new WaitForSeconds(delayBetweenShots);
         }
         
@@ -158,7 +175,8 @@ public class BossBehaviour : MonoBehaviour
 public class BossStateFactory
 {
  
-    private BossShootingState _shooting = new ();
+    private BossShootingGunState _shootingGun = new ();
+    private BossShootingSMGState _shootingSMG = new ();
     private BossMovingCloserState _movingCloser = new ();
     private BossMovingAwayState _movingAway = new ();
     private BossSwingBatState _swing = new ();
@@ -172,8 +190,10 @@ public class BossStateFactory
                 return _movingAway;
             case BossStateType.MovingCloser:
                 return _movingCloser;
-            case BossStateType.Shooting:
-                return _shooting;
+            case BossStateType.ShootingGun:
+                return _shootingGun;
+            case BossStateType.ShootingSMG:
+                return _shootingSMG;
             case BossStateType.Swing:
                 return _swing;
         }
@@ -185,9 +205,13 @@ public class BossStateFactory
 
 public enum BossStateType
 {
-    Shooting,
+    ShootingGun,
+    ShootingSMG,
+    Dynamite,
     MovingAway,
     MovingCloser,
-    Swing
-    
+    Swing,
+    ChangeToGun,
+    ChangeToSMG,
+    ChangeToSwing
 }

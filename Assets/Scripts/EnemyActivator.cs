@@ -31,9 +31,15 @@ public class EnemyActivator : MonoBehaviour
             
                 enemyBehaviour.enabled = true;
                 enemyBehaviour.player = other.GetComponent<PlayerController>();
+                door.SetActive(false);
                 
             }
         }
+    }
+
+    private void Update()
+    {
+        
     }
 
     private void OnTriggerExit2D(Collider2D other)
