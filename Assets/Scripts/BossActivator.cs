@@ -11,6 +11,7 @@ public class BossActivator : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            Debug.Log("BOSS ACTIVATED");
             boss.SetActive(true);
             boss.GetComponent<BossBehaviour>().player = other.GetComponent<PlayerController>();
         }
