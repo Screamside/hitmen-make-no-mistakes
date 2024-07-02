@@ -29,6 +29,13 @@ public class Bullet : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other)
     {
         
+        
+        if(owner == "player" && other.gameObject.CompareTag("Player"))
+        {
+            other.collider.GetComponent<PlayerHealth>().Damage(1);
+            return;
+        }
+        
         if(owner == "enemy" && other.gameObject.CompareTag("Enemy")) return;
         
         Destroy(gameObject);
@@ -36,9 +43,14 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if(owner == "player" && other.gameObject.CompareTag("Player"))
+        {
+            other.GetComponent<PlayerHealth>().Damage(1);
+            Destroy(gameObject);
+            return;
+        }
+        
         if(other.CompareTag("Enemy") && owner == "enemy") return;
-        
-        
         
         if (other.TryGetComponent(out LivingEntity livingEntity))
         {
