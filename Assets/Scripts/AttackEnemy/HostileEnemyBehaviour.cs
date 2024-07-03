@@ -62,9 +62,22 @@ public class HostileEnemyBehaviour : MonoBehaviour
 
     public GameObject debugBall;
     public bool skipMoveAway;
-    
+
+    public Vector3 spawnPoint;
+    private Vector3 defaultScale;
+
+
     private void Awake()
     {
+        defaultScale = transform.localScale;
+        spawnPoint = transform.position;
+    }
+
+    private void OnEnable()
+    {
+        transform.position = spawnPoint;
+        transform.localScale = defaultScale;
+        
         player = FindFirstObjectByType<PlayerController>();
         
         _currentState = _stateFactory.GetStateFromType(HostileEnemyStateType.MovingCloser);
@@ -74,6 +87,7 @@ public class HostileEnemyBehaviour : MonoBehaviour
     private void OnDisable()
     {
         StopAllCoroutines();
+        skipMoveAway = true;
     }
 
     public void SwitchState(HostileEnemyStateType stateType)

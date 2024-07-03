@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
 
     public Transform restartPoint;
     public Transform carParkPoint;
+    public Transform warehouseParkPoint;
 
     private Soundtracks currentSoundtrack;
     private Sound playingSoundtrack;
@@ -149,6 +150,13 @@ public class GameManager : MonoBehaviour
         
     }
     
+    public static void StartWarehouse()
+    {
+        Instance.player.transform.position = Instance.warehouseParkPoint.position;
+        Instance.player.transform.localScale = Vector3.one;
+        
+    }
+    
     public static void RestartFromMistake(string mistake)
     {
         
@@ -168,6 +176,10 @@ public class GameManager : MonoBehaviour
             Instance.player.transform.rotation = Instance.restartPoint.rotation;
             Instance.player.transform.localScale = new Vector3(1f, 1f, 1f);
             Instance.player.DisablePistol();
+            var ph = Instance.player.GetComponent<PlayerHealth>();
+
+            ph.currentHealth = ph.health;
+            ph.invincibility = false;
             
             UIController.HideDialogue();
             UIController.HideChoices();

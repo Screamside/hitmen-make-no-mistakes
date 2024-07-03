@@ -7,7 +7,6 @@ public class SwingBatState : HostileEnemyState
 {
     public override void EnterState(HostileEnemyBehaviour enemyBehaviour)
     {
-
         Vector3 originalRotation = enemyBehaviour.weaponGameObject.transform.eulerAngles;
         Vector3 originalPosition = enemyBehaviour.weaponGameObject.transform.position;
         
@@ -22,10 +21,13 @@ public class SwingBatState : HostileEnemyState
                 .Chain(Tween.Color(enemyBehaviour.weaponSpriteRenderer, Color.red, enemyBehaviour.delaySwingBat/4, cycles: 4, cycleMode: CycleMode.Restart).OnComplete(() =>
                 {
                     enemyBehaviour.weaponSpriteRenderer.color = Color.white;
-                    enemyBehaviour.weaponGameObject.GetComponent<BoxCollider2D>().enabled = true;
+                    
                     enemyBehaviour.warning.SetActive(false);
                 }))
-                
+                .Chain(Tween.Delay(0.01f, () =>
+                {
+                    enemyBehaviour.weaponGameObject.GetComponent<BoxCollider2D>().enabled = true;
+                }))
                 .Chain(Tween.Rotation(enemyBehaviour.weaponGameObject.transform,
                     Quaternion.Euler(originalRotation + Vector3.forward * enemyBehaviour.swingBatAngle), enemyBehaviour.swingBatTime))
                 .Group(Tween.Position(enemyBehaviour.weaponGameObject.transform, originalPosition, enemyBehaviour.swingBatTime)
@@ -48,10 +50,15 @@ public class SwingBatState : HostileEnemyState
                     enemyBehaviour.prepareBatTime))
                 .Group(Tween.Position(enemyBehaviour.weaponGameObject.transform, enemyBehaviour.prepareBatPosition.position, enemyBehaviour.prepareBatTime))
                 .Chain(Tween.Color(enemyBehaviour.weaponSpriteRenderer, Color.red, enemyBehaviour.delaySwingBat/4, cycles: 4, cycleMode: CycleMode.Restart).OnComplete(() => enemyBehaviour.weaponSpriteRenderer.color = Color.white))
+                .Chain(Tween.Delay(0.01f, () =>
+                {
+                    enemyBehaviour.weaponGameObject.GetComponent<BoxCollider2D>().enabled = true;
+                }))
                 .Chain(Tween.Rotation(enemyBehaviour.weaponGameObject.transform,
                     Quaternion.Euler(originalRotation + Vector3.forward * -enemyBehaviour.swingBatAngle), enemyBehaviour.swingBatTime))
                 .Group(Tween.Position(enemyBehaviour.weaponGameObject.transform, originalPosition, enemyBehaviour.swingBatTime))
-                .Chain(Tween.Rotation(enemyBehaviour.weaponGameObject.transform, Quaternion.Euler(originalRotation), enemyBehaviour.resetBatRotationTime))
+                .Chain(Tween.Rotation(enemyBehaviour.weaponGameObject.transform, Quaternion.Euler(originalRotation), enemyBehaviour.resetBatRotationTime)
+                    .OnComplete(() => enemyBehaviour.weaponGameObject.GetComponent<BoxCollider2D>().enabled = false))
                 .Chain(Tween.Delay(enemyBehaviour.delayAfterSwing))
                 .OnComplete(() =>
                 {

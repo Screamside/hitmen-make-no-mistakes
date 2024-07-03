@@ -34,10 +34,10 @@ public class LivingEntity : MonoBehaviour
 
         if (currentHealth <= 0)
         {
+            
             Tween.StopAll(gameObject);
             enemyActivator.EnemyDied();
             die.Play();
-            Destroy(gameObject, 10f);
             gameObject.SetActive(false);
             return;
         }

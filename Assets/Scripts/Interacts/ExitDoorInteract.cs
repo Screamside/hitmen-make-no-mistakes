@@ -10,10 +10,17 @@ public class ExitDoorInteract : MonoBehaviour, IInteractable
     public void Interact()
     {
 
+        if (GameManager.IsMistakeDone("Lasers") || GameManager.IsMistakeDone("Caught") )
+        {
+            GameEvents.OnChangeRoom.Invoke();
+            Tween.Delay(0.5f, () => GameManager.StartWarehouse());
+            return;
+        }
+        
         if (GameManager.IsCutsceneDone("ChooseReceptionPark"))
         {
             GameEvents.OnChangeRoom.Invoke();
-            Tween.Delay(0.5f, () => { GameManager.StartCarParkArea(); });
+            Tween.Delay(0.5f, () => GameManager.StartCarParkArea());
             return;
         }
         

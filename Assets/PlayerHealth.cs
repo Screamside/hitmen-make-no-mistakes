@@ -1,4 +1,5 @@
 using System;
+using EditorAttributes;
 using MelenitasDev.SoundsGood;
 using PrimeTween;
 using UnityEngine;
@@ -9,7 +10,7 @@ public class PlayerHealth : MonoBehaviour
 
     public int health;
     public bool invincibility;
-    private int currentHealth;
+    [ReadOnly] public int currentHealth;
     public SpriteRenderer sprite;
 
     private void Awake()
@@ -30,10 +31,10 @@ public class PlayerHealth : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            currentHealth = health;
             GameManager.RestartFromMistake("DiedFromBullet");
-            
             new Sound(SFX.Die).SetSpatialSound(false).SetOutput(Output.SFX).Play();
+            GameManager.DisablePlayerControls();
+            invincibility = true;
             
             return;
         }

@@ -44,6 +44,7 @@ public class EnemyActivator : MonoBehaviour
                 enemyBehaviour.enabled = true;
                 enemyBehaviour.player = other.GetComponent<PlayerController>();
                 door.SetActive(false);
+                enemyBehaviour.gameObject.SetActive(true);
                 
             }
         }
