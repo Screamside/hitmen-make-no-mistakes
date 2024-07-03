@@ -11817,7 +11817,6 @@ GameObject:
   m_Component:
   - component: {fileID: 540506918}
   - component: {fileID: 540506920}
-  - component: {fileID: 540506919}
   m_Layer: 0
   m_Name: FinalCutscene
   m_TagString: Untagged
@@ -11847,212 +11846,6 @@ Transform:
   - {fileID: 1833422106}
   m_Father: {fileID: 1143347244}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &540506919
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 540506917}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17a8d10d5db94ffe927f022a0e574af5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cutscene:
-    cuts:
-    - type: 0
-      order: 0
-      selectCamera:
-        camera: {fileID: 811790290}
-      movement:
-        gameObject: {fileID: 811790290}
-        hasAnimation: 0
-        movementSettings:
-          startFromCurrent: 0
-          startValue: {x: 5.749996, y: 3.039997, z: 0.22552681}
-          endValue: {x: 5.749996, y: 3.039997, z: 0.22552681}
-          settings:
-            duration: 0.01
-            ease: 0
-            customEase:
-              serializedVersion: 2
-              m_Curve: []
-              m_PreInfinity: 0
-              m_PostInfinity: 0
-              m_RotationOrder: 0
-            cycles: 1
-            cycleMode: 0
-            startDelay: 0
-            endDelay: 0
-            useUnscaledTime: 0
-            useFixedUpdate: 0
-      animation:
-        animator: {fileID: 0}
-        animationName: 
-      dialogue:
-        delay: 0
-        dialogue: 
-        ignoreInput: 0
-      mistakeTitle:
-        delay: 0
-        title: 
-      mistake:
-        mistake: 
-      delay:
-        time: 0
-      choice:
-        choiceLeft: 
-        cutsceneLeft: {fileID: 0}
-        choiceRight: 
-        cutsceneRight: {fileID: 0}
-      cutscene:
-        cutsceneName: 
-      choiceId: 
-    - type: 3
-      order: 1
-      selectCamera:
-        camera: {fileID: 0}
-      movement:
-        gameObject: {fileID: 811790290}
-        hasAnimation: 0
-        movementSettings:
-          startFromCurrent: 0
-          startValue: {x: 82, y: 13.5, z: -10}
-          endValue: {x: 0, y: 0, z: 0}
-          settings:
-            duration: 1
-            ease: 0
-            customEase:
-              serializedVersion: 2
-              m_Curve: []
-              m_PreInfinity: 0
-              m_PostInfinity: 0
-              m_RotationOrder: 0
-            cycles: 1
-            cycleMode: 0
-            startDelay: 0
-            endDelay: 0
-            useUnscaledTime: 0
-            useFixedUpdate: 0
-      animation:
-        animator: {fileID: 0}
-        animationName: 
-      dialogue:
-        delay: 2
-        dialogue: ... >=(
-        ignoreInput: 0
-      mistakeTitle:
-        delay: 0
-        title: 
-      mistake:
-        mistake: 
-      delay:
-        time: 0
-      choice:
-        choiceLeft: 
-        cutsceneLeft: {fileID: 0}
-        choiceRight: 
-        cutsceneRight: {fileID: 0}
-      cutscene:
-        cutsceneName: 
-      choiceId: 
-    - type: 6
-      order: 2
-      selectCamera:
-        camera: {fileID: 0}
-      movement:
-        gameObject: {fileID: 811790290}
-        hasAnimation: 0
-        movementSettings:
-          startFromCurrent: 0
-          startValue: {x: 82, y: 13.5, z: -10}
-          endValue: {x: 0, y: 0, z: 0}
-          settings:
-            duration: 1
-            ease: 0
-            customEase:
-              serializedVersion: 2
-              m_Curve: []
-              m_PreInfinity: 0
-              m_PostInfinity: 0
-              m_RotationOrder: 0
-            cycles: 1
-            cycleMode: 0
-            startDelay: 0
-            endDelay: 0
-            useUnscaledTime: 0
-            useFixedUpdate: 0
-      animation:
-        animator: {fileID: 0}
-        animationName: 
-      dialogue:
-        delay: 2
-        dialogue: ... >=(
-        ignoreInput: 0
-      mistakeTitle:
-        delay: 0
-        title: 
-      mistake:
-        mistake: 
-      delay:
-        time: 2
-      choice:
-        choiceLeft: 
-        cutsceneLeft: {fileID: 0}
-        choiceRight: 
-        cutsceneRight: {fileID: 0}
-      cutscene:
-        cutsceneName: 
-      choiceId: 
-    - type: 5
-      order: 3
-      selectCamera:
-        camera: {fileID: 0}
-      movement:
-        gameObject: {fileID: 811790290}
-        hasAnimation: 0
-        movementSettings:
-          startFromCurrent: 0
-          startValue: {x: 82, y: 13.5, z: -10}
-          endValue: {x: 0, y: 0, z: 0}
-          settings:
-            duration: 1
-            ease: 0
-            customEase:
-              serializedVersion: 2
-              m_Curve: []
-              m_PreInfinity: 0
-              m_PostInfinity: 0
-              m_RotationOrder: 0
-            cycles: 1
-            cycleMode: 0
-            startDelay: 0
-            endDelay: 0
-            useUnscaledTime: 0
-            useFixedUpdate: 0
-      animation:
-        animator: {fileID: 0}
-        animationName: 
-      dialogue:
-        delay: 2
-        dialogue: ... >=(
-        ignoreInput: 0
-      mistakeTitle:
-        delay: 0
-        title: 
-      mistake:
-        mistake: BossMistake
-      delay:
-        time: 0
-      choice:
-        choiceLeft: 
-        cutsceneLeft: {fileID: 0}
-        choiceRight: 
-        cutsceneRight: {fileID: 0}
-      cutscene:
-        cutsceneName: 
-      choiceId: 
 --- !u!114 &540506920
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12067,170 +11860,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cutscene:
     cuts:
-    - type: 2
-      order: 0
-      selectCamera:
-        camera: {fileID: 0}
-      movement:
-        gameObject: {fileID: 896601863}
-        hasAnimation: 0
-        movementSettings:
-          startFromCurrent: 0
-          startValue: {x: 72.75, y: 12.5, z: -10}
-          endValue: {x: 79.25, y: 12.5, z: -10}
-          settings:
-            duration: 3
-            ease: 0
-            customEase:
-              serializedVersion: 2
-              m_Curve: []
-              m_PreInfinity: 2
-              m_PostInfinity: 2
-              m_RotationOrder: 4
-            cycles: 1
-            cycleMode: 0
-            startDelay: 0
-            endDelay: 0
-            useUnscaledTime: 0
-            useFixedUpdate: 0
-      animation:
-        animator: {fileID: 522257101}
-        animationName: Idle
-      dialogue:
-        delay: 0
-        dialogue: You shall go there, and dispose of their boss.
-        ignoreInput: 0
-      mistakeTitle:
-        delay: 0
-        title: 
-      mistake:
-        mistake: 
-      delay:
-        time: 0
-      choice:
-        choiceLeft: Can we talk about my salary?
-        cutsceneLeft: {fileID: 540506919}
-        choiceRight: Yes sir! Consider it done!
-        cutsceneRight: {fileID: 0}
-      cutscene:
-        cutsceneName: 
-      choiceId: BossMistake
     - type: 0
       order: 0
       selectCamera:
-        camera: {fileID: 896601863}
-      movement:
-        gameObject: {fileID: 896601863}
-        hasAnimation: 0
-        movementSettings:
-          startFromCurrent: 0
-          startValue: {x: 72.75, y: 12.5, z: -10}
-          endValue: {x: 79.25, y: 12.5, z: -10}
-          settings:
-            duration: 3
-            ease: 0
-            customEase:
-              serializedVersion: 2
-              m_Curve: []
-              m_PreInfinity: 2
-              m_PostInfinity: 2
-              m_RotationOrder: 4
-            cycles: 1
-            cycleMode: 0
-            startDelay: 0
-            endDelay: 0
-            useUnscaledTime: 0
-            useFixedUpdate: 0
-      animation:
-        animator: {fileID: 522257101}
-        animationName: Idle
-      dialogue:
-        delay: 0
-        dialogue: You shall go there, and dispose of their boss.
-        ignoreInput: 0
-      mistakeTitle:
-        delay: 0
-        title: 
-      mistake:
-        mistake: 
-      delay:
-        time: 0
-      choice:
-        choiceLeft: Can we talk about my salary?
-        cutsceneLeft: {fileID: 540506919}
-        choiceRight: Yes sir! Consider it done!
-        cutsceneRight: {fileID: 0}
-      cutscene:
-        cutsceneName: 
-      choiceId: 
-    - type: 2
-      order: 0
-      selectCamera:
         camera: {fileID: 0}
       movement:
         gameObject: {fileID: 896601863}
         hasAnimation: 0
         movementSettings:
           startFromCurrent: 0
-          startValue: {x: 72.75, y: 12.5, z: -10}
-          endValue: {x: 79.25, y: 12.5, z: -10}
-          settings:
-            duration: 3
-            ease: 0
-            customEase:
-              serializedVersion: 2
-              m_Curve: []
-              m_PreInfinity: 2
-              m_PostInfinity: 2
-              m_RotationOrder: 4
-            cycles: 1
-            cycleMode: 0
-            startDelay: 0
-            endDelay: 0
-            useUnscaledTime: 0
-            useFixedUpdate: 0
-      animation:
-        animator: {fileID: 1833422107}
-        animationName: Idle
-      dialogue:
-        delay: 0
-        dialogue: You shall go there, and dispose of their boss.
-        ignoreInput: 0
-      mistakeTitle:
-        delay: 0
-        title: 
-      mistake:
-        mistake: 
-      delay:
-        time: 0
-      choice:
-        choiceLeft: Can we talk about my salary?
-        cutsceneLeft: {fileID: 540506919}
-        choiceRight: Yes sir! Consider it done!
-        cutsceneRight: {fileID: 0}
-      cutscene:
-        cutsceneName: 
-      choiceId: 
-    - type: 1
-      order: 0
-      selectCamera:
-        camera: {fileID: 896601863}
-      movement:
-        gameObject: {fileID: 896601863}
-        hasAnimation: 0
-        movementSettings:
-          startFromCurrent: 0
-          startValue: {x: -5.25, y: 1.5, z: -1}
+          startValue: {x: 3, y: 1.5, z: -1}
           endValue: {x: 3, y: 1.5, z: -1}
           settings:
-            duration: 3
+            duration: 1
             ease: 0
             customEase:
               serializedVersion: 2
               m_Curve: []
-              m_PreInfinity: 2
-              m_PostInfinity: 2
-              m_RotationOrder: 4
+              m_PreInfinity: 0
+              m_PostInfinity: 0
+              m_RotationOrder: 0
             cycles: 1
             cycleMode: 0
             startDelay: 0
@@ -12259,26 +11908,26 @@ MonoBehaviour:
       cutscene:
         cutsceneName: 
       choiceId: 
-    - type: 3
+    - type: 2
       order: 0
       selectCamera:
         camera: {fileID: 0}
       movement:
-        gameObject: {fileID: 896601863}
+        gameObject: {fileID: 522257099}
         hasAnimation: 0
         movementSettings:
           startFromCurrent: 0
-          startValue: {x: 72.75, y: 12.5, z: -10}
-          endValue: {x: 79.25, y: 12.5, z: -10}
+          startValue: {x: 3, y: 1.5, z: -1}
+          endValue: {x: 3, y: 1.5, z: -1}
           settings:
-            duration: 3
+            duration: 1
             ease: 0
             customEase:
               serializedVersion: 2
               m_Curve: []
-              m_PreInfinity: 2
-              m_PostInfinity: 2
-              m_RotationOrder: 4
+              m_PreInfinity: 0
+              m_PostInfinity: 0
+              m_RotationOrder: 0
             cycles: 1
             cycleMode: 0
             startDelay: 0
@@ -12286,11 +11935,11 @@ MonoBehaviour:
             useUnscaledTime: 0
             useFixedUpdate: 0
       animation:
-        animator: {fileID: 0}
-        animationName: 
+        animator: {fileID: 522257101}
+        animationName: Walking
       dialogue:
-        delay: 1
-        dialogue: You probably know why I called you here.
+        delay: 0
+        dialogue: 
         ignoreInput: 0
       mistakeTitle:
         delay: 0
@@ -12307,26 +11956,74 @@ MonoBehaviour:
       cutscene:
         cutsceneName: 
       choiceId: 
-    - type: 7
+    - type: 1
+      order: 0
+      selectCamera:
+        camera: {fileID: 0}
+      movement:
+        gameObject: {fileID: 522257099}
+        hasAnimation: 0
+        movementSettings:
+          startFromCurrent: 0
+          startValue: {x: -11, y: 1, z: 0}
+          endValue: {x: 3.25, y: 1, z: 0}
+          settings:
+            duration: 1
+            ease: 0
+            customEase:
+              serializedVersion: 2
+              m_Curve: []
+              m_PreInfinity: 0
+              m_PostInfinity: 0
+              m_RotationOrder: 0
+            cycles: 1
+            cycleMode: 0
+            startDelay: 0
+            endDelay: 0
+            useUnscaledTime: 0
+            useFixedUpdate: 0
+      animation:
+        animator: {fileID: 522257101}
+        animationName: Walking
+      dialogue:
+        delay: 0
+        dialogue: 
+        ignoreInput: 0
+      mistakeTitle:
+        delay: 0
+        title: 
+      mistake:
+        mistake: 
+      delay:
+        time: 0
+      choice:
+        choiceLeft: 
+        cutsceneLeft: {fileID: 0}
+        choiceRight: 
+        cutsceneRight: {fileID: 0}
+      cutscene:
+        cutsceneName: 
+      choiceId: 
+    - type: 2
       order: 1
       selectCamera:
         camera: {fileID: 0}
       movement:
-        gameObject: {fileID: 896601863}
+        gameObject: {fileID: 522257099}
         hasAnimation: 0
         movementSettings:
           startFromCurrent: 0
-          startValue: {x: 72.75, y: 12.5, z: -10}
-          endValue: {x: 79.25, y: 12.5, z: -10}
+          startValue: {x: -11, y: 1, z: 0}
+          endValue: {x: 3.25, y: 1, z: 0}
           settings:
-            duration: 3
+            duration: 1
             ease: 0
             customEase:
               serializedVersion: 2
               m_Curve: []
-              m_PreInfinity: 2
-              m_PostInfinity: 2
-              m_RotationOrder: 4
+              m_PreInfinity: 0
+              m_PostInfinity: 0
+              m_RotationOrder: 0
             cycles: 1
             cycleMode: 0
             startDelay: 0
@@ -12334,11 +12031,11 @@ MonoBehaviour:
             useUnscaledTime: 0
             useFixedUpdate: 0
       animation:
-        animator: {fileID: 0}
-        animationName: 
+        animator: {fileID: 522257101}
+        animationName: Idle
       dialogue:
         delay: 0
-        dialogue: Go there and massacre them all.
+        dialogue: 
         ignoreInput: 0
       mistakeTitle:
         delay: 0
@@ -12356,25 +12053,25 @@ MonoBehaviour:
         cutsceneName: 
       choiceId: 
     - type: 3
-      order: 2
+      order: 1
       selectCamera:
         camera: {fileID: 0}
       movement:
-        gameObject: {fileID: 667059279}
+        gameObject: {fileID: 522257099}
         hasAnimation: 0
         movementSettings:
           startFromCurrent: 0
-          startValue: {x: 0.24999619, y: 2.75, z: 0.22552681}
-          endValue: {x: 0.24999619, y: 2.75, z: 0.22552681}
+          startValue: {x: -11, y: 1, z: 0}
+          endValue: {x: 3.25, y: 1, z: 0}
           settings:
-            duration: 0.01
+            duration: 1
             ease: 0
             customEase:
               serializedVersion: 2
               m_Curve: []
-              m_PreInfinity: 2
-              m_PostInfinity: 2
-              m_RotationOrder: 4
+              m_PreInfinity: 0
+              m_PostInfinity: 0
+              m_RotationOrder: 0
             cycles: 1
             cycleMode: 0
             startDelay: 0
@@ -12382,11 +12079,16 @@ MonoBehaviour:
             useUnscaledTime: 0
             useFixedUpdate: 0
       animation:
-        animator: {fileID: 0}
-        animationName: 
+        animator: {fileID: 522257101}
+        animationName: Idle
       dialogue:
         delay: 0
-        dialogue: Lately, our business has been experiencing some disturbances.
+        dialogue: 'I heard you finished successfully your mission. Good Job!
+
+
+          Wait,
+          you said he had a golden suit a red eyes? Are you sure you got the right
+          person?'
         ignoreInput: 0
       mistakeTitle:
         delay: 0
@@ -12396,469 +12098,33 @@ MonoBehaviour:
       delay:
         time: 0
       choice:
-        choiceLeft: Fuck off
+        choiceLeft: 
         cutsceneLeft: {fileID: 0}
-        choiceRight: Ok sir
-        cutsceneRight: {fileID: 0}
-      cutscene:
-        cutsceneName: 
-      choiceId: 
-    - type: 7
-      order: 3
-      selectCamera:
-        camera: {fileID: 0}
-      movement:
-        gameObject: {fileID: 896601863}
-        hasAnimation: 0
-        movementSettings:
-          startFromCurrent: 0
-          startValue: {x: 72.75, y: 12.5, z: -10}
-          endValue: {x: 79.25, y: 12.5, z: -10}
-          settings:
-            duration: 3
-            ease: 0
-            customEase:
-              serializedVersion: 2
-              m_Curve: []
-              m_PreInfinity: 2
-              m_PostInfinity: 2
-              m_RotationOrder: 4
-            cycles: 1
-            cycleMode: 0
-            startDelay: 0
-            endDelay: 0
-            useUnscaledTime: 0
-            useFixedUpdate: 0
-      animation:
-        animator: {fileID: 0}
-        animationName: 
-      dialogue:
-        delay: 0
-        dialogue: Go there and massacre them all.
-        ignoreInput: 0
-      mistakeTitle:
-        delay: 0
-        title: 
-      mistake:
-        mistake: 
-      delay:
-        time: 0
-      choice:
-        choiceLeft: Fuck off
-        cutsceneLeft: {fileID: 540506919}
-        choiceRight: Ok sir
-        cutsceneRight: {fileID: 0}
-      cutscene:
-        cutsceneName: 
-      choiceId: 
-    - type: 3
-      order: 4
-      selectCamera:
-        camera: {fileID: 0}
-      movement:
-        gameObject: {fileID: 896601863}
-        hasAnimation: 0
-        movementSettings:
-          startFromCurrent: 0
-          startValue: {x: 72.75, y: 12.5, z: -10}
-          endValue: {x: 79.25, y: 12.5, z: -10}
-          settings:
-            duration: 3
-            ease: 0
-            customEase:
-              serializedVersion: 2
-              m_Curve: []
-              m_PreInfinity: 2
-              m_PostInfinity: 2
-              m_RotationOrder: 4
-            cycles: 1
-            cycleMode: 0
-            startDelay: 0
-            endDelay: 0
-            useUnscaledTime: 0
-            useFixedUpdate: 0
-      animation:
-        animator: {fileID: 0}
-        animationName: 
-      dialogue:
-        delay: 0
-        dialogue: And I obtained some information through my contacts.
-        ignoreInput: 0
-      mistakeTitle:
-        delay: 0
-        title: 
-      mistake:
-        mistake: 
-      delay:
-        time: 0
-      choice:
-        choiceLeft: Fuck off
-        cutsceneLeft: {fileID: 540506919}
-        choiceRight: Ok sir
-        cutsceneRight: {fileID: 0}
-      cutscene:
-        cutsceneName: 
-      choiceId: 
-    - type: 7
-      order: 5
-      selectCamera:
-        camera: {fileID: 0}
-      movement:
-        gameObject: {fileID: 896601863}
-        hasAnimation: 0
-        movementSettings:
-          startFromCurrent: 0
-          startValue: {x: 72.75, y: 12.5, z: -10}
-          endValue: {x: 79.25, y: 12.5, z: -10}
-          settings:
-            duration: 3
-            ease: 0
-            customEase:
-              serializedVersion: 2
-              m_Curve: []
-              m_PreInfinity: 2
-              m_PostInfinity: 2
-              m_RotationOrder: 4
-            cycles: 1
-            cycleMode: 0
-            startDelay: 0
-            endDelay: 0
-            useUnscaledTime: 0
-            useFixedUpdate: 0
-      animation:
-        animator: {fileID: 0}
-        animationName: 
-      dialogue:
-        delay: 0
-        dialogue: And I obtained some information through my contacts.
-        ignoreInput: 0
-      mistakeTitle:
-        delay: 0
-        title: 
-      mistake:
-        mistake: 
-      delay:
-        time: 0
-      choice:
-        choiceLeft: Fuck off
-        cutsceneLeft: {fileID: 540506919}
-        choiceRight: Ok sir
-        cutsceneRight: {fileID: 0}
-      cutscene:
-        cutsceneName: 
-      choiceId: 
-    - type: 3
-      order: 6
-      selectCamera:
-        camera: {fileID: 0}
-      movement:
-        gameObject: {fileID: 896601863}
-        hasAnimation: 0
-        movementSettings:
-          startFromCurrent: 0
-          startValue: {x: 72.75, y: 12.5, z: -10}
-          endValue: {x: 79.25, y: 12.5, z: -10}
-          settings:
-            duration: 3
-            ease: 0
-            customEase:
-              serializedVersion: 2
-              m_Curve: []
-              m_PreInfinity: 2
-              m_PostInfinity: 2
-              m_RotationOrder: 4
-            cycles: 1
-            cycleMode: 0
-            startDelay: 0
-            endDelay: 0
-            useUnscaledTime: 0
-            useFixedUpdate: 0
-      animation:
-        animator: {fileID: 0}
-        animationName: 
-      dialogue:
-        delay: 0
-        dialogue: Apparently, the Gambito family has been meddling with our nighttime
-          deliveries to the port.
-        ignoreInput: 0
-      mistakeTitle:
-        delay: 0
-        title: 
-      mistake:
-        mistake: 
-      delay:
-        time: 0
-      choice:
-        choiceLeft: Fuck off
-        cutsceneLeft: {fileID: 540506919}
-        choiceRight: Ok sir
-        cutsceneRight: {fileID: 0}
-      cutscene:
-        cutsceneName: 
-      choiceId: 
-    - type: 7
-      order: 6
-      selectCamera:
-        camera: {fileID: 0}
-      movement:
-        gameObject: {fileID: 896601863}
-        hasAnimation: 0
-        movementSettings:
-          startFromCurrent: 0
-          startValue: {x: 72.75, y: 12.5, z: -10}
-          endValue: {x: 79.25, y: 12.5, z: -10}
-          settings:
-            duration: 3
-            ease: 0
-            customEase:
-              serializedVersion: 2
-              m_Curve: []
-              m_PreInfinity: 2
-              m_PostInfinity: 2
-              m_RotationOrder: 4
-            cycles: 1
-            cycleMode: 0
-            startDelay: 0
-            endDelay: 0
-            useUnscaledTime: 0
-            useFixedUpdate: 0
-      animation:
-        animator: {fileID: 0}
-        animationName: 
-      dialogue:
-        delay: 0
-        dialogue: Apparently, the Gambito family has been meddling with our nighttime
-          deliveries to the port.
-        ignoreInput: 0
-      mistakeTitle:
-        delay: 0
-        title: 
-      mistake:
-        mistake: 
-      delay:
-        time: 0
-      choice:
-        choiceLeft: Fuck off
-        cutsceneLeft: {fileID: 540506919}
-        choiceRight: Ok sir
-        cutsceneRight: {fileID: 0}
-      cutscene:
-        cutsceneName: 
-      choiceId: 
-    - type: 3
-      order: 7
-      selectCamera:
-        camera: {fileID: 0}
-      movement:
-        gameObject: {fileID: 896601863}
-        hasAnimation: 0
-        movementSettings:
-          startFromCurrent: 0
-          startValue: {x: 72.75, y: 12.5, z: -10}
-          endValue: {x: 79.25, y: 12.5, z: -10}
-          settings:
-            duration: 3
-            ease: 0
-            customEase:
-              serializedVersion: 2
-              m_Curve: []
-              m_PreInfinity: 2
-              m_PostInfinity: 2
-              m_RotationOrder: 4
-            cycles: 1
-            cycleMode: 0
-            startDelay: 0
-            endDelay: 0
-            useUnscaledTime: 0
-            useFixedUpdate: 0
-      animation:
-        animator: {fileID: 0}
-        animationName: 
-      dialogue:
-        delay: 0
-        dialogue: I could send my men to their headquarters, but I'd prefer to handle
-          this more discreetly.
-        ignoreInput: 0
-      mistakeTitle:
-        delay: 0
-        title: 
-      mistake:
-        mistake: 
-      delay:
-        time: 0
-      choice:
-        choiceLeft: Fuck off
-        cutsceneLeft: {fileID: 540506919}
-        choiceRight: Ok sir
-        cutsceneRight: {fileID: 0}
-      cutscene:
-        cutsceneName: 
-      choiceId: 
-    - type: 7
-      order: 8
-      selectCamera:
-        camera: {fileID: 0}
-      movement:
-        gameObject: {fileID: 896601863}
-        hasAnimation: 0
-        movementSettings:
-          startFromCurrent: 0
-          startValue: {x: 72.75, y: 12.5, z: -10}
-          endValue: {x: 79.25, y: 12.5, z: -10}
-          settings:
-            duration: 3
-            ease: 0
-            customEase:
-              serializedVersion: 2
-              m_Curve: []
-              m_PreInfinity: 2
-              m_PostInfinity: 2
-              m_RotationOrder: 4
-            cycles: 1
-            cycleMode: 0
-            startDelay: 0
-            endDelay: 0
-            useUnscaledTime: 0
-            useFixedUpdate: 0
-      animation:
-        animator: {fileID: 0}
-        animationName: 
-      dialogue:
-        delay: 0
-        dialogue: I could send my men to their headquarters, but I prefer to handle
-          this more discreetly.
-        ignoreInput: 0
-      mistakeTitle:
-        delay: 0
-        title: 
-      mistake:
-        mistake: 
-      delay:
-        time: 0
-      choice:
-        choiceLeft: Fuck off
-        cutsceneLeft: {fileID: 540506919}
-        choiceRight: Ok sir
-        cutsceneRight: {fileID: 0}
-      cutscene:
-        cutsceneName: 
-      choiceId: 
-    - type: 3
-      order: 9
-      selectCamera:
-        camera: {fileID: 0}
-      movement:
-        gameObject: {fileID: 896601863}
-        hasAnimation: 0
-        movementSettings:
-          startFromCurrent: 0
-          startValue: {x: 72.75, y: 12.5, z: -10}
-          endValue: {x: 79.25, y: 12.5, z: -10}
-          settings:
-            duration: 3
-            ease: 0
-            customEase:
-              serializedVersion: 2
-              m_Curve: []
-              m_PreInfinity: 2
-              m_PostInfinity: 2
-              m_RotationOrder: 4
-            cycles: 1
-            cycleMode: 0
-            startDelay: 0
-            endDelay: 0
-            useUnscaledTime: 0
-            useFixedUpdate: 0
-      animation:
-        animator: {fileID: 0}
-        animationName: 
-      dialogue:
-        delay: 0
-        dialogue: You shall go there and dispose of their boss.
-        ignoreInput: 0
-      mistakeTitle:
-        delay: 0
-        title: 
-      mistake:
-        mistake: 
-      delay:
-        time: 0
-      choice:
-        choiceLeft: Fuck off
-        cutsceneLeft: {fileID: 540506919}
-        choiceRight: Ok sir
-        cutsceneRight: {fileID: 0}
-      cutscene:
-        cutsceneName: 
-      choiceId: 
-    - type: 7
-      order: 10
-      selectCamera:
-        camera: {fileID: 0}
-      movement:
-        gameObject: {fileID: 896601863}
-        hasAnimation: 0
-        movementSettings:
-          startFromCurrent: 0
-          startValue: {x: 72.75, y: 12.5, z: -10}
-          endValue: {x: 79.25, y: 12.5, z: -10}
-          settings:
-            duration: 3
-            ease: 0
-            customEase:
-              serializedVersion: 2
-              m_Curve: []
-              m_PreInfinity: 2
-              m_PostInfinity: 2
-              m_RotationOrder: 4
-            cycles: 1
-            cycleMode: 0
-            startDelay: 0
-            endDelay: 0
-            useUnscaledTime: 0
-            useFixedUpdate: 0
-      animation:
-        animator: {fileID: 0}
-        animationName: 
-      dialogue:
-        delay: 0
-        dialogue: You shall go there, and dispose of their boss.
-        ignoreInput: 0
-      mistakeTitle:
-        delay: 0
-        title: 
-      mistake:
-        mistake: 
-      delay:
-        time: 0
-      choice:
-        choiceLeft: Fuck off
-        cutsceneLeft: {fileID: 540506919}
-        choiceRight: Ok sir
+        choiceRight: 
         cutsceneRight: {fileID: 0}
       cutscene:
         cutsceneName: 
       choiceId: 
     - type: 0
-      order: 11
+      order: 2
       selectCamera:
-        camera: {fileID: 667059279}
+        camera: {fileID: 811790290}
       movement:
-        gameObject: {fileID: 896601863}
+        gameObject: {fileID: 522257099}
         hasAnimation: 0
         movementSettings:
           startFromCurrent: 0
-          startValue: {x: 72.75, y: 12.5, z: -10}
-          endValue: {x: 79.25, y: 12.5, z: -10}
+          startValue: {x: -11, y: 1, z: 0}
+          endValue: {x: 3.25, y: 1, z: 0}
           settings:
-            duration: 3
+            duration: 1
             ease: 0
             customEase:
               serializedVersion: 2
               m_Curve: []
-              m_PreInfinity: 2
-              m_PostInfinity: 2
-              m_RotationOrder: 4
+              m_PreInfinity: 0
+              m_PostInfinity: 0
+              m_RotationOrder: 0
             cycles: 1
             cycleMode: 0
             startDelay: 0
@@ -12866,11 +12132,16 @@ MonoBehaviour:
             useUnscaledTime: 0
             useFixedUpdate: 0
       animation:
-        animator: {fileID: 0}
-        animationName: 
+        animator: {fileID: 522257101}
+        animationName: Idle
       dialogue:
         delay: 0
-        dialogue: You shall go there, and dispose of their boss.
+        dialogue: 'I heard you finished successfully your mission. Good Job!
+
+
+          Wait,
+          you said he had a golden suit a red eyes? Are you sure you got the right
+          person?'
         ignoreInput: 0
       mistakeTitle:
         delay: 0
@@ -12880,33 +12151,33 @@ MonoBehaviour:
       delay:
         time: 0
       choice:
-        choiceLeft: Demand big sum of compensation
-        cutsceneLeft: {fileID: 540506919}
-        choiceRight: Ok sir.
+        choiceLeft: 
+        cutsceneLeft: {fileID: 0}
+        choiceRight: 
         cutsceneRight: {fileID: 0}
       cutscene:
         cutsceneName: 
       choiceId: 
-    - type: 8
-      order: 11
+    - type: 3
+      order: 3
       selectCamera:
-        camera: {fileID: 0}
+        camera: {fileID: 811790290}
       movement:
-        gameObject: {fileID: 896601863}
+        gameObject: {fileID: 522257099}
         hasAnimation: 0
         movementSettings:
           startFromCurrent: 0
-          startValue: {x: 72.75, y: 12.5, z: -10}
-          endValue: {x: 79.25, y: 12.5, z: -10}
+          startValue: {x: -11, y: 1, z: 0}
+          endValue: {x: 3.25, y: 1, z: 0}
           settings:
-            duration: 3
+            duration: 1
             ease: 0
             customEase:
               serializedVersion: 2
               m_Curve: []
-              m_PreInfinity: 2
-              m_PostInfinity: 2
-              m_RotationOrder: 4
+              m_PreInfinity: 0
+              m_PostInfinity: 0
+              m_RotationOrder: 0
             cycles: 1
             cycleMode: 0
             startDelay: 0
@@ -12914,11 +12185,15 @@ MonoBehaviour:
             useUnscaledTime: 0
             useFixedUpdate: 0
       animation:
-        animator: {fileID: 0}
-        animationName: 
+        animator: {fileID: 522257101}
+        animationName: Idle
       dialogue:
         delay: 0
-        dialogue: You shall go there, and dispose of their boss.
+        dialogue: 'Oh well.. What''s done it''s done...
+
+
+          It is what it
+          is. End of story :D'
         ignoreInput: 0
       mistakeTitle:
         delay: 0
@@ -12928,13 +12203,13 @@ MonoBehaviour:
       delay:
         time: 0
       choice:
-        choiceLeft: Can we talk about my salary?
-        cutsceneLeft: {fileID: 540506919}
-        choiceRight: Yes sir! Consider it done!
+        choiceLeft: 
+        cutsceneLeft: {fileID: 0}
+        choiceRight: 
         cutsceneRight: {fileID: 0}
       cutscene:
         cutsceneName: 
-      choiceId: BossMistake
+      choiceId: 
 --- !u!1 &553348939
 GameObject:
   m_ObjectHideFlags: 0
