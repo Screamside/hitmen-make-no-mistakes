@@ -59,6 +59,9 @@ public class HostileEnemyBehaviour : MonoBehaviour
     
     private Coroutine smgCoroutine;
     private Vector3 _previousPosition;
+
+    public GameObject debugBall;
+    public bool skipMoveAway;
     
     private void Awake()
     {
@@ -75,6 +78,7 @@ public class HostileEnemyBehaviour : MonoBehaviour
 
     public void SwitchState(HostileEnemyStateType stateType)
     {
+        
         _currentState.ExitState();
         
         _currentState = _stateFactory.GetStateFromType(stateType);
@@ -83,17 +87,25 @@ public class HostileEnemyBehaviour : MonoBehaviour
 
     }
 
+    public void SpawnDebug(Vector3 pos)
+    {
+        Instantiate(debugBall, new Vector3(pos.x, pos.y,pos.z), Quaternion.identity);
+    }
+
     private void Update()
     {
         _currentState.UpdateState();
 
-        if(transform.position.x >player.transform.position.x)
+        if (_currentState.GetType() != typeof(SwingBatState))
         {
-            transform.localScale = new Vector3(-1, 1, 1);
-        }
-        else
-        {
-            transform.localScale = new Vector3(1, 1, 1);
+            if(transform.position.x >player.transform.position.x)
+            {
+                transform.localScale = new Vector3(-1, 1, 1);
+            }
+            else
+            {
+                transform.localScale = new Vector3(1, 1, 1);
+            }
         }
 
         if (_previousPosition != transform.position)
@@ -163,6 +175,24 @@ public class HostileEnemyBehaviour : MonoBehaviour
             yield return new WaitForSeconds(delayBetweenShots);
         }
         
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        
+        if (other.CompareTag("Wall"))
+        {
+            skipMoveAway = true;
+        }
+    }
+    
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        
+        if (other.CompareTag("Wall"))
+        {
+            skipMoveAway = false;
+        }
     }
 
     private void OnDestroy()

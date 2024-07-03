@@ -456,6 +456,7 @@ MonoBehaviour:
   weaponSpriteRenderer: {fileID: 2209978114260078138}
   warning: {fileID: 52813200690208709}
   delayBetweenShots: 0
+  debugBall: {fileID: 5049499702246552634, guid: f8162b5334630a94bbe306cfbedc7b26, type: 3}
 --- !u!61 &5289834320975503824
 BoxCollider2D:
   m_ObjectHideFlags: 0

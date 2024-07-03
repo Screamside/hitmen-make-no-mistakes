@@ -81,6 +81,8 @@ public class BossBehaviour : MonoBehaviour
     public int stateIndex = 0;
 
     private Vector3 _previousPosition;
+
+    public bool skipMoveAway;
     
     private void Awake()
     {
@@ -234,6 +236,7 @@ public class BossBehaviour : MonoBehaviour
     {
         StartCoroutine(SMGBullets());
     }
+    
 
     private IEnumerator SMGBullets()
     {
@@ -249,6 +252,24 @@ public class BossBehaviour : MonoBehaviour
             yield return new WaitForSeconds(delayBetweenShots);
         }
         
+    }
+    
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        
+        if (other.CompareTag("Wall"))
+        {
+            skipMoveAway = true;
+        }
+    }
+    
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        
+        if (other.CompareTag("Wall"))
+        {
+            skipMoveAway = false;
+        }
     }
 }
 
