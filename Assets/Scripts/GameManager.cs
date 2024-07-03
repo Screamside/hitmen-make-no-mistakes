@@ -216,6 +216,7 @@ public class GameManager : MonoBehaviour
                 
                 case "DiedFromBullet":
                     Instance.DiedFromBullet();
+                    FindFirstObjectByType<BossBehaviour>().gameObject.SetActive(false);
                     break;
                 
                 case "Lasers":
