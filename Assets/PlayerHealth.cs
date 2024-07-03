@@ -31,9 +31,11 @@ public class PlayerHealth : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            GameManager.RestartFromMistake("DiedFromBullet");
+            UIController.FadeIn();
             new Sound(SFX.Die).SetSpatialSound(false).SetOutput(Output.SFX).Play();
             GameManager.DisablePlayerControls();
+            GameManager.RestartFromMistake("DiedFromBullet");
+            Debug.Log("awafssagddsagsagdsag");
             invincibility = true;
             
             return;

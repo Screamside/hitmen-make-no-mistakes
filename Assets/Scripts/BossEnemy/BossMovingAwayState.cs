@@ -7,6 +7,7 @@ public class BossMovingAwayState : BossState
     
     private BossBehaviour _hostileEnemyBehaviour;
     private Transform _transform;
+
     
     public override void EnterState(BossBehaviour enemyBehaviour)
     {
@@ -76,11 +77,7 @@ public class BossMovingAwayState : BossState
             .OnUpdate(_hostileEnemyBehaviour.transform, ((transform, tween) =>
             {
                 
-                if (enemyBehaviour.skipMoveAway)
-                {
-                    _hostileEnemyBehaviour.SwitchToNextState();
-                    tween.Stop();
-                }
+                
                 
             }))
             .OnComplete(() =>
@@ -92,7 +89,11 @@ public class BossMovingAwayState : BossState
 
     public override void UpdateState()
     {
-        
+        if (_hostileEnemyBehaviour.skipMoveAway)
+        {
+            _hostileEnemyBehaviour.SwitchToNextState();
+            Tween.StopAll(_hostileEnemyBehaviour.transform);
+        }
     }
 
     public override void ExitState()

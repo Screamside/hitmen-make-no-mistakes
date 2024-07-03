@@ -51,7 +51,10 @@ public class PauseView : View
 
     private void OnResetGame()
     {
-        
+        PlayerPrefs.DeleteAll();
+        Time.timeScale = 1f;
+        _uiController.SwitchView(ViewType.GAME);
+        GameManager.RespawnPlayer();
     }
 
     private void OnContinueGame()

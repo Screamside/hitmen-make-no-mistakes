@@ -312,6 +312,23 @@ public class GameManager : MonoBehaviour
                 UIController.ShowDialogue("After being caught sneaking around the enemies warehouse, you mumble to yourself - How embarrassing... \n\nAs someone proud of being a hitman, you devote yourself to never be caught again.");
             });
     }
+
+    public static void RespawnPlayer()
+    {
+        
+        Instance.player.transform.position = Instance.restartPoint.position;
+        Instance.player.transform.rotation = Instance.restartPoint.rotation;
+        Instance.player.transform.localScale = new Vector3(1f, 1f, 1f);
+        Instance.player.DisablePistol();
+        var ph = Instance.player.GetComponent<PlayerHealth>();
+
+        ph.currentHealth = ph.health;
+        ph.invincibility = false;
+            
+        UIController.HideDialogue();
+        UIController.HideChoices();
+        
+    }
 }
 
 public enum Soundtracks
