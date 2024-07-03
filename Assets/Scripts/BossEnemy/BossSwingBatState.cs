@@ -57,7 +57,7 @@ public class BossSwingBatState : BossState
                 .OnComplete(enemyBehaviour.SwitchToNextState);
         }
         
-        enemyBehaviour.batObject.GetComponent<BoxCollider2D>().enabled = false;
+        
 
     }
 
