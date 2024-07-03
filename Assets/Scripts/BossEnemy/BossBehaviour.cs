@@ -219,6 +219,7 @@ public class BossBehaviour : MonoBehaviour
         bullet.transform.position = gunShootingPosition.position;
         bullet.transform.LookAt(player.transform.position + Vector3.up);
         bullet.transform.right = bullet.transform.forward;
+        bullet.GetComponent<Bullet>().owner = "enemy";
         Vector3 originalRotation = bullet.transform.eulerAngles;
         bullet.transform.rotation = Quaternion.Euler(originalRotation.x, originalRotation.y, originalRotation.z + Random.Range(shootingAngle, -shootingAngle));
         
@@ -238,6 +239,7 @@ public class BossBehaviour : MonoBehaviour
             bullet.transform.LookAt(player.transform.position + Vector3.up);
             bullet.transform.right = bullet.transform.forward;
             Vector3 originalRotation = bullet.transform.eulerAngles;
+            bullet.GetComponent<Bullet>().owner = "enemy";
             bullet.transform.rotation = Quaternion.Euler(originalRotation.x, originalRotation.y, originalRotation.z + Random.Range(shootingAngle, -shootingAngle));
             yield return new WaitForSeconds(delayBetweenShots);
         }
