@@ -21,6 +21,7 @@ public class BossHealth : MonoBehaviour
     private void OnEnable()
     {
         currentHealth = health;
+        GameEvents.UpdateBossHealth.Invoke(currentHealth);
     }
 
     public void Damage(int amount)
@@ -35,7 +36,6 @@ public class BossHealth : MonoBehaviour
         {
             Tween.StopAll(gameObject);
             die.Play();
-            Destroy(gameObject, 10f);
             gameObject.SetActive(false);
             GameEvents.OnBossDefeated.Invoke();
             return;

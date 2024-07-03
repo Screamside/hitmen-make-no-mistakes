@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using EditorAttributes;
@@ -83,9 +84,21 @@ public class BossBehaviour : MonoBehaviour
     private Vector3 _previousPosition;
 
     public bool skipMoveAway;
-    
+
+    public Vector3 defaultPosition;
+    public Vector3 defaultScale;
+
     private void Awake()
     {
+        defaultPosition = transform.position;
+        defaultScale = transform.localScale;
+    }
+
+    private void OnEnable()
+    {
+        transform.position = defaultPosition;
+        transform.localScale = defaultScale;
+        
         player = FindFirstObjectByType<PlayerController>();
         
         dynamiteObject.SetActive(false);
