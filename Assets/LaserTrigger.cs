@@ -35,16 +35,18 @@ public class LaserTrigger : MonoBehaviour
     {
         while (true)
         {
+            Debug.Log("asdfassfafa");
+            
             if (GameManager.IsMistakeDone("Lasers"))
             {
-                sprite.sprite = disabledLasers;
                 _animator.enabled = false;
+                sprite.sprite = disabledLasers;
                 _collider2D.enabled = false;
             }
             else
             {
-                sprite.sprite = enabledLasers;
                 _animator.enabled = true;
+                sprite.sprite = enabledLasers;
                 _collider2D.enabled = true;
             }
             

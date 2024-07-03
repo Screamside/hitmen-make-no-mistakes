@@ -9,10 +9,6 @@ public class DoorInteract : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        
-        UIController.FadeIn();
-        
-        UIController.ShowDialogue("Unfortunately, due to your carelessness, you used up all of your ammo... \n\nLooks like you'll need to stealth your way through the enemies this time.");
         Tween.Delay(4f).OnComplete(() =>
         {
             UIController.HideDialogue();
