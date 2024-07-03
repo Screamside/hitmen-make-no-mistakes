@@ -10,6 +10,8 @@ public class GoBossInteraction : MonoBehaviour, IInteractable
     public void Interact()
     {
         GameEvents.OnChangeRoom.Invoke();
+        
+        GameManager.UpdateCutscene("GoToBoss", true);
 
         Tween.Delay(0.5f, () =>
         {

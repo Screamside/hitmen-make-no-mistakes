@@ -10,6 +10,13 @@ public class ExitDoorInteract : MonoBehaviour, IInteractable
     public void Interact()
     {
 
+        if (GameManager.IsCutsceneDone("GoToBoss"))
+        {
+            GameEvents.OnChangeRoom.Invoke();
+            Tween.Delay(0.5f, () => GameManager.StartBoss());
+            return;
+        }
+        
         if (GameManager.IsMistakeDone("Lasers") || GameManager.IsMistakeDone("Caught") )
         {
             GameEvents.OnChangeRoom.Invoke();

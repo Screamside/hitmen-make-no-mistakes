@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     public Transform restartPoint;
     public Transform carParkPoint;
     public Transform warehouseParkPoint;
+    public Transform bossPoint;
 
     private Soundtracks currentSoundtrack;
     private Sound playingSoundtrack;
@@ -53,6 +54,8 @@ public class GameManager : MonoBehaviour
         }
         
         PlaySoundtrack(Soundtracks.Fight, true);
+        
+        GameEvents.OnBossDefeated.AddListener(() => CutsceneManager.PlayMistake("Final"));
         
     }
 
@@ -147,14 +150,19 @@ public class GameManager : MonoBehaviour
         Instance.player.transform.position = Instance.carParkPoint.position;
         Instance.player.transform.localScale = Vector3.one;
         Instance.player.EnablePistol();
-        
     }
     
     public static void StartWarehouse()
     {
         Instance.player.transform.position = Instance.warehouseParkPoint.position;
         Instance.player.transform.localScale = Vector3.one;
-        
+    }
+    
+    public static void StartBoss()
+    {
+        Instance.player.transform.position = Instance.bossPoint.position;
+        Instance.player.transform.localScale = Vector3.one;
+        Instance.player.EnablePistol();
     }
     
     public static void RestartFromMistake(string mistake)
