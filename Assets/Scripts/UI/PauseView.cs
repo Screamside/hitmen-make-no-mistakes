@@ -26,33 +26,27 @@ public class PauseView : View
         _continueGame.clicked += OnContinueGame;
         _resetGame = ui.rootVisualElement.Q<Button>("ResetGame");
         _resetGame.clicked += OnResetGame;
-        _musicSlider = ui.rootVisualElement.Q<SliderInt>("Music");
-        _musicSlider.RegisterCallback<ChangeEvent<int>>((evt) =>
-        {
-            AudioManager.ChangeOutputVolume(Output.Master, evt.newValue / 100f);
-        });
-        _sfxSlider = ui.rootVisualElement.Q<SliderInt>("SFX");
-        _sfxSlider.RegisterCallback<ChangeEvent<int>>((evt) =>
-        {
-            AudioManager.ChangeOutputVolume(Output.SFX, evt.newValue / 100f);
-        });
-
-        _musicSlider.value = (int)AudioManager.GetLastSavedOutputVolume(Output.Music);
-        _sfxSlider.value = (int)AudioManager.GetLastSavedOutputVolume(Output.SFX);
+        //_musicSlider = ui.rootVisualElement.Q<SliderInt>("Music");
+        //_musicSlider.RegisterCallback<ChangeEvent<int>>((evt) =>
+        //{
+        //    AudioManager.ChangeOutputVolume(Output.Master, evt.newValue / 100f);
+        //});
+        //_sfxSlider = ui.rootVisualElement.Q<SliderInt>("SFX");
+        //_sfxSlider.RegisterCallback<ChangeEvent<int>>((evt) =>
+        //{
+        //    AudioManager.ChangeOutputVolume(Output.SFX, evt.newValue / 100f);
+        //});
+//
+        //_musicSlider.value = (int)AudioManager.GetLastSavedOutputVolume(Output.Music);
+        //_sfxSlider.value = (int)AudioManager.GetLastSavedOutputVolume(Output.SFX);
         
-        _mistake1 = ui.rootVisualElement.Q<Label>("Mistake1");
-        _mistake2 = ui.rootVisualElement.Q<Label>("Mistake2");
-        _mistake3 = ui.rootVisualElement.Q<Label>("Mistake3");
-        _mistake4 = ui.rootVisualElement.Q<Label>("Mistake4");
-        _mistake5 = ui.rootVisualElement.Q<Label>("Mistake5");
-        _mistake6 = ui.rootVisualElement.Q<Label>("Mistake6");
-        _mistake7 = ui.rootVisualElement.Q<Label>("Mistake7");
+        
     }
 
     private void OnResetGame()
     {
         PlayerPrefs.DeleteAll();
-        Time.timeScale = 1f;
+        //Time.timeScale = 1;
         _uiController.SwitchView(ViewType.GAME);
         GameManager.RespawnPlayer();
     }
@@ -66,10 +60,25 @@ public class PauseView : View
     
     public override void InitializeView(UIController uiController)
     {
+        
+        _continueGame = ui.rootVisualElement.Q<Button>("ContinueGame");
+        _continueGame.clicked += OnContinueGame;
+        _resetGame = ui.rootVisualElement.Q<Button>("ResetGame");
+        _resetGame.clicked += OnResetGame;
+        
+        GameManager.DisablePlayerControls();
 
+        _mistake1 = ui.rootVisualElement.Q<Label>("Mistake1");
+        _mistake2 = ui.rootVisualElement.Q<Label>("Mistake2");
+        _mistake3 = ui.rootVisualElement.Q<Label>("Mistake3");
+        _mistake4 = ui.rootVisualElement.Q<Label>("Mistake4");
+        _mistake5 = ui.rootVisualElement.Q<Label>("Mistake5");
+        _mistake6 = ui.rootVisualElement.Q<Label>("Mistake6");
+        _mistake7 = ui.rootVisualElement.Q<Label>("Mistake7");
+        
         _uiController = uiController;
         
-        Time.timeScale = 0;
+        //Time.timeScale = 0;
         
         _mistake1.text = "Mistake 1# - ???????????";
         _mistake2.text = "Mistake 2# - ???????????";
@@ -122,7 +131,8 @@ public class PauseView : View
 
     public override void ExitView()
     {
-        Time.timeScale = 0;
+        //Time.timeScale = 1;
+        GameManager.EnablePlayerControls();
     }
     
 }

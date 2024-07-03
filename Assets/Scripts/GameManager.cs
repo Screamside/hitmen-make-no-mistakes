@@ -56,7 +56,9 @@ public class GameManager : MonoBehaviour
         PlaySoundtrack(Soundtracks.Fight, true);
         
         GameEvents.OnBossDefeated.AddListener(() => CutsceneManager.PlayMistake("Final"));
-        
+
+        InputSystem.actions.FindAction("Esc").started += _ => UIController.Instance.SwitchView(ViewType.PAUSE);
+
     }
 
     private void Start()
