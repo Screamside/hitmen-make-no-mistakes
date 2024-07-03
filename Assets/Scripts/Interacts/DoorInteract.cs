@@ -9,13 +9,21 @@ public class DoorInteract : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        GameEvents.OnChangeRoom.Invoke();
-        GameManager.Instance.player.PausePhysics();
-
-        Tween.Delay(duration: 0.5f, onComplete: () =>
+        
+        UIController.FadeIn();
+        
+        UIController.ShowDialogue("Unfortunately, due to your carelessness, you used up all of your ammo... \n\nLooks like you'll need to stealth your way through the enemies this time.");
+        Tween.Delay(4f).OnComplete(() =>
         {
-            GameManager.Instance.player.transform.position = destination.position;
-            GameManager.Instance.player.ResumePhysics();
+            UIController.HideDialogue();
+            GameEvents.OnChangeRoom.Invoke();
+            GameManager.Instance.player.PausePhysics();
+
+            Tween.Delay(duration: 0.5f, onComplete: () =>
+            {
+                GameManager.Instance.player.transform.position = destination.position;
+                GameManager.Instance.player.ResumePhysics();
+            });
         });
 
     }
