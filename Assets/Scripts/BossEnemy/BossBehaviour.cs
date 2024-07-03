@@ -43,9 +43,14 @@ public class BossBehaviour : MonoBehaviour
     [SerializeField]private Void _bat;
     [HideInInspector]public GameObject batObject;
     
-    [FoldoutGroup("Dynamite", nameof(dynamiteObject))]
+    [FoldoutGroup("Dynamite", nameof(dynamiteObject), nameof(dynamitePrefab), nameof(delayBeforeThrow), nameof(delayAfterThrow), nameof(dynamiteSpawnPoint), nameof(throwPower))]
     [SerializeField]private Void _dynamite;
     [HideInInspector]public GameObject dynamiteObject;
+    [HideInInspector]public GameObject dynamitePrefab;
+    [HideInInspector]public float delayBeforeThrow;
+    [HideInInspector]public float delayAfterThrow;
+    [HideInInspector]public float throwPower;
+    [HideInInspector]public Transform dynamiteSpawnPoint;
     
     [FoldoutGroup("Swing Bat State", nameof(delayBeforeAttack), nameof(prepareBatPosition), nameof(prepareBatTime), nameof(prepareBatAngle), nameof(delaySwingBat), nameof(swingBatTime), nameof(swingBatAngle), nameof(resetBatRotationTime), nameof(delayAfterSwing))]
     [SerializeField]private Void _swingGroup;
@@ -185,6 +190,25 @@ public class BossBehaviour : MonoBehaviour
             smgObject.transform.right = smgObject.transform.forward;
             gunObject.transform.right = gunObject.transform.forward;
         }
+    }
+    
+    public void SpawnDynamite()
+    {
+        GameObject dynamite = Instantiate(dynamitePrefab);
+        dynamite.transform.position = dynamiteSpawnPoint.position;
+        Dynamite d = dynamite.GetComponent<Dynamite>();
+        
+        if(transform.lossyScale.x < 0)
+        {
+            d.direction = -dynamiteSpawnPoint.right;
+        }
+        else
+        {
+            d.direction = dynamiteSpawnPoint.right;
+        }
+        
+        d.throwForce = throwPower;
+
     }
 
     public void SpawnGunBullet()
