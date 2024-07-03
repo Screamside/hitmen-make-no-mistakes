@@ -1,13 +1,7 @@
-﻿
-using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
-using MelenitasDev.SoundsGood;
 using PrimeTween;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.Utilities;
 using UnityEngine.UIElements;
 
 public class GameView : View
@@ -23,6 +17,7 @@ public class GameView : View
     private Button _rightChoice;
     private VisualElement _healthBar;
     private VisualElement _bossHealthBar;
+    private Label _overlayText;
 
     private VisualElement _mistakeElement;
     private Label _mistakeLabel;
@@ -39,6 +34,7 @@ public class GameView : View
         _rightChoice = ui.rootVisualElement.Q<Button>("Right");
         _healthBar = ui.rootVisualElement.Q<VisualElement>("HealthBar");
         _bossHealthBar = ui.rootVisualElement.Q<VisualElement>("BossHealth");
+        _overlayText = ui.rootVisualElement.Q<Label>("OverlayText");
 
         _mistakeElement = ui.rootVisualElement.Q<VisualElement>("MistakeTitle");
         _mistakeLabel = ui.rootVisualElement.Q<Label>("MistakeTitleLabel");
@@ -61,6 +57,9 @@ public class GameView : View
         GameEvents.HideBossHealth.AddListener(HideBossHealthBar);
         GameEvents.UpdateBossHealth.AddListener(UpdateBossHealthBar);
         
+        GameEvents.ShowOverlayText.AddListener(PlayOverlayTextAnimation);
+        GameEvents.HideOverlayText.AddListener(HideOverlayText);
+        
     }
 
     public override void UpdateView()
@@ -80,6 +79,9 @@ public class GameView : View
         GameEvents.ShowBossHealth.RemoveListener(ShowBossHealthBar);
         GameEvents.HideBossHealth.RemoveListener(HideBossHealthBar);
         GameEvents.UpdateBossHealth.RemoveListener(UpdateBossHealthBar);
+        
+        GameEvents.ShowOverlayText.RemoveListener(PlayOverlayTextAnimation);
+        GameEvents.HideOverlayText.RemoveListener(HideOverlayText);
     }
 
     private void ChangeRoom()
@@ -152,6 +154,43 @@ public class GameView : View
         }
         
         GameEvents.OnUIDialogueFinishWriting.Invoke();
+        
+    }
+    
+    public void PlayOverlayTextAnimation(string textToAnimate)
+    {
+        HideChoices();
+        _overlayText.style.display = DisplayStyle.Flex;
+        _textToAnimate = textToAnimate;
+
+        _overlayText.text = "";
+        
+        StartCoroutine(TypeWriterEffectOverlay());
+        
+    }
+
+    public void HideOverlayText()
+    {
+        _overlayText.text = "";
+        _overlayText.style.display = DisplayStyle.None;
+    }
+
+    private IEnumerator TypeWriterEffectOverlay()
+    {
+
+        foreach (var letter in _textToAnimate.ToCharArray())
+        {
+
+            _overlayText.text += letter;
+            
+            if (letter == ' ')
+            {
+                continue;
+            }
+            
+            yield return new WaitForSeconds(0.025f);
+            
+        }
         
     }
 

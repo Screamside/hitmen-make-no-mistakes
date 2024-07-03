@@ -197,6 +197,14 @@ public class GameManager : MonoBehaviour
                 case "DiedFromBullet":
                     Instance.DiedFromBullet();
                     break;
+                
+                case "Lasers":
+                    Instance.Lasers();
+                    break;
+                
+                case "Caught":
+                    Instance.Caught();
+                    break;
             }
         });
         
@@ -264,6 +272,24 @@ public class GameManager : MonoBehaviour
             () =>
             {
                 UIController.ShowDialogue("Got some bad luck. \n\nIt's time to turn over a new leaf and sure hope I don't die this time...");
+            });
+    }
+    
+    private void Lasers()
+    {
+        Tween.Delay(2f,
+            () =>
+            {
+                UIController.ShowDialogue("Last time, the Laser Tripwires really made a barbecue out of you. \n\nYou learn from mistakes, so this time you proceed to deactivate the tripwires in the first place before proceeding with your mission.");
+            });
+    }
+    
+    private void Caught()
+    {
+        Tween.Delay(2f,
+            () =>
+            {
+                UIController.ShowDialogue("After being caught sneaking around the enemies’ warehouse, you mumble to yourself - How embarrassing… \n\nAs someone proud of being a hitman, you devote yourself to never be caught again.");
             });
     }
 }

@@ -18,6 +18,9 @@
     public static readonly GEvent ShowBossHealth = new();
     public static readonly GEvent HideBossHealth = new();
     public static readonly GEvent<int> UpdateBossHealth = new();
+
+    public static readonly GEvent<string> ShowOverlayText = new();
+    public static readonly GEvent HideOverlayText = new();
     
     public static readonly GEvent OnBossDefeated = new();
 
