@@ -1,6 +1,7 @@
 ﻿
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using MelenitasDev.SoundsGood;
 using PrimeTween;
 using Unity.VisualScripting;
@@ -13,18 +14,21 @@ public class GameView : View
 {
 
     public UIDocument ui;
+    public List<Sprite> healthList;
+    public List<Sprite> bossHealthList;
     private VisualElement _overlay;
     private Label _sceneNameLabel;
     private Label _dialogueLabel;
     private Button _leftChoice;
     private Button _rightChoice;
+    private VisualElement _healthBar;
+    private VisualElement _bossHealthBar;
 
     private VisualElement _mistakeElement;
     private Label _mistakeLabel;
 
     private string _textToAnimate;
 
-    private Sound letterSound;
 
     private void OnEnable()
     {
@@ -33,6 +37,8 @@ public class GameView : View
         _dialogueLabel = ui.rootVisualElement.Q<Label>("Dialogue");
         _leftChoice = ui.rootVisualElement.Q<Button>("Left");
         _rightChoice = ui.rootVisualElement.Q<Button>("Right");
+        _healthBar = ui.rootVisualElement.Q<VisualElement>("HealthBar");
+        _bossHealthBar = ui.rootVisualElement.Q<VisualElement>("BossHealthBar");
 
         _mistakeElement = ui.rootVisualElement.Q<VisualElement>("MistakeTitle");
         _mistakeLabel = ui.rootVisualElement.Q<Label>("MistakeTitleLabel");
@@ -40,13 +46,21 @@ public class GameView : View
         _leftChoice.clicked += () => GameEvents.OnPlayerChooses.Invoke("left");
         _rightChoice.clicked += () => GameEvents.OnPlayerChooses.Invoke("right");
 
-        letterSound = new Sound(SFX.Letter).SetOutput(Output.SFX).SetSpatialSound(false);
     }
 
     public override void InitializeView(UIController uiController)
     {
         GameEvents.OnChangeRoom.AddListener(ChangeRoom);
         GameEvents.OnEnteredScene.AddListener(ShowSceneName);
+        
+        GameEvents.ShowPlayerHealth.AddListener(ShowHealthBar);
+        GameEvents.HidePlayerHealth.AddListener(HideHealthBar);
+        GameEvents.UpdatePlayerHealth.AddListener(UpdateHealthBar);
+        
+        GameEvents.ShowBossHealth.AddListener(ShowBossHealthBar);
+        GameEvents.HideBossHealth.AddListener(HideBossHealthBar);
+        GameEvents.UpdateBossHealth.AddListener(UpdateBossHealthBar);
+        
     }
 
     public override void UpdateView()
@@ -58,6 +72,14 @@ public class GameView : View
     {
         GameEvents.OnChangeRoom.RemoveListener(ChangeRoom);
         GameEvents.OnEnteredScene.RemoveListener(ShowSceneName);
+        
+        GameEvents.ShowPlayerHealth.RemoveListener(ShowHealthBar);
+        GameEvents.HidePlayerHealth.RemoveListener(HideHealthBar);
+        GameEvents.UpdatePlayerHealth.RemoveListener(UpdateHealthBar);
+        
+        GameEvents.ShowBossHealth.RemoveListener(ShowBossHealthBar);
+        GameEvents.HideBossHealth.RemoveListener(HideBossHealthBar);
+        GameEvents.UpdateBossHealth.RemoveListener(UpdateBossHealthBar);
     }
 
     private void ChangeRoom()
@@ -166,6 +188,36 @@ public class GameView : View
     public void HideMistakeTitle()
     {
         _mistakeElement.RemoveFromClassList("show-mistake-title");
+    }
+    
+    public void ShowHealthBar()
+    {
+        _healthBar.style.display = DisplayStyle.Flex;
+    }
+    
+    public void HideHealthBar()
+    {
+        _healthBar.style.display = DisplayStyle.None;
+    }
+    
+    public void UpdateHealthBar(int health)
+    {
+        _healthBar.style.backgroundImage = new StyleBackground(healthList[health]);
+    }
+    
+    public void ShowBossHealthBar()
+    {
+        _bossHealthBar.style.display = DisplayStyle.Flex;
+    }
+    
+    public void HideBossHealthBar()
+    {
+        _bossHealthBar.style.display = DisplayStyle.None;
+    }
+    
+    public void UpdateBossHealthBar(int health)
+    {
+        _bossHealthBar.style.backgroundImage = new StyleBackground(bossHealthList[health]);
     }
     
 }

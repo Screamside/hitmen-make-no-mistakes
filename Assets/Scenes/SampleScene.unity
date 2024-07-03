@@ -2581,6 +2581,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ui: {fileID: 193722492}
+  healthList:
+  - {fileID: 3938479054515265447, guid: 985d75f6393a45048a252b06898b96a9, type: 3}
+  - {fileID: -7330576502270059189, guid: 569e5cbd74ceb0944ac5ad8ba91622d3, type: 3}
+  - {fileID: -3717691227504406543, guid: d40de23d63a953543afb77406a7cc5f4, type: 3}
+  - {fileID: 7306837434512811627, guid: 15f041770cfa15c488f016c5d65a8fc5, type: 3}
+  - {fileID: 7417124868225984167, guid: c75a0a350bbfd17478246bd599455eb9, type: 3}
+  - {fileID: 5568262766807060995, guid: 9f903750a702ea848bce119dce59dbb3, type: 3}
+  bossHealthList:
+  - {fileID: -4556713024882060774, guid: c2d60edabd56c7e4d9d62a601210138e, type: 3}
+  - {fileID: -4190872852060199509, guid: 44cf0350ff34df844a6fa5f2ed515b67, type: 3}
+  - {fileID: -4529045132731303502, guid: 48437cc156ae8494fa18b274f6bf6499, type: 3}
+  - {fileID: -7149234688521860919, guid: 28d08232a9c980f4a8679576eba013f4, type: 3}
+  - {fileID: -7388475519408327134, guid: 59d85657dec6a80439c82cd973aa0ec3, type: 3}
+  - {fileID: -8513197513052259645, guid: 2fab09555b68fc84c8103f811a5e87b6, type: 3}
+  - {fileID: -8524066250067526784, guid: 095e0349cb5fd194197ff93c76ccdb20, type: 3}
+  - {fileID: 1836436412801854015, guid: 29f4e6be1e8ce31449d286ff0385919b, type: 3}
+  - {fileID: -7767912761671771120, guid: 9d8288220bf3aea498d73a3d96610ed9, type: 3}
+  - {fileID: 7933073168533283770, guid: a4eb36d6adaba3346aaf47a3bf190f1d, type: 3}
+  - {fileID: -487591766874576467, guid: fe0c4f98bada84445a763c95692392c9, type: 3}
+  - {fileID: -5784284323290050088, guid: 0122aed0e196025478f35ca26f78a261, type: 3}
+  - {fileID: 472663155450763318, guid: a20c24a640263474a8bd374f751a449f, type: 3}
+  - {fileID: 3837152917505128028, guid: 1aafee1994e869a4aafa17468a4e2ca2, type: 3}
+  - {fileID: -4148334099435389347, guid: 938ef5026d8019348b25cf6ea36ce09e, type: 3}
+  - {fileID: -8749660064125983580, guid: 0e442f0f2398d4948bc1d583f3ea3211, type: 3}
+  - {fileID: -2222415752026497415, guid: 44d2cbfa483bc9445a21eacc62a6f687, type: 3}
+  - {fileID: 9021735019436776454, guid: 98d75a8f69aa4d24497bdc360c73e2ec, type: 3}
+  - {fileID: 419064085555427297, guid: 9945f8bcab767494e9cfe8f8dad9a583, type: 3}
+  - {fileID: -7177600018313884104, guid: 45b10e2ff4e88ea42b81354783f04858, type: 3}
+  - {fileID: 5335351622432602862, guid: 5455fbbfc7ff18a418f7d75246500aca, type: 3}
 --- !u!114 &193722492
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12703,8 +12732,8 @@ MonoBehaviour:
   animator: {fileID: 1160356261484213424}
   player: {fileID: 0}
   moveSpeed: 4
-  minDistanceToShoot: {x: 0, y: 0}
-  maxDistanceToRunAway: {x: 0, y: 0}
+  minDistanceToShoot: {x: 7, y: 9}
+  maxDistanceToRunAway: {x: 3, y: 5}
   layermask:
     serializedVersion: 2
     m_Bits: 128
@@ -17784,7 +17813,7 @@ Transform:
   m_GameObject: {fileID: 845413901}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 53.25, y: 28.25, z: -10}
+  m_LocalPosition: {x: -48.25, y: 30, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -26448,6 +26477,8 @@ MonoBehaviour:
   SceneName: Exit Access
   sceneSoundTrack: 0
   forceReplay: 0
+  equipGun: 0
+  isBoss: 0
 --- !u!212 &1124507685
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -27638,7 +27669,7 @@ Transform:
   m_GameObject: {fileID: 1180903833}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 44.25, y: 1.5, z: -10}
+  m_LocalPosition: {x: -57.25, y: 3.25, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -29200,7 +29231,7 @@ Transform:
   m_GameObject: {fileID: 1297003627}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 79.75, y: 59.25, z: -10}
+  m_LocalPosition: {x: -21.75, y: 61, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -37698,7 +37729,7 @@ Transform:
   m_GameObject: {fileID: 1777632695}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 88.25, y: -45.25, z: 0}
+  m_LocalPosition: {x: -13.25, y: -43.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -37822,6 +37853,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 5
   invincibility: 0
+  sprite: {fileID: 1777632698}
 --- !u!1 &1777713551
 GameObject:
   m_ObjectHideFlags: 0
@@ -47637,6 +47669,8 @@ MonoBehaviour:
   SceneName: Hitman Office
   sceneSoundTrack: 0
   forceReplay: 0
+  equipGun: 0
+  isBoss: 0
 --- !u!61 &2098511142
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -51234,6 +51268,8 @@ MonoBehaviour:
   SceneName: Office 1
   sceneSoundTrack: 0
   forceReplay: 0
+  equipGun: 1
+  isBoss: 0
 --- !u!114 &5240124634288637730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51459,6 +51495,8 @@ MonoBehaviour:
   SceneName: Boss's Office
   sceneSoundTrack: 0
   forceReplay: 0
+  equipGun: 0
+  isBoss: 0
 --- !u!61 &5730129546480814352
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -51912,6 +51950,8 @@ MonoBehaviour:
   SceneName: Corridor
   sceneSoundTrack: 0
   forceReplay: 0
+  equipGun: 0
+  isBoss: 0
 --- !u!61 &6363386571462995228
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -52499,6 +52539,7 @@ GameObject:
   - component: {fileID: 3626916397536569756}
   - component: {fileID: 1160356261484213424}
   - component: {fileID: 533199227}
+  - component: {fileID: 7878350320022029942}
   m_Layer: 0
   m_Name: FinalEnemyBoss
   m_TagString: Untagged
@@ -53938,6 +53979,8 @@ MonoBehaviour:
   SceneName: Car Park
   sceneSoundTrack: 0
   forceReplay: 0
+  equipGun: 1
+  isBoss: 0
 --- !u!4 &7878350318503177294
 Transform:
   m_ObjectHideFlags: 0
@@ -54078,6 +54121,8 @@ MonoBehaviour:
   SceneName: Presentation Room
   sceneSoundTrack: 2
   forceReplay: 0
+  equipGun: 1
+  isBoss: 0
 --- !u!114 &7878350319579524067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54128,6 +54173,8 @@ MonoBehaviour:
   SceneName: Back Warehouse
   sceneSoundTrack: 1
   forceReplay: 0
+  equipGun: 0
+  isBoss: 0
 --- !u!61 &7878350319654740214
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -54207,6 +54254,8 @@ MonoBehaviour:
   SceneName: Executive Office
   sceneSoundTrack: 2
   forceReplay: 0
+  equipGun: 1
+  isBoss: 0
 --- !u!61 &7878350319803816539
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -54305,6 +54354,21 @@ Transform:
   - {fileID: 11937522}
   m_Father: {fileID: 7878350319579524064}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7878350320022029942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6969460406653300240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c3a4519c6bb2c641bea7288efdb6387, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 20
+  currentHealth: 0
+  sprite: {fileID: 3626916397536569756}
 --- !u!4 &7878350320037444290
 Transform:
   m_ObjectHideFlags: 0
@@ -54379,6 +54443,8 @@ MonoBehaviour:
   SceneName: Garage
   sceneSoundTrack: 0
   forceReplay: 0
+  equipGun: 0
+  isBoss: 0
 --- !u!61 &7878350320251663385
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -54593,6 +54659,8 @@ MonoBehaviour:
   SceneName: Office 3
   sceneSoundTrack: 0
   forceReplay: 0
+  equipGun: 1
+  isBoss: 0
 --- !u!114 &8406592166962108090
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54791,6 +54859,8 @@ MonoBehaviour:
   SceneName: WareHouseConnection
   sceneSoundTrack: 0
   forceReplay: 0
+  equipGun: 1
+  isBoss: 0
 --- !u!1 &8572800989176751734
 GameObject:
   m_ObjectHideFlags: 0
@@ -54931,6 +55001,8 @@ MonoBehaviour:
   SceneName: Office 2
   sceneSoundTrack: 0
   forceReplay: 0
+  equipGun: 1
+  isBoss: 0
 --- !u!114 &9063136049357967195
 MonoBehaviour:
   m_ObjectHideFlags: 0
