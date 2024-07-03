@@ -9,6 +9,10 @@ public class SceneInitializer : MonoBehaviour
     public string SceneName;
     public Soundtracks sceneSoundTrack;
     public bool forceReplay;
+
+    public bool equipGun;
+
+    public bool isBoss;
     
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -19,6 +23,30 @@ public class SceneInitializer : MonoBehaviour
             CutsceneManager.Instance.currentCamera = cinemachineCamera;
             GameEvents.OnEnteredScene.Invoke(SceneName);
             GameManager.PlaySoundtrack(sceneSoundTrack, forceReplay);
+
+            if (equipGun)
+            {
+                other.GetComponent<PlayerPistol>().enabled = true;
+                GameEvents.ShowPlayerHealth.Invoke();
+                GameEvents.UpdatePlayerHealth.Invoke(other.GetComponent<PlayerHealth>().health);
+
+                if (isBoss)
+                {
+                    GameEvents.ShowBossHealth.Invoke();
+                    GameEvents.UpdateBossHealth.Invoke(20);
+                }
+                else
+                {
+                    GameEvents.HideBossHealth.Invoke();
+                }
+                
+            }
+            else
+            {
+                other.GetComponent<PlayerPistol>().enabled = false;
+                GameEvents.HidePlayerHealth.Invoke();
+                GameEvents.HideBossHealth.Invoke();
+            }
         }
         
     }
