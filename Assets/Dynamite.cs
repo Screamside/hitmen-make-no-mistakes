@@ -23,6 +23,7 @@ public class Dynamite : MonoBehaviour
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
         Destroy(gameObject, Random.Range(maxLifetime.x, maxLifetime.y));
+        ;
     }
 
     private void Start()
