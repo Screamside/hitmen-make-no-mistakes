@@ -20,7 +20,7 @@ public class BossMovingCloserState : BossState
         
         float distance = Vector3.Distance(_transform.position, _playerTransform.position);
 
-        float distanceToCheck;
+        float distanceToCheck = 0;
 
         if (_hostileEnemyBehaviour.stateOrder[_hostileEnemyBehaviour.stateIndex] == BossStateType.Swing)
         {
@@ -28,7 +28,17 @@ public class BossMovingCloserState : BossState
         }
         else
         {
-            distanceToCheck =  Random.Range(_hostileEnemyBehaviour.minDistanceToShoot.x, _hostileEnemyBehaviour.minDistanceToShoot.y);
+            if (_hostileEnemyBehaviour.stateOrder[_hostileEnemyBehaviour.stateIndex-1] == BossStateType.ShootingSMG)
+            {
+                distanceToCheck = Random.Range(_hostileEnemyBehaviour.minDistanceToShootSMG.x,
+                    _hostileEnemyBehaviour.minDistanceToShootSMG.y);
+            }
+        
+            if (_hostileEnemyBehaviour.stateOrder[_hostileEnemyBehaviour.stateIndex] == BossStateType.ShootingGun)
+            {
+                distanceToCheck = Random.Range(_hostileEnemyBehaviour.minDistanceToShootGun.x,
+                    _hostileEnemyBehaviour.minDistanceToShootGun.y);
+            }
         }
         
         if (distance > distanceToCheck)

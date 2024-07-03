@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using EditorAttributes;
+using Unity.Cinemachine;
 using UnityEngine;
 using Random = UnityEngine.Random;
 using Void = EditorAttributes.Void;
@@ -13,11 +14,9 @@ public class BossBehaviour : MonoBehaviour
     [HideInInspector]public Animator animator;
     [HideInInspector]public PlayerController player;
     
-    [FoldoutGroup("Moving State", nameof(moveSpeed), nameof(minDistanceToShoot), nameof(maxDistanceToRunAway), nameof(layermask))]
+    [FoldoutGroup("Moving State", nameof(moveSpeed), nameof(layermask))]
     [SerializeField]private Void _movingGroup;
     [HideInInspector]public float moveSpeed;
-    [HideInInspector, MinMaxSlider(0f, 20f)]public Vector2 minDistanceToShoot;
-    [HideInInspector, MinMaxSlider(0f, 20f)]public Vector2 maxDistanceToRunAway;
     [HideInInspector]public LayerMask layermask;
     
     [FoldoutGroup("Shooting State", nameof(delayBeforeShooting), nameof(delayAfterShooting), nameof(shootingAngle), nameof(bulletPrefab), nameof(bulletSpeed))]
@@ -29,20 +28,25 @@ public class BossBehaviour : MonoBehaviour
     [HideInInspector]public GameObject bulletPrefab;
     [HideInInspector]public float bulletSpeed;
     
-    [FoldoutGroup("SMG", nameof(smgObject), nameof(smgShootingPosition))]
+    [FoldoutGroup("SMG", nameof(smgObject), nameof(smgShootingPosition), nameof(minDistanceToShootSMG), nameof(maxDistanceToRunAwaySMG))]
     [SerializeField]private Void _smg;
     [HideInInspector]public GameObject smgObject;
     [HideInInspector]public Transform smgShootingPosition;
+    [HideInInspector, MinMaxSlider(0f, 20f)]public Vector2 minDistanceToShootSMG;
+    [HideInInspector, MinMaxSlider(0f, 20f)]public Vector2 maxDistanceToRunAwaySMG;
     
-    [FoldoutGroup("Gun", nameof(gunObject), nameof(gunShootingPosition))]
+    [FoldoutGroup("Gun", nameof(gunObject), nameof(gunShootingPosition), nameof(minDistanceToShootGun), nameof(maxDistanceToRunAwayGun))]
     [SerializeField]private Void _gun;
     [HideInInspector]public GameObject gunObject;
     [HideInInspector]public Transform gunShootingPosition;
+    [HideInInspector, MinMaxSlider(0f, 20f)]public Vector2 minDistanceToShootGun;
+    [HideInInspector, MinMaxSlider(0f, 20f)]public Vector2 maxDistanceToRunAwayGun;
     
-    [FoldoutGroup("Bat", nameof(batObject), nameof(minDistanceToSwing))]
+    [FoldoutGroup("Bat", nameof(batObject), nameof(minDistanceToSwing), nameof(maxDistanceToRunAwayBat))]
     [SerializeField]private Void _bat;
     [HideInInspector]public GameObject batObject;
     [HideInInspector]public float minDistanceToSwing;
+    [HideInInspector, MinMaxRangeSlider(0f, 20f)]public Vector2 maxDistanceToRunAwayBat;
     
     [FoldoutGroup("Dynamite", nameof(dynamiteObject), nameof(dynamitePrefab), nameof(delayBeforeThrow), nameof(delayAfterThrow), nameof(dynamiteSpawnPoint), nameof(throwPower))]
     [SerializeField]private Void _dynamite;

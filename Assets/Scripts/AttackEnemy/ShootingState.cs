@@ -1,11 +1,14 @@
-﻿using PrimeTween;
+﻿using System.Collections.Generic;
+using PrimeTween;
 using UnityEngine;
 
 public class ShootingState : HostileEnemyState
 {
+    private Tween t;
+    
     public override void EnterState(HostileEnemyBehaviour enemyBehaviour)
     {
-        Tween.Delay(enemyBehaviour.delayBeforeShooting, () =>
+        t =Tween.Delay(enemyBehaviour.delayBeforeShooting, () =>
         {
             enemyBehaviour.SpawnBullet();
             if (enemyBehaviour.smgMan)
@@ -35,6 +38,6 @@ public class ShootingState : HostileEnemyState
 
     public override void ExitState()
     {
-        
+        t.Stop();
     }
 }

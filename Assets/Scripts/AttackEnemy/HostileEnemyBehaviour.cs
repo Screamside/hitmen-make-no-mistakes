@@ -164,6 +164,11 @@ public class HostileEnemyBehaviour : MonoBehaviour
         }
         
     }
+
+    private void OnDestroy()
+    {
+        StopCoroutine(smgCoroutine);
+    }
 }
 
 public class HostileEnemyStateFactory

@@ -22,9 +22,9 @@ public class BossSwingBatState : BossState
                 .Chain(Tween.Color(enemyBehaviour.weaponSpriteRenderer, Color.red, enemyBehaviour.delaySwingBat/4, cycles: 4, cycleMode: CycleMode.Restart).OnComplete(() =>
                 {
                     enemyBehaviour.weaponSpriteRenderer.color = Color.white;
-                    enemyBehaviour.batObject.GetComponent<BoxCollider2D>().enabled = true;
                     enemyBehaviour.warning.SetActive(false);
                 }))
+                .Chain(Tween.Delay(0.01f, () => enemyBehaviour.batObject.GetComponent<BoxCollider2D>().enabled = true))
                 .Chain(Tween.Rotation(enemyBehaviour.batObject.transform,
                     Quaternion.Euler(originalRotation + Vector3.forward * enemyBehaviour.swingBatAngle), enemyBehaviour.swingBatTime))
                 .Group(Tween.Position(enemyBehaviour.batObject.transform, originalPosition, enemyBehaviour.swingBatTime))
@@ -42,9 +42,9 @@ public class BossSwingBatState : BossState
                 .Chain(Tween.Color(enemyBehaviour.weaponSpriteRenderer, Color.red, enemyBehaviour.delaySwingBat/4, cycles: 4, cycleMode: CycleMode.Restart).OnComplete(() =>
                     {
                         enemyBehaviour.weaponSpriteRenderer.color = Color.white;
-                        enemyBehaviour.batObject.GetComponent<BoxCollider2D>().enabled = true;
                         enemyBehaviour.warning.SetActive(false);
                     }))
+                .Chain(Tween.Delay(0.01f, () => enemyBehaviour.batObject.GetComponent<BoxCollider2D>().enabled = true))
                 .Chain(Tween.Rotation(enemyBehaviour.batObject.transform,
                     Quaternion.Euler(originalRotation + Vector3.forward * -enemyBehaviour.swingBatAngle), enemyBehaviour.swingBatTime))
                 .Group(Tween.Position(enemyBehaviour.batObject.transform, originalPosition, enemyBehaviour.swingBatTime)
@@ -56,6 +56,8 @@ public class BossSwingBatState : BossState
                 .Chain(Tween.Delay(enemyBehaviour.delayAfterSwing))
                 .OnComplete(enemyBehaviour.SwitchToNextState);
         }
+        
+        enemyBehaviour.batObject.GetComponent<BoxCollider2D>().enabled = false;
 
     }
 

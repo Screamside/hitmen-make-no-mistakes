@@ -41,7 +41,6 @@ public class CutsceneManager : MonoBehaviour
 
     private void Handle()
     {
-
         if (wasLastAMistake)
         {
             GameManager.RestartFromMistake(lastMistake);
@@ -102,7 +101,7 @@ public class CutsceneManager : MonoBehaviour
             }));
     }
 
-    public static void PlayMistake(string mistake)
+    public static void PlayMistake(string mistake, CinemachineCamera cam = null)
     {
         if (Instance.mistakes.All(keyPair => keyPair.key != mistake))
         {
@@ -110,8 +109,19 @@ public class CutsceneManager : MonoBehaviour
             return;
         }
         
+        if (cam != null)
+        {
+            var cinemachineBasicMultiChannelPerlin = cam.GetComponent<CinemachineBasicMultiChannelPerlin>();
+
+            cinemachineBasicMultiChannelPerlin.enabled = true;
+
+            Tween.Delay(0.3f, () =>
+            {
+                cinemachineBasicMultiChannelPerlin.enabled = false;
+            });
+        }
         GameManager.StopSoundtrack();
-         Instance.mistakeTrigger.Play();
+        Instance.mistakeTrigger.Play();
         
         GameManager.DisablePlayerControls();
         

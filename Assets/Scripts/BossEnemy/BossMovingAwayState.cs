@@ -15,12 +15,24 @@ public class BossMovingAwayState : BossState
 
         Vector3 finalPosition;
 
-        float distance = Random.Range(_hostileEnemyBehaviour.maxDistanceToRunAway.x,
-            _hostileEnemyBehaviour.maxDistanceToRunAway.y);
+        float distance = 0;
+        
+        
+        if (_hostileEnemyBehaviour.stateOrder[_hostileEnemyBehaviour.stateIndex-1] == BossStateType.ShootingSMG)
+        {
+            distance = Random.Range(_hostileEnemyBehaviour.maxDistanceToRunAwaySMG.x,
+                _hostileEnemyBehaviour.maxDistanceToRunAwaySMG.y);
+        }
+        
+        if (_hostileEnemyBehaviour.stateOrder[_hostileEnemyBehaviour.stateIndex-1] == BossStateType.ShootingGun)
+        {
+            distance = Random.Range(_hostileEnemyBehaviour.maxDistanceToRunAwayGun.x,
+                _hostileEnemyBehaviour.maxDistanceToRunAwayGun.y);
+        }
         
         if (_hostileEnemyBehaviour.stateOrder[_hostileEnemyBehaviour.stateIndex-2] == BossStateType.Swing)
         {
-            distance = 12;
+            distance = Random.Range(_hostileEnemyBehaviour.maxDistanceToRunAwayBat.x, _hostileEnemyBehaviour.maxDistanceToRunAwayBat.y);
         }
         
         if (_transform.position.x > enemyBehaviour.player.transform.position.x) // To the right of the player

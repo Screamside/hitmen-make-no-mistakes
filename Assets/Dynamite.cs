@@ -32,7 +32,12 @@ public class Dynamite : MonoBehaviour
     private void OnDestroy()
     {
         
-        Physics2D.OverlapCircle(transform.position, 4, LayerMask.GetMask("Player")).GetComponent<PlayerHealth>().Damage(1);
+        var player = Physics2D.OverlapCircle(transform.position, 4, LayerMask.GetMask("Player"));
+
+        if (playerHealth != null)
+        {
+            playerHealth.GetComponent<PlayerHealth>().Damage(1);
+        }
         
         Instantiate(explosionPrefab, transform.position, Quaternion.identity);
         Tween.StopAll(spriteRenderer);

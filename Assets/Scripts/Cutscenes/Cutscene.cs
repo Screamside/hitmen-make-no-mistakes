@@ -23,6 +23,8 @@ public class Cutscene
 
     private Dictionary<int, Tween> _tweens = new Dictionary<int, Tween>();
 
+    private CinemachineCamera lastCameraSelected;
+
     public IEnumerator PlayCutscene()
     {
 
@@ -48,6 +50,8 @@ public class Cutscene
                    {
                        cinemachineCamera.gameObject.SetActive(false);
                    }
+
+                   lastCameraSelected = cut.selectCamera.camera.GetComponent<CinemachineCamera>();
                     
                    cut.selectCamera.camera.SetActive(true);
                 }
@@ -137,7 +141,7 @@ public class Cutscene
                     {
                         Tween.Delay(2.5f, () =>
                         {
-                            CutsceneManager.PlayMistake(cut.mistake.mistake);
+                            CutsceneManager.PlayMistake(cut.mistake.mistake, lastCameraSelected);
                             UIController.HideDialogue();
                             UIController.HideChoices();
                             UIController.HideMistakeTitle();
