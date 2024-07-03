@@ -167,7 +167,10 @@ public class HostileEnemyBehaviour : MonoBehaviour
 
     private void OnDestroy()
     {
-        StopCoroutine(smgCoroutine);
+        if(smgCoroutine != null)
+        {
+            StopCoroutine(smgCoroutine);
+        }
     }
 }
 

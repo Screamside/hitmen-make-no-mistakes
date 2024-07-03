@@ -28,7 +28,7 @@ public class BossMovingCloserState : BossState
         }
         else
         {
-            if (_hostileEnemyBehaviour.stateOrder[_hostileEnemyBehaviour.stateIndex-1] == BossStateType.ShootingSMG)
+            if (_hostileEnemyBehaviour.stateOrder[_hostileEnemyBehaviour.stateIndex] == BossStateType.ShootingSMG)
             {
                 distanceToCheck = Random.Range(_hostileEnemyBehaviour.minDistanceToShootSMG.x,
                     _hostileEnemyBehaviour.minDistanceToShootSMG.y);
