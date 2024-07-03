@@ -10919,7 +10919,7 @@ GameObject:
   - component: {fileID: 515881334}
   m_Layer: 8
   m_Name: Square (3)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13767,7 +13767,7 @@ GameObject:
   - component: {fileID: 639951268}
   m_Layer: 8
   m_Name: Square (2)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -60148,7 +60148,7 @@ MonoBehaviour:
           startValue: {x: 0, y: 0, z: 0}
           endValue: {x: 0, y: 0, z: 0}
           settings:
-            duration: 0
+            duration: 1
             ease: 0
             customEase:
               serializedVersion: 2
@@ -60156,7 +60156,7 @@ MonoBehaviour:
               m_PreInfinity: 0
               m_PostInfinity: 0
               m_RotationOrder: 0
-            cycles: 0
+            cycles: 1
             cycleMode: 0
             startDelay: 0
             endDelay: 0
