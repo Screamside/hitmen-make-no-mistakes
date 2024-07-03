@@ -1,18 +1,21 @@
 using System;
+using PrimeTween;
 using UnityEngine;
 
-public class GoBossInteraction : MonoBehaviour
+public class GoBossInteraction : MonoBehaviour, IInteractable
 {
 
     public Transform destination;
-    
-    private void OnTriggerEnter2D(Collider2D other)
+
+    public void Interact()
     {
-        if (other.CompareTag("Player"))
+        GameEvents.OnChangeRoom.Invoke();
+
+        Tween.Delay(0.5f, () =>
         {
-            
-            
-            
-        }
+            GameManager.Instance.player.PausePhysics();
+            GameManager.Instance.player.transform.position = destination.position;
+            GameManager.Instance.player.ResumePhysics();
+        });
     }
 }
