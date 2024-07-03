@@ -9,7 +9,7 @@ public class BossShootingSMGState : BossState
         {
             ;
             enemyBehaviour.SpawnSMGBullet();
-            Tween.Delay(enemyBehaviour.delayBetweenShots * 3).OnComplete(() =>
+            Tween.Delay(enemyBehaviour.delayBetweenShots * 5).OnComplete(() =>
             {
                 Tween.Delay(enemyBehaviour.delayAfterShooting, () =>
                 {

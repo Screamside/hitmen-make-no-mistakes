@@ -237,7 +237,7 @@ public class BossBehaviour : MonoBehaviour
 
     private IEnumerator SMGBullets()
     {
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 5; i++)
         {
             GameObject bullet = Instantiate(bulletPrefab);
             bullet.transform.position = smgShootingPosition.position;
