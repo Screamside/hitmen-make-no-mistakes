@@ -17813,7 +17813,7 @@ Transform:
   m_GameObject: {fileID: 845413901}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -48.25, y: 30, z: -10}
+  m_LocalPosition: {x: 28.5, y: 30.25, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -19971,30 +19971,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7795025779295474150, guid: f4352d95f595c274f92307406a6315a7, type: 3}
-      propertyPath: delayAfterSwing
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7795025779295474150, guid: f4352d95f595c274f92307406a6315a7, type: 3}
-      propertyPath: maxDistanceToRunAway.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7795025779295474150, guid: f4352d95f595c274f92307406a6315a7, type: 3}
-      propertyPath: maxDistanceToRunAway.y
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 8208949222775094691, guid: f4352d95f595c274f92307406a6315a7, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 6476139748964665699, guid: bc72ab91521198b45b0b2ac8a2c10faf, type: 3}
-    - target: {fileID: 8208949222775094691, guid: f4352d95f595c274f92307406a6315a7, type: 3}
-      propertyPath: m_SortingLayer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8208949222775094691, guid: f4352d95f595c274f92307406a6315a7, type: 3}
-      propertyPath: m_SortingLayerID
-      value: -312776245
-      objectReference: {fileID: 0}
     - target: {fileID: 8541416679959141712, guid: f4352d95f595c274f92307406a6315a7, type: 3}
       propertyPath: m_Name
       value: HostileBatMan
@@ -27669,7 +27649,7 @@ Transform:
   m_GameObject: {fileID: 1180903833}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -57.25, y: 3.25, z: -10}
+  m_LocalPosition: {x: 19.5, y: 3.5, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -27964,7 +27944,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2869061324787092619, guid: e0b31bac35b0ca547b516aced084cf45, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3878759816425473765, guid: e0b31bac35b0ca547b516aced084cf45, type: 3}
       propertyPath: m_Sprite
@@ -29231,7 +29211,7 @@ Transform:
   m_GameObject: {fileID: 1297003627}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -21.75, y: 61, z: -10}
+  m_LocalPosition: {x: 55, y: 61.25, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -37729,7 +37709,7 @@ Transform:
   m_GameObject: {fileID: 1777632695}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -13.25, y: -43.5, z: 0}
+  m_LocalPosition: {x: 63.5, y: -43.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -48483,7 +48463,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3306649697825074519, guid: ba8b72f10e92c074e9ed3e6b654b8835, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4968058696937923660, guid: ba8b72f10e92c074e9ed3e6b654b8835, type: 3}
       propertyPath: m_Sprite
@@ -53849,29 +53829,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7795025779295474150, guid: f4352d95f595c274f92307406a6315a7, type: 3}
-      propertyPath: maxDistanceToRunAway.x
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7795025779295474150, guid: f4352d95f595c274f92307406a6315a7, type: 3}
-      propertyPath: maxDistanceToRunAway.y
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 8208949222775094691, guid: f4352d95f595c274f92307406a6315a7, type: 3}
-      propertyPath: m_SortingLayer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8208949222775094691, guid: f4352d95f595c274f92307406a6315a7, type: 3}
-      propertyPath: m_SortingLayerID
-      value: -312776245
-      objectReference: {fileID: 0}
     - target: {fileID: 8541416679959141712, guid: f4352d95f595c274f92307406a6315a7, type: 3}
       propertyPath: m_Name
       value: HostileBatMan
       objectReference: {fileID: 0}
     - target: {fileID: 8541416679959141712, guid: f4352d95f595c274f92307406a6315a7, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -54122,7 +54086,7 @@ MonoBehaviour:
   sceneSoundTrack: 2
   forceReplay: 0
   equipGun: 1
-  isBoss: 0
+  isBoss: 1
 --- !u!114 &7878350319579524067
 MonoBehaviour:
   m_ObjectHideFlags: 0
