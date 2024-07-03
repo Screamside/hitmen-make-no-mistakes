@@ -41,6 +41,13 @@ public class CutsceneManager : MonoBehaviour
 
     private void Handle()
     {
+
+        if (lastCutscene == "Finish")
+        {
+            GameManager.RespawnPlayer();
+            PlayerPrefs.DeleteAll();
+        }
+        
         if (wasLastAMistake)
         {
             GameManager.RestartFromMistake(lastMistake);
