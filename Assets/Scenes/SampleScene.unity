@@ -11295,7 +11295,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &463343097
 Transform:
   m_ObjectHideFlags: 0
@@ -12703,8 +12703,8 @@ MonoBehaviour:
   animator: {fileID: 1160356261484213424}
   player: {fileID: 0}
   moveSpeed: 4
-  minDistanceToShoot: 3
-  maxDistanceToRunAway: 5
+  minDistanceToShoot: {x: 0, y: 0}
+  maxDistanceToRunAway: {x: 0, y: 0}
   layermask:
     serializedVersion: 2
     m_Bits: 128
@@ -12718,6 +12718,7 @@ MonoBehaviour:
   gunObject: {fileID: 2717726701908054037}
   gunShootingPosition: {fileID: 1341616772}
   batObject: {fileID: 7637582042112619715}
+  minDistanceToSwing: 0
   dynamiteObject: {fileID: 8572800989176751734}
   dynamitePrefab: {fileID: 8150852021883729010, guid: 5f81db0d64db952449b120aa766844c4, type: 3}
   delayBeforeThrow: 1
@@ -12736,6 +12737,7 @@ MonoBehaviour:
   weaponSpriteRenderer: {fileID: 4256814285005173583}
   warning: {fileID: 1989661412801677967}
   delayBetweenShots: 0.65
+  stateIndex: 0
 --- !u!1001 &543009975
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17782,7 +17784,7 @@ Transform:
   m_GameObject: {fileID: 845413901}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -44.25, y: 71.25, z: -10}
+  m_LocalPosition: {x: 27.75, y: 30, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -27632,7 +27634,7 @@ Transform:
   m_GameObject: {fileID: 1180903833}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -53.25, y: 44.5, z: -10}
+  m_LocalPosition: {x: 18.75, y: 3.25, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -27924,6 +27926,10 @@ PrefabInstance:
     - target: {fileID: 2869061324787092619, guid: e0b31bac35b0ca547b516aced084cf45, type: 3}
       propertyPath: m_Name
       value: HostileSMGMan (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2869061324787092619, guid: e0b31bac35b0ca547b516aced084cf45, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3878759816425473765, guid: e0b31bac35b0ca547b516aced084cf45, type: 3}
       propertyPath: m_Sprite
@@ -29186,7 +29192,7 @@ Transform:
   m_GameObject: {fileID: 1297003627}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -17.75, y: 102.25, z: -10}
+  m_LocalPosition: {x: 54.25, y: 61, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -37684,7 +37690,7 @@ Transform:
   m_GameObject: {fileID: 1777632695}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.25, y: -2.25, z: 0}
+  m_LocalPosition: {x: 62.75, y: -43.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -37745,7 +37751,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1777632695}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d7e5ed9ca8b64309ac8e6428da7eed4b, type: 3}
   m_Name: 
@@ -48433,6 +48439,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HostileGunMan
       objectReference: {fileID: 0}
+    - target: {fileID: 3306649697825074519, guid: ba8b72f10e92c074e9ed3e6b654b8835, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4968058696937923660, guid: ba8b72f10e92c074e9ed3e6b654b8835, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -53809,6 +53819,10 @@ PrefabInstance:
     - target: {fileID: 8541416679959141712, guid: f4352d95f595c274f92307406a6315a7, type: 3}
       propertyPath: m_Name
       value: HostileBatMan
+      objectReference: {fileID: 0}
+    - target: {fileID: 8541416679959141712, guid: f4352d95f595c274f92307406a6315a7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
