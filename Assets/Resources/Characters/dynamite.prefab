@@ -10012,7 +10012,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   direction: {x: 0, y: 0}
   throwForce: 10
-  maxLifetime: 2
+  maxLifetime: {x: 2, y: 3}
   spriteRenderer: {fileID: 2589779610504508414}
   explosionPrefab: {fileID: 5311843593564872645, guid: 81a47bac143a8c34ba782935a70fa35c, type: 3}
   damage: 1
