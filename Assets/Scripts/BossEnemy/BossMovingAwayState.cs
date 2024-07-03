@@ -14,11 +14,19 @@ public class BossMovingAwayState : BossState
         _transform = enemyBehaviour.transform;
 
         Vector3 finalPosition;
+
+        float distance = Random.Range(_hostileEnemyBehaviour.maxDistanceToRunAway.x,
+            _hostileEnemyBehaviour.maxDistanceToRunAway.y);
+        
+        if (_hostileEnemyBehaviour.stateOrder[_hostileEnemyBehaviour.stateIndex-2] == BossStateType.Swing)
+        {
+            distance = 12;
+        }
         
         if (_transform.position.x > enemyBehaviour.player.transform.position.x) // To the right of the player
         {
 
-            RaycastHit2D hit = Physics2D.Raycast(_transform.position + Vector3.up * 0.5f, Vector2.right, enemyBehaviour.maxDistanceToRunAway, enemyBehaviour.layermask);
+            RaycastHit2D hit = Physics2D.Raycast(_transform.position + Vector3.up * 0.5f, Vector2.right, distance, enemyBehaviour.layermask);
             
             if (hit.collider != null)
             {
@@ -27,13 +35,13 @@ public class BossMovingAwayState : BossState
             }
             else
             {
-                finalPosition = _transform.position + (Vector3.right * enemyBehaviour.maxDistanceToRunAway);
+                finalPosition = _transform.position + (Vector3.right * distance);
             }
             
         }
         else
         {
-            RaycastHit2D hit = Physics2D.Raycast(_transform.position + Vector3.up * 0.5f, Vector2.left, enemyBehaviour.maxDistanceToRunAway, enemyBehaviour.layermask);
+            RaycastHit2D hit = Physics2D.Raycast(_transform.position + Vector3.up * 0.5f, Vector2.left, distance, enemyBehaviour.layermask);
             
             if (hit.collider != null)
             {
@@ -41,7 +49,7 @@ public class BossMovingAwayState : BossState
             }
             else
             {
-                finalPosition = _transform.position + (Vector3.left * enemyBehaviour.maxDistanceToRunAway);
+                finalPosition = _transform.position + (Vector3.left * distance);
             }
         }
 

@@ -22,12 +22,17 @@ public class SwingBatState : HostileEnemyState
                 .Chain(Tween.Color(enemyBehaviour.weaponSpriteRenderer, Color.red, enemyBehaviour.delaySwingBat/4, cycles: 4, cycleMode: CycleMode.Restart).OnComplete(() =>
                 {
                     enemyBehaviour.weaponSpriteRenderer.color = Color.white;
+                    enemyBehaviour.weaponGameObject.GetComponent<BoxCollider2D>().enabled = true;
                     enemyBehaviour.warning.SetActive(false);
                 }))
                 
                 .Chain(Tween.Rotation(enemyBehaviour.weaponGameObject.transform,
                     Quaternion.Euler(originalRotation + Vector3.forward * enemyBehaviour.swingBatAngle), enemyBehaviour.swingBatTime))
-                .Group(Tween.Position(enemyBehaviour.weaponGameObject.transform, originalPosition, enemyBehaviour.swingBatTime))
+                .Group(Tween.Position(enemyBehaviour.weaponGameObject.transform, originalPosition, enemyBehaviour.swingBatTime)
+                    .OnComplete(() =>
+                    {
+                        enemyBehaviour.weaponGameObject.GetComponent<BoxCollider2D>().enabled = false;
+                    }))
                 .Chain(Tween.Rotation(enemyBehaviour.weaponGameObject.transform, Quaternion.Euler(originalRotation), enemyBehaviour.resetBatRotationTime))
                 .Chain(Tween.Delay(enemyBehaviour.delayAfterSwing))
                 .OnComplete(() =>

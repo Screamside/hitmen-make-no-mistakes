@@ -20,7 +20,18 @@ public class BossMovingCloserState : BossState
         
         float distance = Vector3.Distance(_transform.position, _playerTransform.position);
 
-        if (distance > _hostileEnemyBehaviour.minDistanceToShoot)
+        float distanceToCheck;
+
+        if (_hostileEnemyBehaviour.stateOrder[_hostileEnemyBehaviour.stateIndex] == BossStateType.Swing)
+        {
+            distanceToCheck = _hostileEnemyBehaviour.minDistanceToSwing;
+        }
+        else
+        {
+            distanceToCheck =  Random.Range(_hostileEnemyBehaviour.minDistanceToShoot.x, _hostileEnemyBehaviour.minDistanceToShoot.y);
+        }
+        
+        if (distance > distanceToCheck)
         {
 
             if (_transform.position.x > _playerTransform.position.x)

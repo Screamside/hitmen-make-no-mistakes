@@ -16,8 +16,8 @@ public class BossBehaviour : MonoBehaviour
     [FoldoutGroup("Moving State", nameof(moveSpeed), nameof(minDistanceToShoot), nameof(maxDistanceToRunAway), nameof(layermask))]
     [SerializeField]private Void _movingGroup;
     [HideInInspector]public float moveSpeed;
-    [HideInInspector]public float minDistanceToShoot;
-    [HideInInspector]public float maxDistanceToRunAway;
+    [HideInInspector, MinMaxSlider(0f, 20f)]public Vector2 minDistanceToShoot;
+    [HideInInspector, MinMaxSlider(0f, 20f)]public Vector2 maxDistanceToRunAway;
     [HideInInspector]public LayerMask layermask;
     
     [FoldoutGroup("Shooting State", nameof(delayBeforeShooting), nameof(delayAfterShooting), nameof(shootingAngle), nameof(bulletPrefab), nameof(bulletSpeed))]
@@ -39,9 +39,10 @@ public class BossBehaviour : MonoBehaviour
     [HideInInspector]public GameObject gunObject;
     [HideInInspector]public Transform gunShootingPosition;
     
-    [FoldoutGroup("Bat", nameof(batObject))]
+    [FoldoutGroup("Bat", nameof(batObject), nameof(minDistanceToSwing))]
     [SerializeField]private Void _bat;
     [HideInInspector]public GameObject batObject;
+    [HideInInspector]public float minDistanceToSwing;
     
     [FoldoutGroup("Dynamite", nameof(dynamiteObject), nameof(dynamitePrefab), nameof(delayBeforeThrow), nameof(delayAfterThrow), nameof(dynamiteSpawnPoint), nameof(throwPower))]
     [SerializeField]private Void _dynamite;
@@ -73,7 +74,7 @@ public class BossBehaviour : MonoBehaviour
     public SpriteRenderer weaponSpriteRenderer;
     public GameObject warning;
     public float delayBetweenShots;
-    private int stateIndex = 0;
+    public int stateIndex = 0;
 
     private Vector3 _previousPosition;
     

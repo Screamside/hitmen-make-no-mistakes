@@ -14,11 +14,12 @@ public class Dynamite : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     public GameObject explosionPrefab;
 
+    private PlayerHealth playerHealth;
+
     private void Awake()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
         Destroy(gameObject, maxLifetime);
-        
     }
 
     private void Start()
@@ -29,8 +30,29 @@ public class Dynamite : MonoBehaviour
 
     private void OnDestroy()
     {
+        if (playerHealth != null)
+        {
+            playerHealth.Damage(1);
+        }
+        
         Instantiate(explosionPrefab, transform.position, Quaternion.identity);
         Tween.StopAll(spriteRenderer);
         new Sound(SFX.Explosion).SetSpatialSound(false).SetOutput(Output.SFX).Play();
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.TryGetComponent(out PlayerHealth p))
+        {
+            playerHealth = p;
+        }
+    }
+    
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerHealth = null;
+        }
     }
 }

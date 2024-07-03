@@ -19,7 +19,7 @@ public class PlayerHealth : MonoBehaviour
         //TODO update UI
         if(invincibility) return;
 
-        currentHealth--;
+        currentHealth -= amount;
 
         if (currentHealth <= 0)
         {
