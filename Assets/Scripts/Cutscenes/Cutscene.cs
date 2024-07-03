@@ -136,8 +136,23 @@ public class Cutscene
                 //==================== PLAY MISTAKE
                 if (cut.type.Equals(CutType.PlayMistake))
                 {
+                    
                     Tween.Delay(1f, () =>
                     {
+                        
+                        foreach (var cinemachineCamera in GameObject.FindObjectsByType<CinemachineCamera>(
+                                     FindObjectsSortMode.None))
+                        {
+                            if (cinemachineCamera.gameObject.activeSelf)
+                            {
+                                var cameraNoise = cinemachineCamera.GetComponent<CinemachineBasicMultiChannelPerlin>();
+                            
+                                cameraNoise.enabled = true;
+                            
+                                Tween.Delay(0.3f, () => cameraNoise.enabled = false);
+                            }
+                        }
+                        
                         CutsceneManager.PlayMistake(cut.mistake.mistake, lastCameraSelected);
                         UIController.HideDialogue();
                         UIController.HideChoices();

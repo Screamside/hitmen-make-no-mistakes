@@ -289,7 +289,7 @@ public class GameManager : MonoBehaviour
         Tween.Delay(2f,
             () =>
             {
-                UIController.ShowDialogue("After being caught sneaking around the enemies’ warehouse, you mumble to yourself - How embarrassing… \n\nAs someone proud of being a hitman, you devote yourself to never be caught again.");
+                UIController.ShowDialogue("After being caught sneaking around the enemies warehouse, you mumble to yourself - How embarrassing... \n\nAs someone proud of being a hitman, you devote yourself to never be caught again.");
             });
     }
 }

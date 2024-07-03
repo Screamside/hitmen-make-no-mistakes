@@ -103,23 +103,13 @@ public class CutsceneManager : MonoBehaviour
 
     public static void PlayMistake(string mistake, CinemachineCamera cam = null)
     {
+        
+        Debug.Log(">>>>>>>>>>>");
+        
         if (Instance.mistakes.All(keyPair => keyPair.key != mistake))
         {
             Debug.LogError("No such mistake exists: " + mistake);
             return;
-        }
-        
-        foreach (var cinemachineCamera in GameObject.FindObjectsByType<CinemachineCamera>(
-                     FindObjectsSortMode.None))
-        {
-            if (cinemachineCamera.gameObject.activeSelf)
-            {
-                var cameraNoise = cinemachineCamera.GetComponent<CinemachineBasicMultiChannelPerlin>();
-                            
-                cameraNoise.enabled = true;
-                            
-                Tween.Delay(0.3f, () => cameraNoise.enabled = false);
-            }
         }
         
         GameManager.StopSoundtrack();

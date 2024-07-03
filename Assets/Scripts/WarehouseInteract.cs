@@ -17,20 +17,31 @@ public class WarehouseInteract : MonoBehaviour, IInteractable
         });
         GameManager.DisablePlayerControls();
         
-        Tween.Delay(6f).OnComplete(() =>
+        Tween.Delay(5f).OnComplete(() =>
         {
-            UIController.HideDialogue();
-            GameEvents.HideOverlayText.Invoke();
-            GameManager.Instance.player.PausePhysics();
-            UIController.FadeOut();
-            
-            Tween.Delay(duration: 0.5f, onComplete: () =>
+            GameEvents.OnAnyKeyPress.AddListener(OnAnyKeyPress);
+                    
+            void OnAnyKeyPress()
             {
+                GameEvents.OnAnyKeyPress.RemoveListener(OnAnyKeyPress);
+                
+                UIController.HideDialogue();
+                GameEvents.HideOverlayText.Invoke();
+                GameManager.Instance.player.PausePhysics();
+                UIController.FadeOut();
+            
                 GameManager.Instance.player.transform.position = destination.position;
                 GameManager.Instance.player.ResumePhysics();
                 GameManager.EnablePlayerControls();
-            });
+            
+            }
+            
         });
+        
+        
+        
+        
+        
 
     }
     
