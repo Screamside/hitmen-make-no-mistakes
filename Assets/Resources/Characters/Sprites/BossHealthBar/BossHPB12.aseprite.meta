@@ -132,9 +132,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 66
-      height: 12
-    spriteID: 2a5fcc4f05772f5488c9cbb2801fbaed
+      width: 68
+      height: 14
+    spriteID: 91ceb56040b707743844f82bc87b9521
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -158,13 +158,13 @@ ScriptedImporter:
       cellRect:
         x: 0
         y: 0
-        width: 66
-        height: 12
-      spriteId: 2a5fcc4f05772f5488c9cbb2801fbaed
+        width: 68
+        height: 14
+      spriteId: 91ceb56040b707743844f82bc87b9521
     linkedCells: []
     parentIndex: -1
   platformSettings: []
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 66, y: 12}
+  canvasSize: {x: 68, y: 14}
