@@ -32,15 +32,15 @@ public class BossBehaviour : MonoBehaviour
     [SerializeField]private Void _smg;
     [HideInInspector]public GameObject smgObject;
     [HideInInspector]public Transform smgShootingPosition;
-    [HideInInspector, MinMaxSlider(0f, 20f)]public Vector2 minDistanceToShootSMG;
-    [HideInInspector, MinMaxSlider(0f, 20f)]public Vector2 maxDistanceToRunAwaySMG;
+    [HideInInspector, MinMaxRangeSlider(0f, 20f)]public Vector2 minDistanceToShootSMG;
+    [HideInInspector, MinMaxRangeSlider(0f, 20f)]public Vector2 maxDistanceToRunAwaySMG;
     
     [FoldoutGroup("Gun", nameof(gunObject), nameof(gunShootingPosition), nameof(minDistanceToShootGun), nameof(maxDistanceToRunAwayGun))]
     [SerializeField]private Void _gun;
     [HideInInspector]public GameObject gunObject;
     [HideInInspector]public Transform gunShootingPosition;
-    [HideInInspector, MinMaxSlider(0f, 20f)]public Vector2 minDistanceToShootGun;
-    [HideInInspector, MinMaxSlider(0f, 20f)]public Vector2 maxDistanceToRunAwayGun;
+    [HideInInspector, MinMaxRangeSlider(0f, 20f)]public Vector2 minDistanceToShootGun;
+    [HideInInspector, MinMaxRangeSlider(0f, 20f)]public Vector2 maxDistanceToRunAwayGun;
     
     [FoldoutGroup("Bat", nameof(batObject), nameof(minDistanceToSwing), nameof(maxDistanceToRunAwayBat))]
     [SerializeField]private Void _bat;
