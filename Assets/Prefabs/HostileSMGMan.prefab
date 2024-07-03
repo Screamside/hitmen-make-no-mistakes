@@ -4965,15 +4965,15 @@ MonoBehaviour:
   player: {fileID: 0}
   smgMan: 1
   batMan: 0
-  moveSpeed: 2
-  minDistanceToShoot: {x: 6, y: 8}
+  moveSpeed: 3
+  minDistanceToShoot: {x: 7, y: 9}
   maxDistanceToRunAway: {x: 2, y: 4}
   layermask:
     serializedVersion: 2
     m_Bits: 128
   delayBeforeShooting: 1
   delayAfterShooting: 0.5
-  shootingRange: 20
+  shootingRange: 17
   weaponGameObject: {fileID: 7936366385037465725}
   shootingPosition: {fileID: 4487368426498979785}
   bulletPrefab: {fileID: 3229120962611204845, guid: 130467c8490b28a4dac32ebc9e2f7db6, type: 3}

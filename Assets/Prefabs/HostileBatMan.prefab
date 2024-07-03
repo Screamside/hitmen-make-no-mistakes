@@ -370,7 +370,7 @@ MonoBehaviour:
   player: {fileID: 0}
   smgMan: 0
   batMan: 1
-  moveSpeed: 3
+  moveSpeed: 4
   minDistanceToShoot: {x: 0.5, y: 1}
   maxDistanceToRunAway: {x: 1, y: 10}
   layermask:
