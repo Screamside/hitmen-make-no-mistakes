@@ -9,17 +9,14 @@ public class DoorInteract : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        Tween.Delay(4f).OnComplete(() =>
-        {
-            UIController.HideDialogue();
-            GameEvents.OnChangeRoom.Invoke();
-            GameManager.Instance.player.PausePhysics();
+        UIController.HideDialogue();
+        GameEvents.OnChangeRoom.Invoke();
+        GameManager.Instance.player.PausePhysics();
 
-            Tween.Delay(duration: 0.5f, onComplete: () =>
-            {
-                GameManager.Instance.player.transform.position = destination.position;
-                GameManager.Instance.player.ResumePhysics();
-            });
+        Tween.Delay(duration: 0.5f, onComplete: () =>
+        {
+            GameManager.Instance.player.transform.position = destination.position;
+            GameManager.Instance.player.ResumePhysics();
         });
 
     }
