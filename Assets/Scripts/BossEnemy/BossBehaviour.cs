@@ -212,6 +212,7 @@ public class BossBehaviour : MonoBehaviour
             d.direction = dynamiteSpawnPoint.right;
         }
         
+        
         d.throwForce = Random.Range(throwPower.x, throwPower.y);
 
     }
