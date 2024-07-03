@@ -433,7 +433,7 @@ MonoBehaviour:
   batMan: 1
   moveSpeed: 4
   minDistanceToShoot: {x: 0.5, y: 1}
-  maxDistanceToRunAway: {x: 1, y: 10}
+  maxDistanceToRunAway: {x: 0, y: 0}
   layermask:
     serializedVersion: 2
     m_Bits: 128
@@ -444,7 +444,7 @@ MonoBehaviour:
   shootingPosition: {fileID: 0}
   bulletPrefab: {fileID: 0}
   bulletSpeed: 0
-  delayBeforeAttack: 0.5
+  delayBeforeAttack: 0
   prepareBatPosition: {fileID: 134346326507595930}
   prepareBatTime: 0.5
   prepareBatAngle: 30
