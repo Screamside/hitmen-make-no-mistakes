@@ -4,7 +4,6 @@ using System.Linq;
 using MelenitasDev.SoundsGood;
 using PrimeTween;
 using Unity.Cinemachine;
-using UnityEditor.Timeline.Actions;
 using UnityEngine;
 
 public class CutsceneManager : MonoBehaviour
