@@ -135,6 +135,7 @@ MonoBehaviour:
   - {fileID: 0}
   movementSpeed: 3
   isStatic: 0
+  canWalk: 1
 --- !u!61 &7036918618386358964
 BoxCollider2D:
   m_ObjectHideFlags: 0

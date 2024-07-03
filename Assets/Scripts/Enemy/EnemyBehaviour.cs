@@ -31,6 +31,8 @@ public class EnemyBehaviour : MonoBehaviour
 
     private Vector3 _lastPosition;
 
+    public bool canWalk = true;
+
     private void Awake()
     {
         _currentState = _stateFactory.GetStateFromType(stateOrder[_currentIndex]);

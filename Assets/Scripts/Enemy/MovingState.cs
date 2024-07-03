@@ -41,7 +41,15 @@ public class MovingState : EnemyState
                     enemyBehaviour.transform, 
                     _currentPoint.position, 
                     _enemyBehaviour.movementSpeed, 
-                    ease: Ease.Linear)
+                    ease: Ease.Linear).OnUpdate(enemyBehaviour.transform, (transform, tween) =>
+                    {
+                        if (!_enemyBehaviour.canWalk)
+                        {
+                            tween.Stop();
+                            _enemyBehaviour.SwitchToNextStateInList();
+                        }
+                        
+                    })
                     .OnComplete(() => _enemyBehaviour.SwitchToNextStateInList());
                 
                 break;

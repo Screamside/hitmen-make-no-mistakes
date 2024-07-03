@@ -11,6 +11,8 @@ public class LaserTrigger : MonoBehaviour
     private Animator _animator;
     private BoxCollider2D _collider2D;
 
+    private bool triggered = false;
+
     private void Awake()
     {
         _animator = GetComponent<Animator>();
@@ -23,9 +25,10 @@ public class LaserTrigger : MonoBehaviour
     {
         if (other.collider.CompareTag("Player"))
         {
+            triggered = true;
+            _collider2D.enabled = false;
             sprite.sprite = disabledLasers;
             _animator.enabled = false;
-            _collider2D.enabled = false;
             
             CutsceneManager.PlayMistake("Lasers");
         }
@@ -35,9 +38,7 @@ public class LaserTrigger : MonoBehaviour
     {
         while (true)
         {
-            Debug.Log("asdfassfafa");
-            
-            if (GameManager.IsMistakeDone("Lasers"))
+            if (GameManager.IsMistakeDone("Lasers") || triggered)
             {
                 _animator.enabled = false;
                 sprite.sprite = disabledLasers;
