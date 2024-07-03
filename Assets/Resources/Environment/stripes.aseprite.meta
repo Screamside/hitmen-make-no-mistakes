@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c2d6d360d7a913a44a76cf6cd8c53f13
+guid: 21cda95455f7a734cb755f4956d388ee
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -122,7 +122,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: DeactivatedLaserTripwire_Frame_0
+  - name: stripes
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -132,9 +132,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 3
-      height: 3
-    spriteID: 64779675fba59154d854eba631bfed79
+      width: 20
+      height: 20
+    spriteID: 18d0fe49d1af24e4d92ff5f5a2c12b0a
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -146,25 +146,25 @@ ScriptedImporter:
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: -1044821661
-    name: DeactivatedLaserTripwire
+    guid: -1362818728
+    name: stripes
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: DeactivatedLaserTripwire
+    - name: stripes
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
         x: 0
         y: 0
-        width: 3
-        height: 3
-      spriteId: 64779675fba59154d854eba631bfed79
+        width: 20
+        height: 20
+      spriteId: 18d0fe49d1af24e4d92ff5f5a2c12b0a
     linkedCells: []
     parentIndex: -1
   platformSettings: []
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 3, y: 3}
+  canvasSize: {x: 20, y: 20}
