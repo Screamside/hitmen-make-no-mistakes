@@ -136,16 +136,12 @@ public class Cutscene
                 //==================== PLAY MISTAKE
                 if (cut.type.Equals(CutType.PlayMistake))
                 {
-                    
                     Tween.Delay(1f, () =>
                     {
-                        Tween.Delay(2.5f, () =>
-                        {
-                            CutsceneManager.PlayMistake(cut.mistake.mistake, lastCameraSelected);
-                            UIController.HideDialogue();
-                            UIController.HideChoices();
-                            UIController.HideMistakeTitle();
-                        });
+                        CutsceneManager.PlayMistake(cut.mistake.mistake, lastCameraSelected);
+                        UIController.HideDialogue();
+                        UIController.HideChoices();
+                        UIController.HideMistakeTitle();
                     });
                     
                     yield break;

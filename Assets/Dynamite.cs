@@ -1,7 +1,9 @@
 using System;
 using MelenitasDev.SoundsGood;
 using PrimeTween;
+using Unity.Cinemachine;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Dynamite : MonoBehaviour
 {
@@ -10,7 +12,7 @@ public class Dynamite : MonoBehaviour
 
     public Vector2 direction;
     public float throwForce = 10f;
-    public float maxLifetime = 2f;
+    [MinMaxRangeSlider(0f, 10f)] public Vector2 maxLifetime;
     public SpriteRenderer spriteRenderer;
     public GameObject explosionPrefab;
     public float damage = 1;
@@ -20,7 +22,7 @@ public class Dynamite : MonoBehaviour
     private void Awake()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
-        Destroy(gameObject, maxLifetime);
+        Destroy(gameObject, Random.Range(maxLifetime.x, maxLifetime.y));
     }
 
     private void Start()

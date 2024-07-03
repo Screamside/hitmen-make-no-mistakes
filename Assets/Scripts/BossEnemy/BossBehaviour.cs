@@ -54,7 +54,7 @@ public class BossBehaviour : MonoBehaviour
     [HideInInspector]public GameObject dynamitePrefab;
     [HideInInspector]public float delayBeforeThrow;
     [HideInInspector]public float delayAfterThrow;
-    [HideInInspector]public float throwPower;
+    [HideInInspector, MinMaxRangeSlider(0f, 20f)]public Vector2 throwPower;
     [HideInInspector]public Transform dynamiteSpawnPoint;
     
     [FoldoutGroup("Swing Bat State", nameof(delayBeforeAttack), nameof(prepareBatPosition), nameof(prepareBatTime), nameof(prepareBatAngle), nameof(delaySwingBat), nameof(swingBatTime), nameof(swingBatAngle), nameof(resetBatRotationTime), nameof(delayAfterSwing))]
@@ -212,7 +212,7 @@ public class BossBehaviour : MonoBehaviour
             d.direction = dynamiteSpawnPoint.right;
         }
         
-        d.throwForce = throwPower;
+        d.throwForce = Random.Range(throwPower.x, throwPower.y);
 
     }
 

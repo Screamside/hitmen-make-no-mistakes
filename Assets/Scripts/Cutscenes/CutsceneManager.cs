@@ -109,17 +109,19 @@ public class CutsceneManager : MonoBehaviour
             return;
         }
         
-        if (cam != null)
+        foreach (var cinemachineCamera in GameObject.FindObjectsByType<CinemachineCamera>(
+                     FindObjectsSortMode.None))
         {
-            var cinemachineBasicMultiChannelPerlin = cam.GetComponent<CinemachineBasicMultiChannelPerlin>();
-
-            cinemachineBasicMultiChannelPerlin.enabled = true;
-
-            Tween.Delay(0.3f, () =>
+            if (cinemachineCamera.gameObject.activeSelf)
             {
-                cinemachineBasicMultiChannelPerlin.enabled = false;
-            });
+                var cameraNoise = cinemachineCamera.GetComponent<CinemachineBasicMultiChannelPerlin>();
+                            
+                cameraNoise.enabled = true;
+                            
+                Tween.Delay(0.3f, () => cameraNoise.enabled = false);
+            }
         }
+        
         GameManager.StopSoundtrack();
         Instance.mistakeTrigger.Play();
         

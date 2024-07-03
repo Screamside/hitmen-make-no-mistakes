@@ -27,7 +27,11 @@ public class BossSwingBatState : BossState
                 .Chain(Tween.Delay(0.01f, () => enemyBehaviour.batObject.GetComponent<BoxCollider2D>().enabled = true))
                 .Chain(Tween.Rotation(enemyBehaviour.batObject.transform,
                     Quaternion.Euler(originalRotation + Vector3.forward * enemyBehaviour.swingBatAngle), enemyBehaviour.swingBatTime))
-                .Group(Tween.Position(enemyBehaviour.batObject.transform, originalPosition, enemyBehaviour.swingBatTime))
+                .Group(Tween.Position(enemyBehaviour.batObject.transform, originalPosition, enemyBehaviour.swingBatTime)
+                    .OnComplete(() =>
+                    {
+                        enemyBehaviour.batObject.GetComponent<BoxCollider2D>().enabled = false;
+                    }))
                 .Chain(Tween.Rotation(enemyBehaviour.batObject.transform, Quaternion.Euler(originalRotation), enemyBehaviour.resetBatRotationTime))
                 .Chain(Tween.Delay(enemyBehaviour.delayAfterSwing))
                 .OnComplete(enemyBehaviour.SwitchToNextState);
