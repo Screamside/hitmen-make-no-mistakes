@@ -170,6 +170,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d42b7221d3b9f794d93ac4919d531b8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  disabledLasers: {fileID: 8376003336997625868, guid: 935d905215f7f5445836f41ad79fb2c3, type: 3}
-  enabledLasers: {fileID: -8496718450001550645, guid: c2d6d360d7a913a44a76cf6cd8c53f13, type: 3}
+  disabledLasers: {fileID: 4012805306273260518, guid: c2d6d360d7a913a44a76cf6cd8c53f13, type: 3}
+  enabledLasers: {fileID: 8376003336997625868, guid: 935d905215f7f5445836f41ad79fb2c3, type: 3}
   sprite: {fileID: 3290555692390415203}
