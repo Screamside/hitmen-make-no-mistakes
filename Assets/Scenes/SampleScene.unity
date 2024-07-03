@@ -12728,30 +12728,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c787ca0b18a347e7beffd75a855f8f04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateOrder: 0600000004000000000000000300000007000000040000000100000003000000080000000400000005000000030000000900000002000000
+  stateOrder: 0600000004000000000000000300000007000000040000000100000003000000080000000400000005000000040000000500000004000000050000000300000007000000040000000100000009000000020000000200000003000000
   animator: {fileID: 1160356261484213424}
   player: {fileID: 0}
-  moveSpeed: 4
-  minDistanceToShoot: {x: 7, y: 9}
-  maxDistanceToRunAway: {x: 3, y: 5}
+  moveSpeed: 9
   layermask:
     serializedVersion: 2
     m_Bits: 128
-  delayBeforeShooting: 1
-  delayAfterShooting: 1
-  shootingAngle: 20
+  delayBeforeShooting: 0.6
+  delayAfterShooting: 0.6
+  shootingAngle: 11
   bulletPrefab: {fileID: 3229120962611204845, guid: 130467c8490b28a4dac32ebc9e2f7db6, type: 3}
   bulletSpeed: 4
   smgObject: {fileID: 8438672893181506232}
   smgShootingPosition: {fileID: 1424057444}
+  minDistanceToShootSMG: {x: 7, y: 9}
+  maxDistanceToRunAwaySMG: {x: 2, y: 4}
   gunObject: {fileID: 2717726701908054037}
   gunShootingPosition: {fileID: 1341616772}
+  minDistanceToShootGun: {x: 8, y: 11}
+  maxDistanceToRunAwayGun: {x: 2, y: 4}
   batObject: {fileID: 7637582042112619715}
-  minDistanceToSwing: 0.5
+  minDistanceToSwing: 0.6
+  maxDistanceToRunAwayBat: {x: 0, y: 0}
   dynamiteObject: {fileID: 8572800989176751734}
   dynamitePrefab: {fileID: 8150852021883729010, guid: 5f81db0d64db952449b120aa766844c4, type: 3}
-  delayBeforeThrow: 1
-  delayAfterThrow: 1
+  delayBeforeThrow: 0.25
+  delayAfterThrow: 0.25
   throwPower: 10
   dynamiteSpawnPoint: {fileID: 1865404965}
   delayBeforeAttack: 0
@@ -12762,7 +12765,7 @@ MonoBehaviour:
   swingBatTime: 0.2
   swingBatAngle: 90
   resetBatRotationTime: 0.1
-  delayAfterSwing: 1
+  delayAfterSwing: 0.25
   weaponSpriteRenderer: {fileID: 4256814285005173583}
   warning: {fileID: 1989661412801677967}
   delayBetweenShots: 0.65
