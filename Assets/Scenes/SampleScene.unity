@@ -2590,26 +2590,26 @@ MonoBehaviour:
   - {fileID: 5568262766807060995, guid: 9f903750a702ea848bce119dce59dbb3, type: 3}
   bossHealthList:
   - {fileID: -4556713024882060774, guid: c2d60edabd56c7e4d9d62a601210138e, type: 3}
-  - {fileID: -4190872852060199509, guid: 44cf0350ff34df844a6fa5f2ed515b67, type: 3}
-  - {fileID: -4529045132731303502, guid: 48437cc156ae8494fa18b274f6bf6499, type: 3}
-  - {fileID: -7149234688521860919, guid: 28d08232a9c980f4a8679576eba013f4, type: 3}
-  - {fileID: -7388475519408327134, guid: 59d85657dec6a80439c82cd973aa0ec3, type: 3}
-  - {fileID: -8513197513052259645, guid: 2fab09555b68fc84c8103f811a5e87b6, type: 3}
-  - {fileID: -8524066250067526784, guid: 095e0349cb5fd194197ff93c76ccdb20, type: 3}
-  - {fileID: 1836436412801854015, guid: 29f4e6be1e8ce31449d286ff0385919b, type: 3}
-  - {fileID: -7767912761671771120, guid: 9d8288220bf3aea498d73a3d96610ed9, type: 3}
-  - {fileID: 7933073168533283770, guid: a4eb36d6adaba3346aaf47a3bf190f1d, type: 3}
-  - {fileID: -487591766874576467, guid: fe0c4f98bada84445a763c95692392c9, type: 3}
-  - {fileID: -5784284323290050088, guid: 0122aed0e196025478f35ca26f78a261, type: 3}
-  - {fileID: 472663155450763318, guid: a20c24a640263474a8bd374f751a449f, type: 3}
-  - {fileID: 3837152917505128028, guid: 1aafee1994e869a4aafa17468a4e2ca2, type: 3}
-  - {fileID: -4148334099435389347, guid: 938ef5026d8019348b25cf6ea36ce09e, type: 3}
-  - {fileID: -8749660064125983580, guid: 0e442f0f2398d4948bc1d583f3ea3211, type: 3}
-  - {fileID: -2222415752026497415, guid: 44d2cbfa483bc9445a21eacc62a6f687, type: 3}
-  - {fileID: 9021735019436776454, guid: 98d75a8f69aa4d24497bdc360c73e2ec, type: 3}
-  - {fileID: 419064085555427297, guid: 9945f8bcab767494e9cfe8f8dad9a583, type: 3}
-  - {fileID: -7177600018313884104, guid: 45b10e2ff4e88ea42b81354783f04858, type: 3}
-  - {fileID: 5335351622432602862, guid: 5455fbbfc7ff18a418f7d75246500aca, type: 3}
+  - {fileID: 3807479554953896543, guid: 44cf0350ff34df844a6fa5f2ed515b67, type: 3}
+  - {fileID: 6872230380511460242, guid: 48437cc156ae8494fa18b274f6bf6499, type: 3}
+  - {fileID: 7281217896283095997, guid: 28d08232a9c980f4a8679576eba013f4, type: 3}
+  - {fileID: -8830110039606816800, guid: 59d85657dec6a80439c82cd973aa0ec3, type: 3}
+  - {fileID: 3925496595037059162, guid: 2fab09555b68fc84c8103f811a5e87b6, type: 3}
+  - {fileID: 6637206746851826462, guid: 095e0349cb5fd194197ff93c76ccdb20, type: 3}
+  - {fileID: -6569716027814806005, guid: 29f4e6be1e8ce31449d286ff0385919b, type: 3}
+  - {fileID: 4779119099388484963, guid: 9d8288220bf3aea498d73a3d96610ed9, type: 3}
+  - {fileID: -4049814720292773823, guid: a4eb36d6adaba3346aaf47a3bf190f1d, type: 3}
+  - {fileID: -4174407626117104941, guid: fe0c4f98bada84445a763c95692392c9, type: 3}
+  - {fileID: -6064819636152914182, guid: 0122aed0e196025478f35ca26f78a261, type: 3}
+  - {fileID: 4646389547185832737, guid: a20c24a640263474a8bd374f751a449f, type: 3}
+  - {fileID: 3393599695262814613, guid: 1aafee1994e869a4aafa17468a4e2ca2, type: 3}
+  - {fileID: 2110726203536349299, guid: 938ef5026d8019348b25cf6ea36ce09e, type: 3}
+  - {fileID: -8611770703948959515, guid: 0e442f0f2398d4948bc1d583f3ea3211, type: 3}
+  - {fileID: 1718315286137413023, guid: 44d2cbfa483bc9445a21eacc62a6f687, type: 3}
+  - {fileID: -2342486888976537672, guid: 98d75a8f69aa4d24497bdc360c73e2ec, type: 3}
+  - {fileID: -9013755717487343126, guid: 9945f8bcab767494e9cfe8f8dad9a583, type: 3}
+  - {fileID: 9020121097026690802, guid: 45b10e2ff4e88ea42b81354783f04858, type: 3}
+  - {fileID: -1222230847064169131, guid: 5455fbbfc7ff18a418f7d75246500aca, type: 3}
 --- !u!114 &193722492
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12399,7 +12399,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 52.5, y: -92.25, z: -10}
+  m_LocalPosition: {x: 52.5, y: -93.25, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12747,7 +12747,7 @@ MonoBehaviour:
   gunObject: {fileID: 2717726701908054037}
   gunShootingPosition: {fileID: 1341616772}
   batObject: {fileID: 7637582042112619715}
-  minDistanceToSwing: 0
+  minDistanceToSwing: 0.5
   dynamiteObject: {fileID: 8572800989176751734}
   dynamitePrefab: {fileID: 8150852021883729010, guid: 5f81db0d64db952449b120aa766844c4, type: 3}
   delayBeforeThrow: 1
@@ -17813,7 +17813,7 @@ Transform:
   m_GameObject: {fileID: 845413901}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -48.25, y: 30, z: -10}
+  m_LocalPosition: {x: 7, y: -20.25, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -27669,7 +27669,7 @@ Transform:
   m_GameObject: {fileID: 1180903833}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -57.25, y: 3.25, z: -10}
+  m_LocalPosition: {x: -2, y: -47, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -29231,7 +29231,7 @@ Transform:
   m_GameObject: {fileID: 1297003627}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -21.75, y: 61, z: -10}
+  m_LocalPosition: {x: 33.5, y: 10.75, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -37729,7 +37729,7 @@ Transform:
   m_GameObject: {fileID: 1777632695}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -13.25, y: -43.5, z: 0}
+  m_LocalPosition: {x: 42, y: -93.75, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -38245,7 +38245,7 @@ Transform:
   m_GameObject: {fileID: 1805800833}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 12.25, z: -10}
+  m_LocalPosition: {x: 0, y: 11.25, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -52540,9 +52540,10 @@ GameObject:
   - component: {fileID: 1160356261484213424}
   - component: {fileID: 533199227}
   - component: {fileID: 7878350320022029942}
+  - component: {fileID: 7878350320022029943}
   m_Layer: 0
   m_Name: FinalEnemyBoss
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -53740,6 +53741,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7211352521820986534}
   - component: {fileID: 4256814285005173583}
+  - component: {fileID: 7637582042112619717}
+  - component: {fileID: 7637582042112619716}
   m_Layer: 0
   m_Name: bat
   m_TagString: Untagged
@@ -53747,6 +53750,65 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &7637582042112619716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7637582042112619715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98879bcd14e12594094ccfbca771a9df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
+--- !u!61 &7637582042112619717
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7637582042112619715}
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: -0.00000011920929, y: 0.48436248}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5000005, y: 0.17709167}
+    oldSize: {x: 0.25, y: 1.5}
+    newSize: {x: 0.25, y: 1.5}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.25, y: 1.5}
+  m_EdgeRadius: 0
 --- !u!4 &7731163187520438565
 Transform:
   m_ObjectHideFlags: 0
@@ -54122,7 +54184,7 @@ MonoBehaviour:
   sceneSoundTrack: 2
   forceReplay: 0
   equipGun: 1
-  isBoss: 0
+  isBoss: 1
 --- !u!114 &7878350319579524067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54369,6 +54431,52 @@ MonoBehaviour:
   health: 20
   currentHealth: 0
   sprite: {fileID: 3626916397536569756}
+--- !u!61 &7878350320022029943
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6969460406653300240}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: -0.125, y: 1}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.6, y: 0}
+    oldSize: {x: 1.25, y: 2}
+    newSize: {x: 1.25, y: 2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1.25, y: 2}
+  m_EdgeRadius: 0
 --- !u!4 &7878350320037444290
 Transform:
   m_ObjectHideFlags: 0

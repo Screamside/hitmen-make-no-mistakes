@@ -30,21 +30,22 @@ public class SceneInitializer : MonoBehaviour
                 GameEvents.ShowPlayerHealth.Invoke();
                 GameEvents.UpdatePlayerHealth.Invoke(other.GetComponent<PlayerHealth>().health);
 
-                if (isBoss)
-                {
-                    GameEvents.ShowBossHealth.Invoke();
-                    GameEvents.UpdateBossHealth.Invoke(20);
-                }
-                else
-                {
-                    GameEvents.HideBossHealth.Invoke();
-                }
+                
                 
             }
             else
             {
                 other.GetComponent<PlayerPistol>().enabled = false;
                 GameEvents.HidePlayerHealth.Invoke();
+            }
+            
+            if (isBoss)
+            {
+                GameEvents.ShowBossHealth.Invoke();
+                GameEvents.UpdateBossHealth.Invoke(20);
+            }
+            else
+            {
                 GameEvents.HideBossHealth.Invoke();
             }
         }

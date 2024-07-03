@@ -38,7 +38,7 @@ public class GameView : View
         _leftChoice = ui.rootVisualElement.Q<Button>("Left");
         _rightChoice = ui.rootVisualElement.Q<Button>("Right");
         _healthBar = ui.rootVisualElement.Q<VisualElement>("HealthBar");
-        _bossHealthBar = ui.rootVisualElement.Q<VisualElement>("BossHealthBar");
+        _bossHealthBar = ui.rootVisualElement.Q<VisualElement>("BossHealth");
 
         _mistakeElement = ui.rootVisualElement.Q<VisualElement>("MistakeTitle");
         _mistakeLabel = ui.rootVisualElement.Q<Label>("MistakeTitleLabel");

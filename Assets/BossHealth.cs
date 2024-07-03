@@ -28,6 +28,8 @@ public class BossHealth : MonoBehaviour
         Tween.Color(sprite, Color.white, Color.red, 0.05f).OnComplete(() => sprite.color = Color.white);
         
         currentHealth -= amount;
+        
+        GameEvents.UpdateBossHealth.Invoke(currentHealth);
 
         if (currentHealth <= 0)
         {

@@ -57,5 +57,11 @@ public class Bullet : MonoBehaviour
             livingEntity.Damage(1);
             Destroy(gameObject);
         }
+        
+        if (other.TryGetComponent(out BossHealth bossHealth))
+        {
+            bossHealth.Damage(1);
+            Destroy(gameObject);
+        }
     }
 }
