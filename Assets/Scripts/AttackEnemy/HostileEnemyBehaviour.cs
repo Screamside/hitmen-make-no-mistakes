@@ -65,8 +65,7 @@ public class HostileEnemyBehaviour : MonoBehaviour
 
     public Vector3 spawnPoint;
     private Vector3 defaultScale;
-
-
+    
     private void Awake()
     {
         defaultScale = transform.localScale;

@@ -10,6 +10,12 @@ public class ShootingState : HostileEnemyState
     {
         t =Tween.Delay(enemyBehaviour.delayBeforeShooting, () =>
         {
+
+            if (enemyBehaviour.skipMoveAway)
+            {
+                return;
+            }
+            
             enemyBehaviour.SpawnBullet();
             if (enemyBehaviour.smgMan)
             {
