@@ -59,7 +59,7 @@ public class PlayerController : MonoBehaviour
         if (IsGrounded())
         {
             jumpSound.Play();
-            _rigidBody2d.velocityY = jumpForce;
+            _rigidBody2d.linearVelocityY = jumpForce;
         }
     }
 
@@ -113,7 +113,7 @@ public class PlayerController : MonoBehaviour
     {
         if (stopControlling) return;
         
-        _rigidBody2d.velocity = (Vector2.right * _horizontalVelocity * speed) + _rigidBody2d.velocity.y * Vector2.up;
+        _rigidBody2d.linearVelocity = (Vector2.right * _horizontalVelocity * speed) + _rigidBody2d.linearVelocity.y * Vector2.up;
     }
 
     private void UpdateAnimator()
@@ -132,7 +132,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (_rigidBody2d.velocityY > 0.001f)
+        if (_rigidBody2d.linearVelocityY > 0.001f)
         {
             _animator.SetBool("isJumping", true);
         }
@@ -141,7 +141,7 @@ public class PlayerController : MonoBehaviour
             _animator.SetBool("isJumping", false);
         }
         
-        if(_rigidBody2d.velocityY < -0.001f)
+        if(_rigidBody2d.linearVelocityY < -0.001f)
         {
             _animator.SetBool("isFalling", true);
         }

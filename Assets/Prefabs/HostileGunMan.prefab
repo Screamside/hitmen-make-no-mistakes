@@ -188,6 +188,9 @@ MonoBehaviour:
   weaponSpriteRenderer: {fileID: 0}
   warning: {fileID: 0}
   delayBetweenShots: 0
+  debugBall: {fileID: 0}
+  skipMoveAway: 0
+  spawnPoint: {x: 0, y: 0, z: 0}
 --- !u!61 &7617319626137251645
 BoxCollider2D:
   m_ObjectHideFlags: 0

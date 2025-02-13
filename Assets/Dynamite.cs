@@ -28,7 +28,7 @@ public class Dynamite : MonoBehaviour
 
     private void Start()
     {
-        _rigidbody2D.velocity = direction.normalized * throwForce;
+        _rigidbody2D.linearVelocity = direction.normalized * throwForce;
         _rigidbody2D.angularVelocity = 100f;
     }
 
